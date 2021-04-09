@@ -12,8 +12,8 @@
             <thead>
                 <tr>
                     <th><?= $this->Paginator->sort('id') ?></th>
-                    <th><?= $this->Paginator->sort('firstname') ?></th>
-                    <th><?= $this->Paginator->sort('lastname') ?></th>
+                    <th><?= $this->Paginator->sort('first_name') ?></th>
+                    <th><?= $this->Paginator->sort('last_name') ?></th>
                     <th><?= $this->Paginator->sort('mobile') ?></th>
                     <th><?= $this->Paginator->sort('email') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
@@ -23,8 +23,8 @@
                 <?php foreach ($customers as $customer): ?>
                 <tr>
                     <td><?= $this->Number->format($customer->id) ?></td>
-                    <td><?= h($customer->firstname) ?></td>
-                    <td><?= h($customer->lastname) ?></td>
+                    <td><?= h($customer->first_name) ?></td>
+                    <td><?= h($customer->last_name) ?></td>
                     <td><?= h($customer->mobile) ?></td>
                     <td><?= h($customer->email) ?></td>
                     <td class="actions">

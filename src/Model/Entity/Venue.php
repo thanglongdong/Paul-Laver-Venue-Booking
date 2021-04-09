@@ -10,9 +10,12 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property string $name
- * @property string $mobile
- * @property string $email
  * @property string $address
+ * @property int $capacity
+ * @property string $phone
+ * @property string $email
+ *
+ * @property \App\Model\Entity\Booking[] $bookings
  */
 class Venue extends Entity
 {
@@ -27,8 +30,10 @@ class Venue extends Entity
      */
     protected $_accessible = [
         'name' => true,
-        'mobile' => true,
-        'email' => true,
         'address' => true,
+        'capacity' => true,
+        'phone' => true,
+        'email' => true,
+        'bookings' => true,
     ];
 }

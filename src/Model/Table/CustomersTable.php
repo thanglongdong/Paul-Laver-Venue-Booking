@@ -11,6 +11,8 @@ use Cake\Validation\Validator;
 /**
  * Customers Model
  *
+ * @property \App\Model\Table\BookingsTable&\Cake\ORM\Association\HasMany $Bookings
+ *
  * @method \App\Model\Entity\Customer newEmptyEntity()
  * @method \App\Model\Entity\Customer newEntity(array $data, array $options = [])
  * @method \App\Model\Entity\Customer[] newEntities(array $data, array $options = [])
@@ -40,6 +42,10 @@ class CustomersTable extends Table
         $this->setTable('customers');
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
+
+        $this->hasMany('Bookings', [
+            'foreignKey' => 'customer_id',
+        ]);
     }
 
     /**
@@ -55,16 +61,16 @@ class CustomersTable extends Table
             ->allowEmptyString('id', null, 'create');
 
         $validator
-            ->scalar('firstname')
-            ->maxLength('firstname', 64)
-            ->requirePresence('firstname', 'create')
-            ->notEmptyString('firstname');
+            ->scalar('first_name')
+            ->maxLength('first_name', 64)
+            ->requirePresence('first_name', 'create')
+            ->notEmptyString('first_name');
 
         $validator
-            ->scalar('lastname')
-            ->maxLength('lastname', 64)
-            ->requirePresence('lastname', 'create')
-            ->notEmptyString('lastname');
+            ->scalar('last_name')
+            ->maxLength('last_name', 64)
+            ->requirePresence('last_name', 'create')
+            ->notEmptyString('last_name');
 
         $validator
             ->scalar('mobile')
@@ -73,14 +79,14 @@ class CustomersTable extends Table
             ->notEmptyString('mobile');
 
         $validator
-            ->email('email')
-            ->requirePresence('email', 'create')
-            ->notEmptyString('email');
-
-        $validator
             ->scalar('address')
             ->requirePresence('address', 'create')
             ->notEmptyString('address');
+
+        $validator
+            ->email('email')
+            ->requirePresence('email', 'create')
+            ->notEmptyString('email');
 
         return $validator;
     }

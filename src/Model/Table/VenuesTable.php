@@ -11,6 +11,8 @@ use Cake\Validation\Validator;
 /**
  * Venues Model
  *
+ * @property \App\Model\Table\BookingsTable&\Cake\ORM\Association\HasMany $Bookings
+ *
  * @method \App\Model\Entity\Venue newEmptyEntity()
  * @method \App\Model\Entity\Venue newEntity(array $data, array $options = [])
  * @method \App\Model\Entity\Venue[] newEntities(array $data, array $options = [])
@@ -40,6 +42,10 @@ class VenuesTable extends Table
         $this->setTable('venues');
         $this->setDisplayField('name');
         $this->setPrimaryKey('id');
+
+        $this->hasMany('Bookings', [
+            'foreignKey' => 'venue_id',
+        ]);
     }
 
     /**
@@ -61,20 +67,25 @@ class VenuesTable extends Table
             ->notEmptyString('name');
 
         $validator
-            ->scalar('mobile')
-            ->maxLength('mobile', 10)
-            ->requirePresence('mobile', 'create')
-            ->notEmptyString('mobile');
+            ->scalar('address')
+            ->requirePresence('address', 'create')
+            ->notEmptyString('address');
+
+        $validator
+            ->integer('capacity')
+            ->requirePresence('capacity', 'create')
+            ->notEmptyString('capacity');
+
+        $validator
+            ->scalar('phone')
+            ->maxLength('phone', 10)
+            ->requirePresence('phone', 'create')
+            ->notEmptyString('phone');
 
         $validator
             ->email('email')
             ->requirePresence('email', 'create')
             ->notEmptyString('email');
-
-        $validator
-            ->scalar('address')
-            ->requirePresence('address', 'create')
-            ->notEmptyString('address');
 
         return $validator;
     }

@@ -23,6 +23,7 @@ class VenuesControllerTest extends TestCase
      */
     protected $fixtures = [
         'app.Venues',
+        'app.Bookings',
     ];
 
     /**

@@ -23,9 +23,10 @@
                 <legend><?= __('Edit Venue') ?></legend>
                 <?php
                     echo $this->Form->control('name');
-                    echo $this->Form->control('mobile');
-                    echo $this->Form->control('email');
                     echo $this->Form->control('address');
+                    echo $this->Form->control('capacity');
+                    echo $this->Form->control('phone');
+                    echo $this->Form->control('email');
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>

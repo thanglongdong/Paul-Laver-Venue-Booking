@@ -33,7 +33,7 @@ class VenuesController extends AppController
     public function view($id = null)
     {
         $venue = $this->Venues->get($id, [
-            'contain' => [],
+            'contain' => ['Bookings'],
         ]);
 
         $this->set(compact('venue'));

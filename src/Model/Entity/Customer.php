@@ -9,11 +9,13 @@ use Cake\ORM\Entity;
  * Customer Entity
  *
  * @property int $id
- * @property string $firstname
- * @property string $lastname
+ * @property string $first_name
+ * @property string $last_name
  * @property string $mobile
- * @property string $email
  * @property string $address
+ * @property string $email
+ *
+ * @property \App\Model\Entity\Booking[] $bookings
  */
 class Customer extends Entity
 {
@@ -27,10 +29,11 @@ class Customer extends Entity
      * @var array
      */
     protected $_accessible = [
-        'firstname' => true,
-        'lastname' => true,
+        'first_name' => true,
+        'last_name' => true,
         'mobile' => true,
-        'email' => true,
         'address' => true,
+        'email' => true,
+        'bookings' => true,
     ];
 }

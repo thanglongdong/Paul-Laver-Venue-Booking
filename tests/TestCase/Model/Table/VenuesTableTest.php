@@ -25,6 +25,7 @@ class VenuesTableTest extends TestCase
      */
     protected $fixtures = [
         'app.Venues',
+        'app.Bookings',
     ];
 
     /**
