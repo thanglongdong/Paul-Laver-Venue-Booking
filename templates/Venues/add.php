@@ -18,7 +18,10 @@
                 <legend><?= __('Add Venue') ?></legend>
                 <?php
                     echo $this->Form->control('name');
-                    echo $this->Form->control('address');
+                    echo $this->Form->control('street_address');
+                    echo $this->Form->control('suburb');
+                    echo $this->Form->control('state');
+                    echo $this->Form->control('postcode');
                     echo $this->Form->control('capacity');
                     echo $this->Form->control('phone');
                     echo $this->Form->control('email');

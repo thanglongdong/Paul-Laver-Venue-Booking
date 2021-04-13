@@ -67,9 +67,28 @@ class VenuesTable extends Table
             ->notEmptyString('name');
 
         $validator
-            ->scalar('address')
-            ->requirePresence('address', 'create')
-            ->notEmptyString('address');
+            ->scalar('street_address')
+            ->maxLength('street_address', 64)
+            ->requirePresence('street_address', 'create')
+            ->notEmptyString('street_address');
+
+        $validator
+            ->scalar('suburb')
+            ->maxLength('suburb', 64)
+            ->requirePresence('suburb', 'create')
+            ->notEmptyString('suburb');
+
+        $validator
+            ->scalar('state')
+            ->maxLength('state', 64)
+            ->requirePresence('state', 'create')
+            ->notEmptyString('state');
+
+        $validator
+            ->scalar('postcode')
+            ->maxLength('postcode', 4)
+            ->requirePresence('postcode', 'create')
+            ->notEmptyString('postcode');
 
         $validator
             ->integer('capacity')

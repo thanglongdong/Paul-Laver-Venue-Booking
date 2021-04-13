@@ -28,12 +28,12 @@ class BookingsTalentsFixture extends TestFixture
         ],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
-            'FK_BOOKINGS_TALENTS_BOOKINGS' => ['type' => 'foreign', 'columns' => ['booking_id'], 'references' => ['bookings', 'id'], 'update' => 'noAction', 'delete' => 'noAction', 'length' => []],
-            'FK_BOOKINGS_TALENTS_TALENTS' => ['type' => 'foreign', 'columns' => ['talent_id'], 'references' => ['talents', 'id'], 'update' => 'noAction', 'delete' => 'noAction', 'length' => []],
+            'FK_BOOKINGS_TALENTS_TALENTS' => ['type' => 'foreign', 'columns' => ['talent_id'], 'references' => ['talents', 'id'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
+            'FK_BOOKINGS_TALENTS_BOOKINGS' => ['type' => 'foreign', 'columns' => ['booking_id'], 'references' => ['bookings', 'id'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
         ],
         '_options' => [
             'engine' => 'InnoDB',
-            'collation' => 'utf8mb4_0900_ai_ci'
+            'collation' => 'latin1_swedish_ci'
         ],
     ];
     // phpcs:enable
@@ -49,8 +49,8 @@ class BookingsTalentsFixture extends TestFixture
                 'id' => 1,
                 'booking_id' => 1,
                 'talent_id' => 1,
-                'perform_stime' => '2021-04-09 04:08:56',
-                'perform_etime' => '2021-04-09 04:08:56',
+                'perform_stime' => '2021-04-13 15:11:55',
+                'perform_etime' => '2021-04-13 15:11:55',
             ],
         ];
         parent::init();

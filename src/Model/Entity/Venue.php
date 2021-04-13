@@ -10,7 +10,10 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property string $name
- * @property string $address
+ * @property string $street_address
+ * @property string $suburb
+ * @property string $state
+ * @property string $postcode
  * @property int $capacity
  * @property string $phone
  * @property string $email
@@ -30,7 +33,10 @@ class Venue extends Entity
      */
     protected $_accessible = [
         'name' => true,
-        'address' => true,
+        'street_address' => true,
+        'suburb' => true,
+        'state' => true,
+        'postcode' => true,
         'capacity' => true,
         'phone' => true,
         'email' => true,

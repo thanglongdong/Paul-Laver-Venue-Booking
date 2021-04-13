@@ -13,6 +13,10 @@
                 <tr>
                     <th><?= $this->Paginator->sort('id') ?></th>
                     <th><?= $this->Paginator->sort('name') ?></th>
+                    <th><?= $this->Paginator->sort('street_address') ?></th>
+                    <th><?= $this->Paginator->sort('suburb') ?></th>
+                    <th><?= $this->Paginator->sort('state') ?></th>
+                    <th><?= $this->Paginator->sort('postcode') ?></th>
                     <th><?= $this->Paginator->sort('capacity') ?></th>
                     <th><?= $this->Paginator->sort('phone') ?></th>
                     <th><?= $this->Paginator->sort('email') ?></th>
@@ -24,6 +28,10 @@
                 <tr>
                     <td><?= $this->Number->format($venue->id) ?></td>
                     <td><?= h($venue->name) ?></td>
+                    <td><?= h($venue->street_address) ?></td>
+                    <td><?= h($venue->suburb) ?></td>
+                    <td><?= h($venue->state) ?></td>
+                    <td><?= h($venue->postcode) ?></td>
                     <td><?= $this->Number->format($venue->capacity) ?></td>
                     <td><?= h($venue->phone) ?></td>
                     <td><?= h($venue->email) ?></td>

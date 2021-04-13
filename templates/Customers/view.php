@@ -35,8 +35,20 @@
                     <td><?= h($customer->email) ?></td>
                 </tr>
                 <tr>
+                    <th><?= __('Password') ?></th>
+                    <td><?= h($customer->password) ?></td>
+                </tr>
+                <tr>
                     <th><?= __('Id') ?></th>
                     <td><?= $this->Number->format($customer->id) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('Created') ?></th>
+                    <td><?= h($customer->created) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('Modified') ?></th>
+                    <td><?= h($customer->modified) ?></td>
                 </tr>
             </table>
             <div class="text">

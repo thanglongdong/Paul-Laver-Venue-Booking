@@ -23,6 +23,22 @@
                     <td><?= h($venue->name) ?></td>
                 </tr>
                 <tr>
+                    <th><?= __('Street Address') ?></th>
+                    <td><?= h($venue->street_address) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('Suburb') ?></th>
+                    <td><?= h($venue->suburb) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('State') ?></th>
+                    <td><?= h($venue->state) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('Postcode') ?></th>
+                    <td><?= h($venue->postcode) ?></td>
+                </tr>
+                <tr>
                     <th><?= __('Phone') ?></th>
                     <td><?= h($venue->phone) ?></td>
                 </tr>
@@ -39,12 +55,6 @@
                     <td><?= $this->Number->format($venue->capacity) ?></td>
                 </tr>
             </table>
-            <div class="text">
-                <strong><?= __('Address') ?></strong>
-                <blockquote>
-                    <?= $this->Text->autoParagraph(h($venue->address)); ?>
-                </blockquote>
-            </div>
             <div class="related">
                 <h4><?= __('Related Bookings') ?></h4>
                 <?php if (!empty($venue->bookings)) : ?>

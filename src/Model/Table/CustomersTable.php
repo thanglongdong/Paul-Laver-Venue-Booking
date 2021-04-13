@@ -26,6 +26,8 @@ use Cake\Validation\Validator;
  * @method \App\Model\Entity\Customer[]|\Cake\Datasource\ResultSetInterface saveManyOrFail(iterable $entities, $options = [])
  * @method \App\Model\Entity\Customer[]|\Cake\Datasource\ResultSetInterface|false deleteMany(iterable $entities, $options = [])
  * @method \App\Model\Entity\Customer[]|\Cake\Datasource\ResultSetInterface deleteManyOrFail(iterable $entities, $options = [])
+ *
+ * @mixin \Cake\ORM\Behavior\TimestampBehavior
  */
 class CustomersTable extends Table
 {
@@ -42,6 +44,8 @@ class CustomersTable extends Table
         $this->setTable('customers');
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
+
+        $this->addBehavior('Timestamp');
 
         $this->hasMany('Bookings', [
             'foreignKey' => 'customer_id',
@@ -87,6 +91,12 @@ class CustomersTable extends Table
             ->email('email')
             ->requirePresence('email', 'create')
             ->notEmptyString('email');
+
+        $validator
+            ->scalar('password')
+            ->maxLength('password', 256)
+            ->requirePresence('password', 'create')
+            ->notEmptyString('password');
 
         return $validator;
     }
