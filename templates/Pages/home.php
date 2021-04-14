@@ -68,7 +68,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
     <div class="container">
         <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
             <a class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-                <?=$this->Html->image('VV Logo 1.png', ["alt" => "VV Logo",'url' => ['controller' => $this->Url->build('/')]]);?>
+                <?=$this->Html->image('VV Logo 2.png', ["alt" => "VV Logo",'url' => ['controller' => $this->Url->build('/')]]);?>
                 <!--<img src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24"> -->
                 <!--echo $this->Html->image('VV Logo 1', ['alt' => 'VV Logo']); -->
             </a>
@@ -93,20 +93,37 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 
 <!-- Masthead -->
 <header class="masthead text-white text-center">
-    <div class="overlay"></div>
+    <div class="overlay"> </div>
     <div class="container">
         <div class="row">
             <div class="col-xl-9 mx-auto">
-                <h1 class="mb-5">Best way to browse online venues!</h1>
+                <h1 class="mb-5">Best way to browse venues online!</h1>
             </div>
             <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-                <form>
-                    <div class="form-row">
-                        <div class="col-12 col-md-9 mb-2 mb-md-0">
-                            <input type="email" class="form-control form-control-lg" placeholder="Search by Location...">
-                        </div>
-                        <div class="col-12 col-md-3">
-                            <button type="submit" class="btn btn-block btn-lg btn-primary">Search</button>
+                <form action="#" method="post" novalidate="novalidate">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="row">
+                                <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                                    <input type="location" class="form-control search-slt" placeholder="Location">
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                                    <input type="date" class="form-control search-slt" placeholder="Date">
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                                    <select class="form-control search-slt" id="numOfPeople">
+                                        <option># of People</option>
+                                        <option><50</option>
+                                        <option>50-100</option>
+                                        <option>100-200</option>
+                                        <option>200+</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                                    <!-- making button type search/submit throws an error as no action performed yet -->
+                                    <button type="submit" class="btn btn-lg-3 btn-md-3 btn-sm-12 btn-block btn-primary">Search</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </form>
