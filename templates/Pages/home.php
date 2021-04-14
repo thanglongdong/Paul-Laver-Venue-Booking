@@ -67,8 +67,8 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 <nav>
     <div class="container">
         <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-            <a class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-                <?=$this->Html->image('VV Logo 2.png', ["alt" => "VV Logo",'url' => ['controller' => $this->Url->build('/')]]);?>
+            <a class="navbar-brand">
+                <?=$this->Html->image('VV Logo 1.png', ["alt" => "VV Logo",'url' => ['controller' => $this->Url->build('/')]]);?>
                 <!--<img src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24"> -->
                 <!--echo $this->Html->image('VV Logo 1', ['alt' => 'VV Logo']); -->
             </a>
@@ -138,9 +138,69 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
         <?= $this->fetch('content') ?>
         <!-- Icons Grid NOT ANYMORE -->
         <section class="features-icons bg-light text-center">
+            <!-- Page Content -->
             <div class="container">
-                <!-- Featured Venues go here-->
+
+                <!-- Page Features -->
+                <div class="row text-center">
+
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="card h-100">
+                            <img class="card-img-top" src="http://placehold.it/500x325" alt="">
+                            <div class="card-body">
+                                <h4 class="card-title">Venue Name</h4>
+                                <p class="card-text">Text that adequately describes the best parts of the venue and shows a reason for people to book here.</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="#" class="btn btn-primary">Find Out More!</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="card h-100">
+                            <img class="card-img-top" src="http://placehold.it/500x325" alt="">
+                            <div class="card-body">
+                                <h4 class="card-title">Venue Name</h4>
+                                <p class="card-text">Text that adequately describes the best parts of the venue and shows a reason for people to book here.</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="#" class="btn btn-primary">Find Out More!</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="card h-100">
+                            <img class="card-img-top" src="http://placehold.it/500x325" alt="">
+                            <div class="card-body">
+                                <h4 class="card-title">Venue Name</h4>
+                                <p class="card-text">Text that adequately describes the best parts of the venue and shows a reason for people to book here.</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="#" class="btn btn-primary">Find Out More!</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="card h-100">
+                            <img class="card-img-top" src="http://placehold.it/500x325" alt="">
+                            <div class="card-body">
+                                <h4 class="card-title">Venue Name</h4>
+                                <p class="card-text">Text that adequately describes the best parts of the venue and shows a reason for people to book here.</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="#" class="btn btn-primary">Find Out More!</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.row -->
+
             </div>
+            <!-- /.container -->
         </section>
 
 
