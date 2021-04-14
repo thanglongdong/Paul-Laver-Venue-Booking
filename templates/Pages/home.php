@@ -64,10 +64,26 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 <body>
 
 <!-- Navigation -->
-<nav class="navbar navbar-light bg-light static-top">
+<nav>
     <div class="container">
-        <a class="navbar-brand" href="<?= $this->Url->build('/') ?>">Venue Virtual</a>
-        <a class="btn btn-primary" href="#">Log In / Sign Up</a>
+        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+            <a class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+                <?=$this->Html->image('VV Logo 1.png', ["alt" => "VV Logo",'url' => ['controller' => $this->Url->build('/')]]);?>
+                <!--<img src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24"> -->
+                <!--echo $this->Html->image('VV Logo 1', ['alt' => 'VV Logo']); -->
+            </a>
+
+            <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+                <li><a href="#" class="nav-link px-2 link-secondary">Home</a></li>
+                <li><a href="#" class="nav-link px-2 link-dark">FAQs</a></li>
+                <li><a href="#" class="nav-link px-2 link-dark">About</a></li>
+            </ul>
+
+            <div class="col-md-3 text-end">
+                <button type="button" class="btn btn-outline-primary me-2">Login</button>
+                <button type="button" class="btn btn-primary">Sign-up</button>
+            </div>
+        </header>
     </div>
 </nav>
 
