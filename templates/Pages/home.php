@@ -68,7 +68,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
     <div class="container">
         <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
             <a class="navbar-brand">
-                <?=$this->Html->image('VV Logo 1.png', ["alt" => "VV Logo",'url' => ['controller' => $this->Url->build('/')]]);?>
+                <?=$this->Html->image('VV Logo 2.png', ["alt" => "VV Logo","style"=>"width:300px;height:71px"]);?>
                 <!--<img src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24"> -->
                 <!--echo $this->Html->image('VV Logo 1', ['alt' => 'VV Logo']); -->
             </a>
@@ -103,15 +103,15 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                 <form action="#" method="post" novalidate="novalidate">
                     <div class="row">
                         <div class="col-lg-12">
-                            <div class="row">
-                                <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                                    <input type="location" class="form-control search-slt" placeholder="Location">
+                            <div class="d-flex">
+                                <div class="col-lg-3 col-md-3 col-sm-12 p-0" style="margin-right:10px">
+                                    <input type="location"  class="form-control search-slt" placeholder="Location">
                                 </div>
-                                <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                                <div class="col-lg-3 col-md-3 col-sm-12 p-0" style="margin-right:10px">
                                     <input type="date" class="form-control search-slt" placeholder="Date">
                                 </div>
-                                <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                                    <select class="form-control search-slt" id="numOfPeople">
+                                <div class="col-lg-3 col-md-3 col-sm-12 p-0" style="margin-right:10px">
+                                    <select class="form-control search-slt"  id="numOfPeople">
                                         <option># of People</option>
                                         <option><50</option>
                                         <option>50-100</option>

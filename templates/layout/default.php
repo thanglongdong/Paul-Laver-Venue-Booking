@@ -36,7 +36,7 @@
     <div class="container">
         <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
             <a class="navbar-brand">
-                <?=$this->Html->image('VV Logo 1.png', ["alt" => "VV Logo",'url' => ['controller' => $this->Url->build('/')]]);?>
+                <?=$this->Html->image('VV Logo 2.png', ["alt" => "VV Logo","style"=>"width:300px;height:71px"]);?>
                 <!--<img src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24"> -->
                 <!--echo $this->Html->image('VV Logo 1', ['alt' => 'VV Logo']); -->
             </a>

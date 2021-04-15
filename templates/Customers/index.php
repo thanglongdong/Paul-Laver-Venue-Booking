@@ -16,9 +16,6 @@
                     <th><?= $this->Paginator->sort('last_name') ?></th>
                     <th><?= $this->Paginator->sort('mobile') ?></th>
                     <th><?= $this->Paginator->sort('email') ?></th>
-                    <th><?= $this->Paginator->sort('password') ?></th>
-                    <th><?= $this->Paginator->sort('created') ?></th>
-                    <th><?= $this->Paginator->sort('modified') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
             </thead>
@@ -30,9 +27,6 @@
                     <td><?= h($customer->last_name) ?></td>
                     <td><?= h($customer->mobile) ?></td>
                     <td><?= h($customer->email) ?></td>
-                    <td><?= h($customer->password) ?></td>
-                    <td><?= h($customer->created) ?></td>
-                    <td><?= h($customer->modified) ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $customer->id]) ?>
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $customer->id]) ?>
