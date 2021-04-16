@@ -25,8 +25,8 @@
     <!-- Anchors -->
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
-    <?= $this->fetch('script') ?>
-
+    
+    <script src="vendor/jquery/jquery.min.js"></script>
 </head>
 
 <body>
@@ -48,7 +48,7 @@
             </ul>
 
             <div class="col-md-3 text-end">
-                <button type="button" class="btn btn-outline-primary me-2">Login</button>
+                <button type="button" style= "margin-right:10px" class="btn btn-outline-primary me-2">Login</button>
                 <button type="button" class="btn btn-primary">Sign-up</button>
             </div>
         </header>
@@ -111,9 +111,9 @@
 </footer>
 
 <!-- Bootstrap core JavaScript -->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<?= $this->fetch('script') ?>
 </body>
 
 </html>

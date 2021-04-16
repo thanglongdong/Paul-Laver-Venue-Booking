@@ -3,12 +3,18 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\BookingsSupplier[]|\Cake\Collection\CollectionInterface $bookingsSuppliers
  */
+echo $this -> Html->css("/vendor/datatables/dataTables.bootstrap4.min.css",['block'=>true]);
+echo $this -> Html->script("/vendor/datatables/jquery.dataTables.min.js",['block'=>true]);
+echo $this -> Html->script("/vendor/datatables/dataTables.bootstrap4.min.js",['block'=>true]);
+echo $this -> Html->script("/js/demo/datatables-demo.js",['block'=>true]);
 ?>
-<div class="bookingsSuppliers index content">
-    <?= $this->Html->link(__('New Bookings Supplier'), ['action' => 'add'], ['class' => 'button float-right']) ?>
-    <h3><?= __('Bookings Suppliers') ?></h3>
+
+<div>
+    <div class="mb-3 d-sm-flex align-items-center justify-content-between mb-4">
+        <h3 class="text-grey"><?= __('Booking-Supplier') ?></h3>
+    </div>
     <div class="table-responsive">
-        <table>
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
                 <tr>
                     <th><?= $this->Paginator->sort('id') ?></th>
@@ -34,15 +40,5 @@
                 <?php endforeach; ?>
             </tbody>
         </table>
-    </div>
-    <div class="paginator">
-        <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('first')) ?>
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
-            <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-            <?= $this->Paginator->last(__('last') . ' >>') ?>
-        </ul>
-        <p><?= $this->Paginator->counter(__('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')) ?></p>
     </div>
 </div>
