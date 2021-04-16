@@ -43,7 +43,7 @@ class Application extends BaseApplication
     // implements AuthenticationServiceProviderInterface
 {
 
-    
+
     /**
      * Load all the application configuration and bootstrap logic.
      *
@@ -71,7 +71,7 @@ class Application extends BaseApplication
             $this->addPlugin('DebugKit');
         }
 
-        $this->addPlugin('Authentication');
+        //$this->addPlugin('Authentication');
 
         // Load more plugins here
     }
@@ -178,6 +178,6 @@ class Application extends BaseApplication
 //         return $authenticationService;
 //     }
 
-    
+
 // }
 }
