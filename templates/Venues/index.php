@@ -5,10 +5,12 @@
  */
 ?>
 <div class="venues index content">
-    <?= $this->Html->link(__('New Venue'), ['action' => 'add'], ['class' => 'button float-right']) ?>
-    <h3><?= __('Venues') ?></h3>
+    <div class="row justify-content-center" style="margin-bottom:20px">
+        <h3><?= __('Venues') ?></h3>
+        <a href="<?= $this->Url->build('/venues/add')?>" class="btn btn-outline-primary" style="margin-left:15px" >Add Venues</a>
+    </div>
     <div class="table-responsive">
-        <table>
+        <table class='table'>
             <thead>
                 <tr>
                     <th><?= $this->Paginator->sort('id') ?></th>

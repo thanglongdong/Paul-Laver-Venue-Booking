@@ -5,10 +5,13 @@
  */
 ?>
 <div class="customers index content">
-    <?= $this->Html->link(__('New Customer'), ['action' => 'add'], ['class' => 'button float-right']) ?>
-    <h3><?= __('Customers') ?></h3>
+    <div class="row justify-content-center" style="margin-bottom:20px">
+        <h3><?= __('Customers') ?></h3>
+        <a href="<?= $this->Url->build('/customers/add')?>" class="btn btn-outline-primary" style="margin-left:15px" >Add Customers</a>
+    </div>
+
     <div class="table-responsive">
-        <table>
+        <table class='table'>
             <thead>
                 <tr>
                     <th><?= $this->Paginator->sort('id') ?></th>
@@ -37,6 +40,8 @@
             </tbody>
         </table>
     </div>
+
+    
     <div class="paginator">
         <ul class="pagination">
             <?= $this->Paginator->first('<< ' . __('first')) ?>
