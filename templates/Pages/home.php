@@ -121,7 +121,8 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                                 </div>
                                 <div class="col-lg-3 col-md-3 col-sm-12 p-0">
                                     <!-- making button type search/submit throws an error as no action performed yet -->
-                                    <button type="submit" class="btn btn-lg-3 btn-md-3 btn-sm-12 btn-block btn-primary">Search</button>
+                                    <!-- jessie: I just make the type 'button' so that there is no error for integrity testing (for iteration 1 only) -->
+                                    <button type="button" class="btn btn-lg-3 btn-md-3 btn-sm-12 btn-block btn-primary">Search</button>
                                 </div>
                             </div>
                         </div>
