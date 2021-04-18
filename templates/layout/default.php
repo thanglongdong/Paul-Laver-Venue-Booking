@@ -43,13 +43,13 @@
 
             <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
                 <li><a href="<?= $this->Url->build('/')?>" class="nav-link px-2 link-secondary">Home</a></li>
-                <li><a href="#" class="nav-link px-2 link-dark">FAQs</a></li>
-                <li><a href="#" class="nav-link px-2 link-dark">About</a></li>
+                <!--<li><a href="#" class="nav-link px-2 link-dark">FAQs</a></li>
+                <li><a href="#" class="nav-link px-2 link-dark">About</a></li>-->
             </ul>
 
             <div class="col-md-3 text-end">
-                <button type="button" style= "margin-right:10px" class="btn btn-outline-primary me-2">Login</button>
-                <button type="button" class="btn btn-primary">Sign-up</button>
+                <!--<button type="button" style= "margin-right:10px" class="btn btn-outline-primary me-2">Login</button>
+                <button type="button" class="btn btn-primary">Sign-up</button>-->
             </div>
         </header>
     </div>
@@ -69,7 +69,7 @@
         <div class="row">
             <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
                 <ul class="list-inline mb-2">
-                    <li class="list-inline-item">
+                    <!--<li class="list-inline-item">
                         <a href="#">About</a>
                     </li>
                     <li class="list-inline-item">&sdot;</li>
@@ -83,24 +83,24 @@
                     <li class="list-inline-item">&sdot;</li>
                     <li class="list-inline-item">
                         <a href="#">Privacy Policy</a>
-                    </li>
+                    </li>-->
                 </ul>
                 <p class="text-muted small mb-4 mb-lg-0">&copy; Venue Virtual 2021. All Rights Reserved.</p>
             </div>
             <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
                 <ul class="list-inline mb-0">
                     <li class="list-inline-item mr-3">
-                        <a href="#">
+                        <!--<a href="#">-->
                             <i class="fab fa-facebook fa-2x fa-fw"></i>
                         </a>
                     </li>
                     <li class="list-inline-item mr-3">
-                        <a href="#">
+                        <!--<a href="#">-->
                             <i class="fab fa-twitter-square fa-2x fa-fw"></i>
                         </a>
                     </li>
                     <li class="list-inline-item">
-                        <a href="#">
+                        <!--<a href="#">-->
                             <i class="fab fa-instagram fa-2x fa-fw"></i>
                         </a>
                     </li>

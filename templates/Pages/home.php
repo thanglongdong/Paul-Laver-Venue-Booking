@@ -75,13 +75,13 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 
             <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
                 <li><a href="<?= $this->Url->build('/')?>" class="nav-link px-2 link-secondary">Home</a></li>
-                <li><a href="<?= $this->Url->build('/faq')?>" class="nav-link px-2 link-dark">FAQs</a></li>
-                <li><a href="#" class="nav-link px-2 link-dark">About</a></li>
+                <!--<li><a href=" //$this->Url->build('/faq')" class="nav-link px-2 link-dark">FAQs</a></li>-->
+                <!--<li><a href="#" class="nav-link px-2 link-dark">About</a></li>-->
             </ul>
 
             <div class="d-flex col-md-3 text-end">
-                <button type="button" style= "margin-right:10px" class="btn btn-outline-primary me-2">Login</button>
-                <button type="button" class="btn btn-primary">Sign-up</button>
+                <!--<button type="button" style= "margin-right:10px" class="btn btn-outline-primary me-2">Login</button>
+                <button type="button" class="btn btn-primary">Sign-up</button>-->
             </div>
         </header>
     </div>
@@ -122,7 +122,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                                 <div class="col-lg-3 col-md-3 col-sm-12 p-0">
                                     <!-- making button type search/submit throws an error as no action performed yet -->
                                     <!-- jessie: I just make the type 'button' so that there is no error for integrity testing (for iteration 1 only) -->
-                                    <button type="button" class="btn btn-lg-3 btn-md-3 btn-sm-12 btn-block btn-primary">Search</button>
+                                    <!--<button type="button" class="btn btn-lg-3 btn-md-3 btn-sm-12 btn-block btn-primary">Search</button>-->
                                 </div>
                             </div>
                         </div>
@@ -141,6 +141,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
         <section class="features-icons bg-light text-center">
             <!-- Page Content -->
             <div class="container">
+                <h3 class="text-muted mb-3 text-left">Featured Venues</h3>
 
                 <!-- Page Features -->
                 <div class="row text-center">
@@ -153,7 +154,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                                 <p class="card-text">Text that adequately describes the best parts of the venue and shows a reason for people to book here.</p>
                             </div>
                             <div class="card-footer">
-                                <a href="#" class="btn btn-primary">Find Out More!</a>
+                                <!--<a href="#" class="btn btn-primary">Find Out More!</a>-->
                             </div>
                         </div>
                     </div>
@@ -166,7 +167,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                                 <p class="card-text">Text that adequately describes the best parts of the venue and shows a reason for people to book here.</p>
                             </div>
                             <div class="card-footer">
-                                <a href="#" class="btn btn-primary">Find Out More!</a>
+                                <!--<a href="#" class="btn btn-primary">Find Out More!</a>-->
                             </div>
                         </div>
                     </div>
@@ -179,7 +180,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                                 <p class="card-text">Text that adequately describes the best parts of the venue and shows a reason for people to book here.</p>
                             </div>
                             <div class="card-footer">
-                                <a href="#" class="btn btn-primary">Find Out More!</a>
+                                <!--<a href="#" class="btn btn-primary">Find Out More!</a>-->
                             </div>
                         </div>
                     </div>
@@ -192,7 +193,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                                 <p class="card-text">Text that adequately describes the best parts of the venue and shows a reason for people to book here.</p>
                             </div>
                             <div class="card-footer">
-                                <a href="#" class="btn btn-primary">Find Out More!</a>
+                                <!--<a href="#" class="btn btn-primary">Find Out More!</a>-->
                             </div>
                         </div>
                     </div>
@@ -244,7 +245,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
         <div class="row">
             <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
                 <ul class="list-inline mb-2">
-                    <li class="list-inline-item">
+                    <!--<li class="list-inline-item">
                         <a href="#">About</a>
                     </li>
                     <li class="list-inline-item">&sdot;</li>
@@ -258,24 +259,24 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                     <li class="list-inline-item">&sdot;</li>
                     <li class="list-inline-item">
                         <a href="#">Privacy Policy</a>
-                    </li>
+                    </li>-->
                 </ul>
                 <p class="text-muted small mb-4 mb-lg-0">&copy; Venue Virtual 2021. All Rights Reserved.</p>
             </div>
             <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
                 <ul class="list-inline mb-0">
                     <li class="list-inline-item mr-3">
-                        <a href="#">
+                        <!--<a href="#">-->
                             <i class="fab fa-facebook fa-2x fa-fw"></i>
                         </a>
                     </li>
                     <li class="list-inline-item mr-3">
-                        <a href="#">
+                        <!--<a href="#">-->
                             <i class="fab fa-twitter-square fa-2x fa-fw"></i>
                         </a>
                     </li>
                     <li class="list-inline-item">
-                        <a href="#">
+                        <!--<a href="#">-->
                             <i class="fab fa-instagram fa-2x fa-fw"></i>
                         </a>
                     </li>
