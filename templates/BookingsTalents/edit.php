@@ -19,11 +19,11 @@
 <div>
 <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary']) ?>
 <?= $this->Form->postLink(
-    __('Delete'),
+    __('Delete BookingsTalent'),
     ['action' => 'delete', $bookingsTalent->id],
     ['confirm' => __('Are you sure you want to delete # {0}?', $bookingsTalent->id), 'class' => 'btn btn-outline-primary me-2 float-right mr-2']
 ) ?>
-<?= $this->Html->link(__('List'), ['action' => 'index'], ['class' => 'btn btn-outline-primary me-2 float-right mr-2']) ?>
+<?= $this->Html->link(__('List BookingsTalents'), ['action' => 'index'], ['class' => 'btn btn-outline-primary me-2 float-right mr-2']) ?>
 </div>
 <?= $this->Form->end() ?>
 <br </br>

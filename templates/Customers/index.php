@@ -20,11 +20,11 @@ echo $this -> Html->script("/js/demo/datatables-demo.js",['block'=>true]);
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
                 <tr>
-                    <th><?= $this->Paginator->sort('id') ?></th>
-                    <th><?= $this->Paginator->sort('first_name') ?></th>
-                    <th><?= $this->Paginator->sort('last_name') ?></th>
-                    <th><?= $this->Paginator->sort('mobile') ?></th>
-                    <th><?= $this->Paginator->sort('email') ?></th>
+                    <th><?= h('id') ?></th>
+                    <th><?= h('first_name') ?></th>
+                    <th><?= h('last_name') ?></th>
+                    <th><?= h('mobile') ?></th>
+                    <th><?= h('email') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
             </thead>
@@ -47,6 +47,6 @@ echo $this -> Html->script("/js/demo/datatables-demo.js",['block'=>true]);
         </table>
     </div>
 
-    
-    
+
+
 </div>

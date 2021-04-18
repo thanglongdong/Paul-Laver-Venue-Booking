@@ -17,11 +17,11 @@ echo $this -> Html->script("/js/demo/datatables-demo.js",['block'=>true]);
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
                 <tr>
-                    <th><?= $this->Paginator->sort('id') ?></th>
-                    <th><?= $this->Paginator->sort('booking_id') ?></th>
-                    <th><?= $this->Paginator->sort('talent_id') ?></th>
-                    <th><?= $this->Paginator->sort('perform_stime') ?></th>
-                    <th><?= $this->Paginator->sort('perform_etime') ?></th>
+                    <th><?= h('id') ?></th>
+                    <th><?= h('booking_id') ?></th>
+                    <th><?= h('talent_id') ?></th>
+                    <th><?= h('perform_stime') ?></th>
+                    <th><?= h('perform_etime') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
             </thead>

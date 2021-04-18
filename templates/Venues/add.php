@@ -4,7 +4,7 @@
  * @var \App\Model\Entity\Venue $venue
  */
 ?>
-<h1 class="h3 mb-2 text-gray-800"><?= __('Add Venue') ?></h1>
+<h1 class="h3 mb-2 text-gray-800"><?= __('New Venue') ?></h1>
 
 <?= $this->Form->create($venue) ?>
     <?php
@@ -20,7 +20,7 @@
 <br </br>
 <div>
 <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary']) ?>
-<?= $this->Html->link(__('List'), ['action' => 'index'], ['class' => 'btn btn-outline-primary me-2 float-right mr-2']) ?>
+<?= $this->Html->link(__('List Venues'), ['action' => 'index'], ['class' => 'btn btn-outline-primary me-2 float-right mr-2']) ?>
 </div>
 <?= $this->Form->end() ?>
 <br </br>

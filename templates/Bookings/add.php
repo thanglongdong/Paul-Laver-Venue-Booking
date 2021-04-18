@@ -4,7 +4,7 @@
  * @var \App\Model\Entity\Booking $booking
  */
 ?>
-<h1 class="h3 mb-2 text-gray-800"><?= __('Add Booking') ?></h1>
+<h1 class="h3 mb-2 text-gray-800"><?= __('New Booking') ?></h1>
 
 <?= $this->Form->create($booking) ?>
     <?php
@@ -21,7 +21,7 @@
 <br </br>
 <div>
 <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary']) ?>
-<?= $this->Html->link(__('List'), ['action' => 'index'], ['class' => 'btn btn-outline-primary me-2 float-right mr-2']) ?>
+<?= $this->Html->link(__('List Bookings'), ['action' => 'index'], ['class' => 'btn btn-outline-primary me-2 float-right mr-2']) ?>
 </div>
 <?= $this->Form->end() ?>
 <br </br>

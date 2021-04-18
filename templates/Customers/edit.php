@@ -20,11 +20,11 @@
 <div>
     <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary']) ?>
     <?= $this->Form->postLink(
-        __('Delete'),
+        __('Delete Customerr'),
         ['action' => 'delete', $customer->id],
         ['confirm' => __('Are you sure you want to delete customer {0} {1}?', $customer->first_name, $customer->last_name), 'class' => 'btn btn-outline-primary me-2 float-right mr-2']
     ) ?>
-    <?= $this->Html->link(__('List'), ['action' => 'index'], ['class' => 'btn btn-outline-primary me-2 float-right mr-2']) ?>
+    <?= $this->Html->link(__('List Customers'), ['action' => 'index'], ['class' => 'btn btn-outline-primary me-2 float-right mr-2']) ?>
 </div>
 <?= $this->Form->end() ?>
 <br </br>

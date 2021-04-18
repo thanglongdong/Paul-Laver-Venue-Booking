@@ -19,14 +19,14 @@ echo $this -> Html->script("/js/demo/datatables-demo.js",['block'=>true]);
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
                 <tr>
-                    <th><?= $this->Paginator->sort('id') ?></th>
-                    <th><?= $this->Paginator->sort('date') ?></th>
-                    <th><?= $this->Paginator->sort('start_time') ?></th>
-                    <th><?= $this->Paginator->sort('end_time') ?></th>
-                    <th><?= $this->Paginator->sort('event_type') ?></th>
-                    <th><?= $this->Paginator->sort('no_of_people') ?></th>
-                    <th><?= $this->Paginator->sort('venue_id') ?></th>
-                    <th><?= $this->Paginator->sort('customer_id') ?></th>
+                    <th><?= h('id') ?></th>
+                    <th><?= h('date') ?></th>
+                    <th><?= h('start_time') ?></th>
+                    <th><?= h('end_time') ?></th>
+                    <th><?= h('event_type') ?></th>
+                    <th><?= h('no_of_people') ?></th>
+                    <th><?= h('venue_id') ?></th>
+                    <th><?= h('customer_id') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
             </thead>

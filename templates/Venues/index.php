@@ -20,15 +20,15 @@ echo $this -> Html->script("/js/demo/datatables-demo.js",['block'=>true]);
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
                 <tr>
-                    <th><?= $this->Paginator->sort('id') ?></th>
-                    <th><?= $this->Paginator->sort('name') ?></th>
-                    <th><?= $this->Paginator->sort('street_address') ?></th>
-                    <th><?= $this->Paginator->sort('suburb') ?></th>
-                    <th><?= $this->Paginator->sort('state') ?></th>
-                    <th><?= $this->Paginator->sort('postcode') ?></th>
-                    <th><?= $this->Paginator->sort('capacity') ?></th>
-                    <th><?= $this->Paginator->sort('phone') ?></th>
-                    <th><?= $this->Paginator->sort('email') ?></th>
+                    <th><?= h('id') ?></th>
+                    <th><?= h('Name') ?></th>
+                    <th><?= h('Street Address') ?></th>
+                    <th><?= h('Suburb') ?></th>
+                    <th><?= h('State') ?></th>
+                    <th><?= h('Postcode') ?></th>
+                    <th><?= h('Capacity') ?></th>
+                    <th><?= h('Phone') ?></th>
+                    <th><?= h('Email') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
             </thead>

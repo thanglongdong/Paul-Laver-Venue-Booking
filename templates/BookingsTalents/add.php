@@ -4,7 +4,7 @@
  * @var \App\Model\Entity\BookingsTalent $bookingsTalent
  */
 ?>
-<h1 class="h3 mb-2 text-gray-800"><?= __('Add Bookings Talent') ?></h1>
+<h1 class="h3 mb-2 text-gray-800"><?= __('New BookingsTalent') ?></h1>
 
 <?= $this->Form->create($bookingsTalent) ?>
     <?php
@@ -16,7 +16,7 @@
 <br </br>
 <div>
 <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary']) ?>
-<?= $this->Html->link(__('List'), ['action' => 'index'], ['class' => 'btn btn-outline-primary me-2 float-right mr-2']) ?>
+<?= $this->Html->link(__('List BookingsTalents'), ['action' => 'index'], ['class' => 'btn btn-outline-primary me-2 float-right mr-2']) ?>
 </div>
 <?= $this->Form->end() ?>
 <br </br>
