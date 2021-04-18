@@ -4,33 +4,27 @@
  * @var \App\Model\Entity\Customer $customer
  */
 ?>
-<div class="row">
-    <aside class="column">
-        <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $customer->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $customer->id), 'class' => 'side-nav-item']
-            ) ?>
-            <?= $this->Html->link(__('List Customers'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-        </div>
-    </aside>
-    <div class="column-responsive column-80">
-        <div class="customers form content">
-            <?= $this->Form->create($customer) ?>
-            <fieldset>
-                <legend><?= __('Edit Customer') ?></legend>
-                <?php
-                    echo $this->Form->control('first_name');
-                    echo $this->Form->control('last_name');
-                    echo $this->Form->control('mobile');
-                    echo $this->Form->control('address');
-                    echo $this->Form->control('email');
-                ?>
-            </fieldset>
-            <?= $this->Form->button(__('Submit')) ?>
-            <?= $this->Form->end() ?>
-        </div>
-    </div>
+<h1 class="h3 mb-2 text-gray-800"><?= __('Edit Customer') ?></h1>
+
+
+
+<?= $this->Form->create($customer) ?>
+    <?php
+        echo $this->Form->control('first_name');
+        echo $this->Form->control('last_name');
+        echo $this->Form->control('mobile');
+        echo $this->Form->control('address');
+        echo $this->Form->control('email');
+    ?>
+<br </br>
+<div>
+    <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary']) ?>
+    <?= $this->Form->postLink(
+        __('Delete'),
+        ['action' => 'delete', $customer->id],
+        ['confirm' => __('Are you sure you want to delete customer {0} {1}?', $customer->first_name, $customer->last_name), 'class' => 'btn btn-outline-primary me-2 float-right mr-2']
+    ) ?>
+    <?= $this->Html->link(__('List'), ['action' => 'index'], ['class' => 'btn btn-outline-primary me-2 float-right mr-2']) ?>
 </div>
+<?= $this->Form->end() ?>
+<br </br>

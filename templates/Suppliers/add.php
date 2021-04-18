@@ -4,27 +4,19 @@
  * @var \App\Model\Entity\Supplier $supplier
  */
 ?>
-<div class="row">
-    <aside class="column">
-        <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Html->link(__('List Suppliers'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-        </div>
-    </aside>
-    <div class="column-responsive column-80">
-        <div class="suppliers form content">
-            <?= $this->Form->create($supplier) ?>
-            <fieldset>
-                <legend><?= __('Add Supplier') ?></legend>
-                <?php
-                    echo $this->Form->control('name');
-                    echo $this->Form->control('phone');
-                    echo $this->Form->control('email');
-                    echo $this->Form->control('bookings._ids', ['options' => $bookings]);
-                ?>
-            </fieldset>
-            <?= $this->Form->button(__('Submit')) ?>
-            <?= $this->Form->end() ?>
-        </div>
-    </div>
+<h1 class="h3 mb-2 text-gray-800"><?= __('Add Supplier') ?></h1>
+
+<?= $this->Form->create($supplier) ?>
+    <?php
+        echo $this->Form->control('name');
+        echo $this->Form->control('phone');
+        echo $this->Form->control('email');
+        echo $this->Form->control('bookings._ids', ['options' => $bookings]);
+    ?>
+<br </br>
+<div>
+<?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary']) ?>
+<?= $this->Html->link(__('List'), ['action' => 'index'], ['class' => 'btn btn-outline-primary me-2 float-right mr-2']) ?>
 </div>
+<?= $this->Form->end() ?>
+<br </br>

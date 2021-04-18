@@ -16,27 +16,11 @@
     </aside>
     <div class="column-responsive column-80">
         <div class="venues view content">
-            <h3><?= h($venue->name) ?></h3>
+            <h2><?= h($venue->name) ?></h2>
             <table>
                 <tr>
-                    <th><?= __('Name') ?></th>
-                    <td><?= h($venue->name) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Street Address') ?></th>
-                    <td><?= h($venue->street_address) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Suburb') ?></th>
-                    <td><?= h($venue->suburb) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('State') ?></th>
-                    <td><?= h($venue->state) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Postcode') ?></th>
-                    <td><?= h($venue->postcode) ?></td>
+                    <th><?= __('Address') ?></th>
+                    <td><?= h($venue->street_address),' ', h($venue->suburb),' ',h($venue->state),' ',h($venue->postcode) ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Phone') ?></th>

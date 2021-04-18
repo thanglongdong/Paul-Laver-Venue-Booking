@@ -286,8 +286,8 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 </footer>
 
 <!-- Bootstrap core JavaScript -->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<?= $this->Html->script(['/vendor/jquery/jquery.min.js']) ?>
+<?= $this->Html->script(['/vendor/bootstrap/js/bootstrap.bundle.min.js']) ?>
 
 </body>
 

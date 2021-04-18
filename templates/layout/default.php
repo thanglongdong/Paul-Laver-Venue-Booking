@@ -25,8 +25,8 @@
     <!-- Anchors -->
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
-    
-    <script src="vendor/jquery/jquery.min.js"></script>
+
+    <?= $this->Html->script(['/vendor/jquery/jquery.min.js']) ?>
 </head>
 
 <body>
@@ -111,8 +111,7 @@
 </footer>
 
 <!-- Bootstrap core JavaScript -->
-
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<?= $this->Html->script(['/vendor/bootstrap/js/bootstrap.bundle.min.js']) ?>
 <?= $this->fetch('script') ?>
 </body>
 

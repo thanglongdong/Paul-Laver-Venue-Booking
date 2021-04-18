@@ -4,28 +4,20 @@
  * @var \App\Model\Entity\Customer $customer
  */
 ?>
-<div class="row">
-    <aside class="column">
-        <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Html->link(__('List Customers'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-        </div>
-    </aside>
-    <div class="column-responsive column-80">
-        <div class="customers form content">
-            <?= $this->Form->create($customer) ?>
-            <fieldset>
-                <legend><?= __('Add Customer') ?></legend>
-                <?php
-                    echo $this->Form->control('first_name');
-                    echo $this->Form->control('last_name');
-                    echo $this->Form->control('mobile');
-                    echo $this->Form->control('address');
-                    echo $this->Form->control('email');
-                ?>
-            </fieldset>
-            <?= $this->Form->button(__('Submit')) ?>
-            <?= $this->Form->end() ?>
-        </div>
-    </div>
+<h1 class="h3 mb-2 text-gray-800"><?= __('Add Customer') ?></h1>
+
+<?= $this->Form->create($customer) ?>
+    <?php
+        echo $this->Form->control('first_name');
+        echo $this->Form->control('last_name');
+        echo $this->Form->control('mobile');
+        echo $this->Form->control('address');
+        echo $this->Form->control('email');
+    ?>
+<br </br>
+<div>
+<?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary']) ?>
+<?= $this->Html->link(__('List'), ['action' => 'index'], ['class' => 'btn btn-outline-primary me-2 float-right mr-2']) ?>
 </div>
+<?= $this->Form->end() ?>
+<br </br>
