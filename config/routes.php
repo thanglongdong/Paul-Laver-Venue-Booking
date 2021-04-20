@@ -55,7 +55,16 @@ $routes->scope('/', function (RouteBuilder $builder) {
     /*
      * ...and connect the rest of 'Pages' controller's URLs.
      */
+
+    $builder->connect('/about', ['controller' => 'pages', 'action' => 'display', 'about']);
+    $builder->connect('/faq', ['controller' => 'pages', 'action' => 'display', 'faq']);
+    $builder->connect('/contact_us', ['controller' => 'pages', 'action' => 'display', 'contact_us']);
+    $builder->connect('/terms', ['controller' => 'pages', 'action' => 'display', 'terms']);
+    $builder->connect('/privacy_policy', ['controller' => 'pages', 'action' => 'display', 'privacy_policy']);
+
+
     $builder->connect('/pages/*', 'Pages::display');
+
 
     /*
      * Connect catchall routes for all controllers.
@@ -80,10 +89,10 @@ $routes->scope('/', function (RouteBuilder $builder) {
  * ```
  * $routes->scope('/api', function (RouteBuilder $builder) {
  *     // No $builder->applyMiddleware() here.
- *     
+ *
  *     // Parse specified extensions from URLs
  *     // $builder->setExtensions(['json', 'xml']);
- *     
+ *
  *     // Connect API actions here.
  * });
  * ```
