@@ -20,6 +20,8 @@ use Cake\Datasource\ConnectionManager;
 use Cake\Error\Debugger;
 use Cake\Http\Exception\NotFoundException;
 
+echo $this -> Html->css("home.css",['block'=>true]);
+
 $this->disableAutoLayout();
 
 if (!Configure::read('debug')) :
@@ -80,8 +82,8 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
             </ul>
 
             <div class="d-flex col-md-3 text-end">
-                <button type="button" style= "margin-right:10px" class="btn btn-outline-primary me-2">Login</button>
-                <button type="button" class="btn btn-primary">Sign-up</button>
+                <button id= type="button" style= "margin-right:10px" class="btn btn-outline-primary me-2">Login</button>
+                <button type="button" class="btn btn-primary" >Sign-up</button>
             </div>
         </header>
     </div>
