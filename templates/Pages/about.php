@@ -11,7 +11,7 @@ echo $this -> Html->css("about.css",['block'=>true]);
 
         <div class="group">
             <div class="left-side flex-col">
-                <div class="item1">
+                <div class="item1" >
                     Celebrate every moment in the best way!
                 </div>
                 <div class="item2">
@@ -30,7 +30,7 @@ echo $this -> Html->css("about.css",['block'=>true]);
             <div class="left-group">
               <div class="left-ele flex-col">
                 <div>
-                  <div class="title">
+                  <div class="title" style="color: #009970">
                     Our Mission
                   </div>
                   <div class="intro">
@@ -41,10 +41,10 @@ echo $this -> Html->css("about.css",['block'=>true]);
 
               <div class="left-ele flex-col">
                 <div>
-                  <div class="title">
-                    Our vision
+                  <div class="title" style="color: #009970">
+                    Our Vision
                   </div>
-                  <div class="intro">
+                  <div class="intro" >
                   This will be the most user-friendly tool, a game-changer in event booking. Organize your event with just a click!
                   </div>
                 </div>
