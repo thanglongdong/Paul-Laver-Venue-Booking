@@ -17,7 +17,7 @@ echo $this->Form->control('email',['disabled']);
 <br> </br>
 <div>
 <?= $this->Html->link(__('Edit Customer'), ['action' => 'edit', $customer->id], ['class' => 'btn btn-primary']) ?>
-<?= $this->Form->postLink(__('Delete Customer'), ['action' => 'delete', $customer->id], ['confirm' => __('Are you sure you want to delete # {0}?', $customer->id), 'class' => 'btn btn-outline-primary me-2 float-right mr-2']) ?>
+<?= $this->Form->postLink(__('Delete Customer'), ['action' => 'delete', $customer->id], ['confirm' => __('Are you sure you want to delete  customer {0} {1}?', $customer->first_name,$customer->last_name), 'class' => 'btn btn-outline-primary me-2 float-right mr-2']) ?>
 <?= $this->Html->link(__('List Customers'), ['action' => 'index'], ['class' => 'btn btn-outline-primary me-2 float-right mr-2']) ?>
 <?= $this->Html->link(__('New Customer'), ['action' => 'add'], ['class' => 'btn btn-outline-primary me-2 float-right mr-2']) ?>
 </div>

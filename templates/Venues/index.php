@@ -47,7 +47,7 @@ echo $this -> Html->script("/js/demo/datatables-demo.js",['block'=>true]);
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $venue->id]) ?>
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $venue->id]) ?>
-                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $venue->id], ['confirm' => __('Are you sure you want to delete # {0}?', $venue->id)]) ?>
+                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $venue->id], ['confirm' => __('Are you sure you want to delete venue {0}?', $venue->name)]) ?>
                     </td>
                 </tr>
                 <?php endforeach; ?>

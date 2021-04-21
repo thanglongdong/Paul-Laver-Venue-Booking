@@ -17,7 +17,7 @@ echo $this->Form->control('genre',['disabled']);
 <br></br>
 <div>
 <?= $this->Html->link(__('Edit Talent'), ['action' => 'edit', $talent->id], ['class' => 'btn btn-primary']) ?>
-<?= $this->Form->postLink(__('Delete Talent'), ['action' => 'delete', $talent->id], ['confirm' => __('Are you sure you want to delete # {0}?', $talent->id), 'class' => 'btn btn-outline-primary me-2 float-right mr-2']) ?>
+<?= $this->Form->postLink(__('Delete Talent'), ['action' => 'delete', $talent->id], ['confirm' => __('Are you sure you want to delete talent {0}?', $talent->name), 'class' => 'btn btn-outline-primary me-2 float-right mr-2']) ?>
 <?= $this->Html->link(__('List Talents'), ['action' => 'index'], ['class' => 'btn btn-outline-primary me-2 float-right mr-2']) ?>
 <?= $this->Html->link(__('New Talent'), ['action' => 'add'], ['class' => 'btn btn-outline-primary me-2 float-right mr-2']) ?>
 </div>

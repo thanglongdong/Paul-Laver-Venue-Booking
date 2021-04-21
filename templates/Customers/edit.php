@@ -16,9 +16,9 @@
         echo $this->Form->control('address');
         echo $this->Form->control('email');
     ?>
-<br </br>
+<br>
 <div>
-    <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary']) ?>
+    <?= $this->Form->button(__('Edit Customer'), ['class' => 'btn btn-primary']) ?>
     <?= $this->Form->postLink(
         __('Delete Customer'),
         ['action' => 'delete', $customer->id],

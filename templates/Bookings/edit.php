@@ -20,7 +20,7 @@
     ?>
 <br </br>
 <div>
-    <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary']) ?>
+    <?= $this->Form->button(__('Edit Booking'), ['class' => 'btn btn-primary']) ?>
     <?= $this->Form->postLink(
         __('Delete Booking'),
         ['action' => 'delete', $booking->id],

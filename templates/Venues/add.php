@@ -19,7 +19,7 @@
     ?>
 <br </br>
 <div>
-<?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary']) ?>
+<?= $this->Form->button(__('New Venue'), ['class' => 'btn btn-primary']) ?>
 <?= $this->Html->link(__('List Venues'), ['action' => 'index'], ['class' => 'btn btn-outline-primary me-2 float-right mr-2']) ?>
 </div>
 <?= $this->Form->end() ?>
