@@ -20,7 +20,7 @@ echo $this -> Html->script("/js/demo/datatables-demo.js",['block'=>true]);
         <a class="nav-link"  href="<?= $this->Url->build('/talents')?>">Talents</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link active" href="<?= $this->Url->build('/suppliers')?>">Suppliers</a>
+        <a class="nav-link active font-weight-bold" href="<?= $this->Url->build('/suppliers')?>">Suppliers</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="<?= $this->Url->build('/customers')?>">Customers</a>

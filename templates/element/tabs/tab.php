@@ -6,7 +6,7 @@
 
 <ul class="nav nav-tabs nav-fill">
     <li class="nav-item">
-        <a class="nav-link active" href="<?= $this->Url->build('/dashboard')?>">Dashboard</a>
+        <a class="nav-link active font-weight-bold" href="<?= $this->Url->build('/dashboard')?>">Dashboard</a>
     </li>
     <li class="nav-item">
     <a class="nav-link" href="<?= $this->Url->build('/venues')?>">Venues</a>
