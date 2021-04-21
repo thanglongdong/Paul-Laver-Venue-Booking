@@ -32,7 +32,7 @@
 </ul>
 <p></p>
 
-<h1 class="h3 mb-2 text-gray-800"><?= h($customer->id) ?></h1>
+<h1 class="h3 mb-2 text-gray-800"><?= h($customer->first_name),' ', h($customer->last_name) ?></h1>
 
 <?= $this->Form->create($customer) ?>
 <?php

@@ -1,5 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+echo $this -> Html->css("default.css",['block'=>true]);
+?>
+
 
 <head>
 

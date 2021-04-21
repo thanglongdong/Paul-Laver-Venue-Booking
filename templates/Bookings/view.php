@@ -55,7 +55,7 @@ echo $this->Form->control('no_of_people',['disabled']);
 <?php if (!empty($booking->suppliers)) : ?>
 <h4><?= __('Related Suppliers') ?></h4>
 <div class="table-responsive">
-    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">>
+    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <tr>
             <th><?= __('Id') ?></th>
             <th><?= __('Name') ?></th>
@@ -85,7 +85,7 @@ echo $this->Form->control('no_of_people',['disabled']);
 <?php if (!empty($booking->talents)) : ?>
 <h4><?= __('Related Talents') ?></h4>
 <div class="table-responsive">
-    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">>
+    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <tr>
             <th><?= __('Id') ?></th>
             <th><?= __('Name') ?></th>

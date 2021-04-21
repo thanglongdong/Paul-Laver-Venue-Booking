@@ -29,6 +29,7 @@ if (!Configure::read('debug')) :
 endif;
 
 $cakeDescription = 'CakePHP: the rapid development PHP framework';
+echo $this -> Html->css("home.css",['block'=>true]);
 ?>
 <!DOCTYPE html>
 <html lang="en">
