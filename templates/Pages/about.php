@@ -8,7 +8,7 @@ echo $this -> Html->css("about.css",['block'=>true]);
 
 <div>
 <section id="intro-section">
-            
+
         <div class="group">
             <div class="left-side flex-col">
                 <div class="item1">
@@ -18,7 +18,7 @@ echo $this -> Html->css("about.css",['block'=>true]);
                 Venue Virtual is Australia's largest marketplace to discover and book spaces for meetings and events. We want to help customers with different requirements to find the perfect space for their events with customization based on their needs. Our market-leading online presence, technology and insights help venues to unlock new revenue and increase sales all year round.
                 </div>
                 <a href="<?= $this->Url->build('/')?>" class="d-none d-sm-inline-block btn btn-outline-primary shadow-sm"><i
-                class="fas fa-play fa-sm text-white-50"></i>Explore Now</a>
+                class="fas fa-sm text-white-50"></i>Explore Now</a>
             </div>
 
             <?=$this->Html->image('VV Logo 5.png', ["class"=>"right-side","alt" => "VV Logo","style"=>"width:380px;height:418px"]);?>
@@ -35,7 +35,7 @@ echo $this -> Html->css("about.css",['block'=>true]);
                   </div>
                   <div class="intro">
                   We dedicate to helping our customers to book their event with ease. Only the best experience with Venue Virtual.
-                  </div>     
+                  </div>
                 </div>
               </div>
 
@@ -46,7 +46,7 @@ echo $this -> Html->css("about.css",['block'=>true]);
                   </div>
                   <div class="intro">
                   This will be the most user-friendly tool, a game-changer in event booking. Organize your event with just a click!
-                  </div>     
+                  </div>
                 </div>
               </div>
             </div>

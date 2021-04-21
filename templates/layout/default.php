@@ -35,7 +35,7 @@
 <nav>
     <div class="container">
         <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-            <a class="navbar-brand">
+            <a href= "<?= $this->Url->build('/')?>" class="navbar-brand">
                 <?=$this->Html->image('VV Logo 2.png', ["alt" => "VV Logo","style"=>"width:211px;height:50px"]);?>
                 <!--<img src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24"> -->
                 <!--echo $this->Html->image('VV Logo 1', ['alt' => 'VV Logo']); -->
@@ -90,17 +90,17 @@
             <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
                 <ul class="list-inline mb-0">
                     <li class="list-inline-item mr-3">
-                        <a>
+                        <a href= "<?= $this->Url->build('https://www.facebook.com/')?>" >
                             <i class="fab fa-facebook fa-2x fa-fw"></i>
                         </a>
                     </li>
                     <li class="list-inline-item mr-3">
-                        <a>
+                        <a href= "<?= $this->Url->build('https://www.twitter.com/')?>" >
                             <i class="fab fa-twitter-square fa-2x fa-fw"></i>
                         </a>
                     </li>
                     <li class="list-inline-item">
-                        <a>
+                        <a href= "<?= $this->Url->build('https://www.instagram.com/')?>" >
                             <i class="fab fa-instagram fa-2x fa-fw"></i>
                         </a>
                     </li>
