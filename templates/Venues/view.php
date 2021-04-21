@@ -4,6 +4,34 @@
  * @var \App\Model\Entity\Venue $venue
  */
 ?>
+<ul class="nav nav-tabs nav-fill">
+    <li class="nav-item">
+        <a class="nav-link" href="<?= $this->Url->build('/dashboard')?>">Dashboard</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link active" href="<?= $this->Url->build('/venues')?>">Venues</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link"  href="<?= $this->Url->build('/talents')?>">Talent</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="<?= $this->Url->build('/suppliers')?>">Suppliers</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="<?= $this->Url->build('/customers')?>">Customers</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="<?= $this->Url->build('/bookings')?>">Bookings</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="<?= $this->Url->build('/bookings-suppliers')?>">Bookings Suppliers</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="<?= $this->Url->build('/bookings-talents')?>">Bookings Talents</a>
+    </li>
+</ul>
+<p></p>
+
 <h1 class="h3 mb-2 text-gray-800"><?= h($venue->name) ?></h1>
 
 <?= $this->Form->create($venue) ?>
@@ -27,8 +55,9 @@ echo $this->Form->control('email',['disabled']);
 </div>
 <br></br>
 
-<h4><?= __('Related Bookings') ?></h4>
+
 <?php if (!empty($venue->bookings)) : ?>
+<h4><?= __('Related Bookings') ?></h4>
 <div class="table-responsive">
     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <tr>

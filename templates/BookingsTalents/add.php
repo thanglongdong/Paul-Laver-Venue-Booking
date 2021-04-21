@@ -4,7 +4,35 @@
  * @var \App\Model\Entity\BookingsTalent $bookingsTalent
  */
 ?>
-<h1 class="h3 mb-2 text-gray-800"><?= __('New BookingsTalent') ?></h1>
+<ul class="nav nav-tabs nav-fill">
+    <li class="nav-item">
+        <a class="nav-link" href="<?= $this->Url->build('/dashboard')?>">Dashboard</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="<?= $this->Url->build('/venues')?>">Venues</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link"  href="<?= $this->Url->build('/talents')?>">Talents</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="<?= $this->Url->build('/suppliers')?>">Suppliers</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="<?= $this->Url->build('/customers')?>">Customers</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="<?= $this->Url->build('/bookings')?>">Bookings</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="<?= $this->Url->build('/bookings-suppliers')?>">Bookings Suppliers</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link active" href="<?= $this->Url->build('/bookings-talents')?>">Bookings Talents</a>
+    </li>
+</ul>
+<p></p>
+
+<h1 class="h3 mb-2 text-gray-800"><?= __('New Bookings Talent') ?></h1>
 
 <?= $this->Form->create($bookingsTalent) ?>
     <?php
@@ -15,8 +43,8 @@
     ?>
 <br </br>
 <div>
-<?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary']) ?>
-<?= $this->Html->link(__('List BookingsTalents'), ['action' => 'index'], ['class' => 'btn btn-outline-primary me-2 float-right mr-2']) ?>
+<?= $this->Form->button(__('Add Bookings Talent'), ['class' => 'btn btn-primary']) ?>
+<?= $this->Html->link(__('List Bookings Talents'), ['action' => 'index'], ['class' => 'btn btn-outline-primary me-2 float-right mr-2']) ?>
 </div>
 <?= $this->Form->end() ?>
 <br </br>

@@ -4,6 +4,34 @@
  * @var \App\Model\Entity\Booking $booking
  */
 ?>
+<ul class="nav nav-tabs nav-fill">
+    <li class="nav-item">
+        <a class="nav-link" href="<?= $this->Url->build('/dashboard')?>">Dashboard</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="<?= $this->Url->build('/venues')?>">Venues</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link"  href="<?= $this->Url->build('/talents')?>">Talents</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="<?= $this->Url->build('/suppliers')?>">Suppliers</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="<?= $this->Url->build('/customers')?>">Customers</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link active" href="<?= $this->Url->build('/bookings')?>">Bookings</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="<?= $this->Url->build('/bookings-suppliers')?>">Bookings Suppliers</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="<?= $this->Url->build('/bookings-talents')?>">Bookings Talents</a>
+    </li>
+</ul>
+<p></p>
+
 <h1 class="h3 mb-2 text-gray-800"><?= h($booking->id) ?></h1>
 
 <?= $this->Form->create($booking) ?>
@@ -23,8 +51,9 @@ echo $this->Form->control('no_of_people',['disabled']);
 </div>
 <br></br>
 
-<h4><?= __('Related Suppliers') ?></h4>
+
 <?php if (!empty($booking->suppliers)) : ?>
+<h4><?= __('Related Suppliers') ?></h4>
 <div class="table-responsive">
     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">>
         <tr>
@@ -52,8 +81,9 @@ echo $this->Form->control('no_of_people',['disabled']);
 <?php endif; ?>
 <br></br>
 
-<h4><?= __('Related Talents') ?></h4>
+
 <?php if (!empty($booking->talents)) : ?>
+<h4><?= __('Related Talents') ?></h4>
 <div class="table-responsive">
     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">>
         <tr>
