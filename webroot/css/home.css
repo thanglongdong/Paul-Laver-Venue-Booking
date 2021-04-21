@@ -1,134 +1,72 @@
-/*!* Home page styles *!*/
-/*@font-face {*/
-/*    font-family: 'cakefont';*/
-/*    src: url('../font/cakedingbats-webfont.eot');*/
-/*    src: url('../font/cakedingbats-webfont.eot?#iefix') format('embedded-opentype'),*/
-/*    url('../font/cakedingbats-webfont.woff2') format('woff2'),*/
-/*    url('../font/cakedingbats-webfont.woff') format('woff'),*/
-/*    url('../font/cakedingbats-webfont.ttf') format('truetype'),*/
-/*    url('../font/cakedingbats-webfont.svg#cake_dingbatsregular') format('svg');*/
-/*    font-weight: normal;*/
-/*    font-style: normal;*/
-/*}*/
-/*!*body {*!*/
-/*!*    padding: 60px 0;*!*/
-/*!*}*!*/
-/*!*header {*!*/
-/*!*    margin-bottom: 60px;*!*/
-/*!*}*!*/
-/*img {*/
-/*    margin-bottom: 30px;*/
-/*}*/
-/*h1 {*/
-/*    font-weight: bold;*/
-/*}*/
-/*ul {*/
-/*    list-style-type: none;*/
-/*    margin: 0 0 30px 0;*/
-/*    padding-left: 25px;*/
-/*}*/
+/* Home page styles */
+@font-face {
+    font-family: 'cakefont';
+    src: url('../font/cakedingbats-webfont.eot');
+    src: url('../font/cakedingbats-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../font/cakedingbats-webfont.woff2') format('woff2'),
+    url('../font/cakedingbats-webfont.woff') format('woff'),
+    url('../font/cakedingbats-webfont.ttf') format('truetype'),
+    url('../font/cakedingbats-webfont.svg#cake_dingbatsregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+body {
+    padding: 60px 0;
+}
+header {
+    margin-bottom: 60px;
+}
+img {
+    margin-bottom: 30px;
+}
+h1 {
+    font-weight: bold;
+}
+ul {
+    list-style-type: none;
+    margin: 0 0 30px 0;
+    padding-left: 25px;
+}
 a {
-    color: #009970;
+    color: #0071BC;
+    text-decoration: underline;
 }
-a:hover{
-    color: #0d5945;
-}
-
-.btn-primary{
-    background-color: #009970;
-    border-color: #009970;
-}
-.btn-primary:hover {
-    color: #fff;
-    background-color: #0f644d;
-    border-color: #0f644d;
+hr {
+    border-bottom: 1px solid #e7e7e7;
+    border-top: 0;
+    margin-bottom: 35px;
 }
 
-.btn-primary:focus, .btn-primary.focus {
-    color: #fff;
-    background-color: #009970;
-    border-color: #009970;
-    box-shadow: white;
+.text-center {
+    text-align: center;
 }
-
-.btn-primary.disabled, .btn-primary:disabled {
-    color: #fff;
-    background-color: #8c8c8c;
-    border-color: #8c8c8c;
+.links a {
+    margin-right: 10px;
 }
-
-.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
-.show > .btn-primary.dropdown-toggle {
-    color: #fff;
-    background-color: #0f644d;
-    border-color: #0f644d;
+.release-name {
+    color: #D33C43;
+    font-weight: 400;
+    font-style: italic;
 }
-
-/*.btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus,*/
-/*.show > .btn-primary.dropdown-toggle:focus {*/
-/*    box-shadow: white;*/
-/*}*/
-
-.btn-outline-primary{
-    border-color: #009970;
-    color: #009970;
+.bullet:before {
+    font-family: 'cakefont', sans-serif;
+    font-size: 18px;
+    display: inline-block;
+    margin-left: -1.3em;
+    width: 1.2em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    vertical-align: -1px;
 }
-
-.btn-outline-primary:hover{
-    background-color: #0f644d;
-    border-color: #0f644d;
-    color:white;
+.success:before {
+    color: #88c671;
+    content: "\0056";
 }
-
-.btn-outline-primary:focus, .btn-outline-primary.focus {
-    border-color: #009970;
-    color: #009970;
+.problem:before {
+    color: #d33d44;
+    content: "\0057";
 }
-
-.btn-outline-primary:not(:disabled):not(.disabled):active, .btn-outline-primary:not(:disabled):not(.disabled).active,
-.show > .btn-outline-primary.dropdown-toggle {
-    background-color: #0f644d;
-    outline-color: #009970;
-    border-color: #0f644d;
-    color:white;
+.cake-error {
+    padding: 10px;
+    margin: 10px 0;
 }
-
-/*hr {*/
-/*    border-bottom: 1px solid #e7e7e7;*/
-/*    border-top: 0;*/
-/*    margin-bottom: 35px;*/
-/*}*/
-
-/*.text-center {*/
-/*    text-align: center;*/
-/*}*/
-/*.links a {*/
-/*    margin-right: 10px;*/
-/*}*/
-/*.release-name {*/
-/*    color: #D33C43;*/
-/*    font-weight: 400;*/
-/*    font-style: italic;*/
-/*}*/
-/*.bullet:before {*/
-/*    font-family: 'cakefont', sans-serif;*/
-/*    font-size: 18px;*/
-/*    display: inline-block;*/
-/*    margin-left: -1.3em;*/
-/*    width: 1.2em;*/
-/*    -webkit-font-smoothing: antialiased;*/
-/*    -moz-osx-font-smoothing: grayscale;*/
-/*    vertical-align: -1px;*/
-/*}*/
-/*.success:before {*/
-/*    color: #88c671;*/
-/*    content: "\0056";*/
-/*}*/
-/*.problem:before {*/
-/*    color: #d33d44;*/
-/*    content: "\0057";*/
-/*}*/
-/*.cake-error {*/
-/*    padding: 10px;*/
-/*    margin: 10px 0;*/
-/*}*/
