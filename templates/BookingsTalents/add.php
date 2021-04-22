@@ -4,33 +4,11 @@
  * @var \App\Model\Entity\BookingsTalent $bookingsTalent
  */
 ?>
-<ul class="nav nav-tabs nav-fill">
-    <li class="nav-item">
-        <a class="nav-link" href="<?= $this->Url->build('/dashboard')?>">Dashboard</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="<?= $this->Url->build('/venues')?>">Venues</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link"  href="<?= $this->Url->build('/talents')?>">Talents</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="<?= $this->Url->build('/suppliers')?>">Suppliers</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="<?= $this->Url->build('/customers')?>">Customers</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="<?= $this->Url->build('/bookings')?>">Bookings</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="<?= $this->Url->build('/bookings-suppliers')?>">Bookings Suppliers</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link active font-weight-bold" href="<?= $this->Url->build('/bookings-talents')?>">Bookings Talents</a>
-    </li>
-</ul>
+<!-- Tabs -->
+<?php $page_name = $this->request->getparam("controller") ?>
+<?= $this->element('tabs/tab', ['page' => $page_name]) ?>
 <p></p>
+<!-- End of Tabs -->
 
 <h1 class="h3 mb-2 text-gray-800"><?= __('New Bookings Talent') ?></h1>
 

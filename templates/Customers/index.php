@@ -9,34 +9,11 @@ echo $this -> Html->script("/vendor/datatables/jquery.dataTables.min.js",['block
 echo $this -> Html->script("/vendor/datatables/dataTables.bootstrap4.min.js",['block'=>true]);
 echo $this -> Html->script("/js/demo/datatables-demo.js",['block'=>true]);
 ?>
-<ul class="nav nav-tabs nav-fill">
-    <li class="nav-item">
-        <a class="nav-link" href="<?= $this->Url->build('/dashboard')?>">Dashboard</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="<?= $this->Url->build('/venues')?>">Venues</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link"  href="<?= $this->Url->build('/talents')?>">Talents</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="<?= $this->Url->build('/suppliers')?>">Suppliers</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link active font-weight-bold" href="<?= $this->Url->build('/customers')?>">Customers</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="<?= $this->Url->build('/bookings')?>">Bookings</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="<?= $this->Url->build('/bookings-suppliers')?>">Bookings Suppliers</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="<?= $this->Url->build('/bookings-talents')?>">Bookings Talents</a>
-    </li>
-</ul>
+<!-- Tabs -->
+<?php $page_name = $this->request->getparam("controller") ?>
+<?= $this->element('tabs/tab', ['page' => $page_name]) ?>
 <p></p>
-
+<!-- End of Tabs -->
 
 <div>
     <div class="mb-3 d-sm-flex align-items-center justify-content-between mb-4">

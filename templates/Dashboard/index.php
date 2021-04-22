@@ -1,13 +1,10 @@
 <?php
 
-
-
 ?>
-<?= $this->element('tabs/tab') ?>
-
-<head>
-
-</head>
+<!-- Tabs -->
+<?php $page_name = $this->request->getparam("controller") ?>
+<?= $this->element('tabs/tab', ['page' => $page_name]) ?>
+<!-- End of Tabs -->
 
 <!-- Begin Page Content -->
 <div class="container-fluid">
