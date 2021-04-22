@@ -1,5 +1,5 @@
 <?php
-
+echo $this -> Html->css("pagetitle.css",['block'=>true]);
 ?>
 <div class="container">
 <h3><?= __('Frequently Asked Questions') ?></h3>
