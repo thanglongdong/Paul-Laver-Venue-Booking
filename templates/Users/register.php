@@ -1,16 +1,1 @@
-<!-- templates/Users/register.php -->
-
-<div class="users form">
-<?= $this->Form->create($user) ?>
-    <fieldset>
-        <legend><?= __('Register') ?></legend>
-        <?= $this->Form->control('email') ?>
-        <?= $this->Form->control('password') ?>
-        <?= $this->Form->control('role', [
-            'options' => ['admin' => 'Admin', 'customer' => 'Customer','talent' => 'Talent','supplier' => 'Supplier']
-        ]) ?>
-   </fieldset>
-<?= $this->Form->button(__('Submit')); ?>
-<?= $this->Form->end() ?>
-</div>
 

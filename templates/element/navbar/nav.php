@@ -17,8 +17,9 @@
             </ul>
 
             <div class="d-flex col-md-3 text-end">
-                <button type="button" style= "margin-right:10px" class="btn btn-outline-primary me-2">Login</button>
-                <button type="button" class="btn btn-primary">Sign-up</button>
+                <a href="<?= $this->Url->build(['controller'=>'users','action'=>'login'])?>" style="margin-right:10px" class="btn btn-outline-primary me-2">Login</a>
+                <a href="<?= $this->Url->build(['controller'=>'users','action'=>'register'])?>" style="margin-right:10px" class="btn btn-primary me-2">Sign-up</a>
+                <a href="<?= $this->Url->build(['controller'=>'users','action'=>'logout'])?>" class="btn btn-primary me-2">Logout</a>
             </div>
         </header>
     </div>

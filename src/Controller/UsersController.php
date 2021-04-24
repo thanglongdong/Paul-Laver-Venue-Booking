@@ -6,6 +6,7 @@ use Cake\Event\EventInterface;
 
 class UsersController extends AppController
 {
+
     public function index()
     {
         $this->set('users', $this->Users->find()->all());
@@ -41,18 +42,36 @@ class UsersController extends AppController
         
     }
 
+     // redirect to /dashboard if this is an admin account and redirect should be fixed later--better to redirect to the page where they are 
     public function login()
     {
         $this->request->allowMethod(['get', 'post']);
         $result = $this->Authentication->getResult();
-        // regardless of POST or GET, redirect if user is logged in
+        
         if ($result->isValid()) {
-            // redirect to /articles after login success
+            
+            // $user = $this->Users->find()->firstOrFail();
+
+            // if($user['role']=='admin'){
+            //     $this->Auth->setUser($user);
+            //     $redirect = $this->request->getQuery('redirect', [
+            //         'controller' => 'dashboard',
+            //         'action' => 'index',
+            //     ]);
+            // }
+            // elseif($user['role']=='customer'){
+
+            //     $this->Auth->setUser($user);
+            //     $redirect = $this->request->getQuery('redirect', [
+            //         'controller' => 'dashboard',
+            //         'action' => 'index',
+            //     ]);
+            //     }
+            //more elseif condition for talents/suppliers should be added below 
             $redirect = $this->request->getQuery('redirect', [
-                'controller' => 'Customers',
+                'controller' => 'dashboard',
                 'action' => 'index',
             ]);
-
             return $this->redirect($redirect);
         }
         // display error if user submitted and authentication failed
@@ -66,8 +85,9 @@ class UsersController extends AppController
         $result = $this->Authentication->getResult();
         // regardless of POST or GET, redirect if user is logged in
         if ($result->isValid()) {
+            $this->Flash->success('You are now logged out.');
             $this->Authentication->logout();
-            return $this->redirect(['controller' => 'Users', 'action' => 'login']);
+            return $this->redirect('/');
         }
     }
 
