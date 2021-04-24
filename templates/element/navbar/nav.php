@@ -1,4 +1,8 @@
 <?php
+$this->loadHelper('Authentication.Identity');
+$loggedin = $this->Identity->isLoggedIn();
+$role = $this->Identity->get('role');
+$email = $this->Identity->get('email');
 ?>
 
 <nav>
@@ -17,9 +21,21 @@
             </ul>
 
             <div class="d-flex col-md-3 text-end">
+                <?php if($loggedin) : ?>
+                <a href="<?= $this->Url->build(['controller'=>'users','action'=>'logout'])?>" class="btn btn-primary me-2">Logout</a>
+                    <!-- Nested if -- if role == admin, then we want a dropdown user to have admin dashboard -->
+                    <?php if($role == 'admin') : ?>
+                    <a href="<?= $this->Url->build(['controller'=>'dashboard','action'=>'index'])?>" class="btn btn-primary me-2">Dashboard</a>
+                    <!-- Nested elseif -- if role == talent, then we want a dropdown user to have talent dashboard -->
+                    <!-- Nested elseif -- if role == supplier, then we want a dropdown user to have supplier dashboard -->
+                    <?php endif; ?>
+
+                 <!--$role = $this->Identity->get('email'); ?> output current email (debugging)-->
+
+                <?php else : ?>
                 <a href="<?= $this->Url->build(['controller'=>'users','action'=>'login'])?>" style="margin-right:10px" class="btn btn-outline-primary me-2">Login</a>
                 <a href="<?= $this->Url->build(['controller'=>'users','action'=>'register'])?>" style="margin-right:10px" class="btn btn-primary me-2">Sign-up</a>
-                <a href="<?= $this->Url->build(['controller'=>'users','action'=>'logout'])?>" class="btn btn-primary me-2">Logout</a>
+                <?php endif; ?>
             </div>
         </header>
     </div>

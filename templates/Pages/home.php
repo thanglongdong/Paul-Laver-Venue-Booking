@@ -1,4 +1,11 @@
 <?php
+
+//debug($this->user('id'));
+//debug($this->loadHelper('Authentication.Identity'));
+//debug($this->request->getAttribute(\Authentication\Identity\data::$role));
+//$loggedin = $this->Identity->isLoggedIn();
+
+//debug($this->Identity->isLoggedIn());
 /**
  * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)

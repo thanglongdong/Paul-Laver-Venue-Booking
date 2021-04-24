@@ -25,7 +25,11 @@ class UsersController extends AppController
             $user = $this->Users->patchEntity($user, $this->request->getData());
             if ($this->Users->save($user)) {
                 $this->Flash->success(__('The user has been saved.'));
-                return $this->redirect(['action' => 'register']);
+                $this->Authentication->setIdentity($user); //As we have just registered as a user, we can login using those credentials
+                return $this->redirect('/');
+                //return $this->redirect(['action' => 'register']);
+                //return $this->redirect($this->referer()); //want to redirect to page before we clicked sign up
+                //return $this->redirect('/');
             }
             $this->Flash->error(__('Unable to register the user.'));
         }
@@ -39,17 +43,17 @@ class UsersController extends AppController
         // the infinite redirect loop issue
 
         //$this->Authentication->addUnauthenticatedActions(['login']);
-        
+
     }
 
-     // redirect to /dashboard if this is an admin account and redirect should be fixed later--better to redirect to the page where they are 
+     // redirect to /dashboard if this is an admin account and redirect should be fixed later--better to redirect to the page where they are
     public function login()
     {
         $this->request->allowMethod(['get', 'post']);
         $result = $this->Authentication->getResult();
-        
+
         if ($result->isValid()) {
-            
+
             // $user = $this->Users->find()->firstOrFail();
 
             // if($user['role']=='admin'){
@@ -67,12 +71,14 @@ class UsersController extends AppController
             //         'action' => 'index',
             //     ]);
             //     }
-            //more elseif condition for talents/suppliers should be added below 
-            $redirect = $this->request->getQuery('redirect', [
-                'controller' => 'dashboard',
-                'action' => 'index',
-            ]);
-            return $this->redirect($redirect);
+            //more elseif condition for talents/suppliers should be added below
+            //$redirect = $this->request->getQuery('redirect', [
+            //   'controller' => 'pages',
+            //   'action' => 'home',
+            //]);
+            //return $this->redirect($redirect);
+            return $this->redirect('/');
+            //return $this->redirect($this->referer()); //want to redirect to page before we clicked log in
         }
         // display error if user submitted and authentication failed
         if ($this->request->is('post') && !$result->isValid()) {
