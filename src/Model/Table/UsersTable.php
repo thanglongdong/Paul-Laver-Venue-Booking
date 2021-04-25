@@ -11,11 +11,13 @@ class UsersTable extends Table
         return $validator
             ->notEmpty('email', 'An email is required')
             ->email('email')
+
             ->notEmpty('password', 'A password is required')
             ->add('password', 'length', [
                 'rule' => ['lengthBetween', 8,100],
                 'message' => 'A password must be at least 8 characters'
             ])
+
             ->add('role', 'inList', [
                 'rule' => ['inList', ['admin', 'customer','talent','supplier']],
                 'message' => 'Please enter a valid role'

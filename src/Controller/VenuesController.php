@@ -102,4 +102,9 @@ class VenuesController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
+    public function search($location, $date, $numberOfPeople)
+    {
+        //some code
+    }
 }

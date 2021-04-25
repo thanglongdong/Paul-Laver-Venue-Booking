@@ -71,7 +71,7 @@ class SuppliersTable extends Table
         $validator
             ->integer('phone')
             ->add('phone', 'length', [
-                'rule' => ['lengthBetween', 10,10],
+                'rule' => ['lengthBetween', 10,11],
                 'message' => 'Please enter a valid phone number.'
             ])
             ->requirePresence('phone', 'create')

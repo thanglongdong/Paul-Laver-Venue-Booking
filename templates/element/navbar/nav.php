@@ -20,23 +20,50 @@ $email = $this->Identity->get('email');
                 <li><a href="<?= $this->Url->build('/about')?>" class="nav-link px-2 link-dark">About</a></li>
             </ul>
 
-            <div class="d-flex col-md-3 text-end">
+            <div class="d-flex col-md-3 text-end ">
                 <?php if($loggedin) : ?>
-                <a href="<?= $this->Url->build(['controller'=>'users','action'=>'logout'])?>" style="margin-right:10px" class="btn btn-primary me-2">Logout</a>
-                    <!-- Nested if -- if role == admin, then we want a dropdown user to have admin dashboard -->
-                    <?php if($role == 'admin') : ?>
-                    <a href="<?= $this->Url->build(['controller'=>'dashboard','action'=>'index'])?>" class="btn btn-primary me-2">Dashboard</a>
-                    <!-- Nested elseif -- if role == talent, then we want a dropdown user to have talent dashboard -->
-                    <!-- Nested elseif -- if role == supplier, then we want a dropdown user to have supplier dashboard -->
-                    <?php endif; ?>
+                    <!-- User Information -->
+                    <li class="navbar-nav nav-item dropdown no-arrow">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="mr-2 d-none d-lg-inline nav-link px-2 link-dark">User Name</span>
+                            <?=$this->Html->image('blankuser.png', ["alt" => "UserImage","class"=>"img-profile rounded-circle","style"=>"width:30px;height:30px"]);?>
+                        </a>
+                        <!-- Dropdown - User Information -->
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                             aria-labelledby="userDropdown">
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Profile
+                            </a>
+                            <!-- Nested if -- if role == admin, then we want a dropdown user to have admin dashboard -->
+                            <?php if($role == 'admin') : ?>
+                                <a class="dropdown-item" href="<?= $this->Url->build(['controller'=>'dashboard','action'=>'index'])?>">
+                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Admin Dashboard
+                                </a>
+                            <?php endif; ?>
+                            <!-- Nested elseif -- if role == talent, then we want a dropdown user to have talent dashboard -->
+                            <!-- Nested elseif -- if role == supplier, then we want a dropdown user to have supplier dashboard -->
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="<?= $this->Url->build(['controller'=>'users','action'=>'logout'])?>" >
+                                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Logout
+                            </a>
+                        </div>
+                    </li>
 
-                 <!--$role = $this->Identity->get('email'); ?> output current email (debugging)-->
-
-                <?php else : ?>
-                <a href="<?= $this->Url->build(['controller'=>'users','action'=>'login'])?>" style="margin-right:10px" class="btn btn-outline-primary me-2">Login</a>
-                <a href="<?= $this->Url->build(['controller'=>'users','action'=>'register'])?>" style="margin-right:10px" class="btn btn-primary me-2">Sign-up</a>
+                <?php else : ?> <!-- else, if user not logged in -->
+                    <a href="<?= $this->Url->build(['controller'=>'users','action'=>'login'])?>" style="margin-right:10px" class="btn btn-outline-primary me-2">Login</a>
+                    <a href="<?= $this->Url->build(['controller'=>'users','action'=>'register'])?>" style="margin-right:10px" class="btn btn-primary me-2">Sign-up</a>
                 <?php endif; ?>
+
+
+
+
             </div>
+
+
         </header>
     </div>
 </nav>

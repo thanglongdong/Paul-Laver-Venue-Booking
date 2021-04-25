@@ -27,6 +27,7 @@ use Cake\Validation\Validator;
  * @method \App\Model\Entity\Venue[]|\Cake\Datasource\ResultSetInterface|false deleteMany(iterable $entities, $options = [])
  * @method \App\Model\Entity\Venue[]|\Cake\Datasource\ResultSetInterface deleteManyOrFail(iterable $entities, $options = [])
  */
+
 class VenuesTable extends Table
 {
     /**
@@ -87,9 +88,11 @@ class VenuesTable extends Table
             ]);
 
         $validator
-            ->scalar('postcode')
-            ->maxLength('postcode', 4)
-            ->minLength('postcode', 4)
+            ->integer('postcode')
+            ->add('postcode', 'length', [
+                'rule' => ['lengthBetween', 4,4],
+                'message' => 'Postcode must be 4 characters in length.'
+            ])
             ->requirePresence('postcode', 'create')
             ->notEmptyString('postcode');
 
@@ -105,7 +108,7 @@ class VenuesTable extends Table
         $validator
             ->integer('phone')
             ->add('phone', 'length', [
-                'rule' => ['lengthBetween', 10,10],
+                'rule' => ['lengthBetween', 10,11],
                 'message' => 'Please enter a valid phone number.'
             ])
             ->requirePresence('phone', 'create')

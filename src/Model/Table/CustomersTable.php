@@ -75,7 +75,7 @@ class CustomersTable extends Table
         $validator
             ->scalar('mobile')
             ->add('phone', 'length', [
-                'rule' => ['lengthBetween', 10,10],
+                'rule' => ['lengthBetween', 10,11],
                 'message' => 'Please enter a valid phone number.'
             ])
             ->requirePresence('mobile', 'create')

@@ -25,6 +25,7 @@ use Cake\Core\Configure;
 use Cake\Core\Plugin;
 use Cake\Datasource\ConnectionManager;
 use Cake\Error\Debugger;
+use Cake\ORM\Locator\LocatorAwareTrait;
 use Cake\Http\Exception\NotFoundException;
 
 $this->disableAutoLayout();
@@ -37,6 +38,11 @@ endif;
 
 $cakeDescription = 'CakePHP: the rapid development PHP framework';
 echo $this -> Html->css("home.css",['block'=>true]);
+
+//$dsn = 'mysql://root:password@localhost/my_database';
+//ConnectionManager::setConfig('default', ['url' => $dsn]);
+
+//debug($venues->find()->where(['id' => 1]));
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -92,10 +98,10 @@ echo $this -> Html->css("home.css",['block'=>true]);
                         <div class="col-lg-12">
                             <div class="d-flex">
                                 <div class="col-lg-3 col-md-3 col-sm-12 p-0" style="margin-right:10px">
-                                    <input type="location"  class="form-control search-slt" placeholder="Location">
+                                    <input type="location"  class="form-control search-slt" placeholder="Location" id="location">
                                 </div>
                                 <div class="col-lg-3 col-md-3 col-sm-12 p-0" style="margin-right:10px">
-                                    <input type="date" class="form-control search-slt" placeholder="Date">
+                                    <input type="date" class="form-control search-slt" placeholder="Date" id="date">
                                 </div>
                                 <div class="col-lg-3 col-md-3 col-sm-12 p-0" style="margin-right:10px">
                                     <select class="form-control search-slt"  id="numOfPeople">
@@ -110,6 +116,7 @@ echo $this -> Html->css("home.css",['block'=>true]);
                                     <!-- making button type search/submit throws an error as no action performed yet -->
                                     <!-- jessie: I just make the type 'button' so that there is no error for integrity testing (for iteration 1 only) -->
                                     <button type="button" class="btn btn-lg-3 btn-md-3 btn-sm-12 btn-block btn-primary">Search</button>
+                                    <!-- use search() function here-->
                                 </div>
                             </div>
                         </div>
@@ -125,7 +132,7 @@ echo $this -> Html->css("home.css",['block'=>true]);
         <?= $this->Flash->render() ?>
         <?= $this->fetch('content') ?>
         <!-- Icons Grid NOT ANYMORE -->
-        <section class="features-icons bg-light text-center">
+        <section class="features-icons text-center"> <!-- no longer bg-light-->
             <!-- Page Content -->
             <div class="container">
                 <h3 class="text-muted mb-3 text-left">Featured Venues</h3>
@@ -192,7 +199,7 @@ echo $this -> Html->css("home.css",['block'=>true]);
 
 
         <!-- Testimonials -->
-        <section class="testimonials text-center bg-light">
+        <section class="testimonials text-center"> <!-- no longer bg-light-->
             <div class="container">
                 <h2 class="mb-5">What people are saying...</h2>
                 <div class="row">
