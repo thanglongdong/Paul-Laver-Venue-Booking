@@ -22,7 +22,7 @@ $email = $this->Identity->get('email');
 
             <div class="d-flex col-md-3 text-end">
                 <?php if($loggedin) : ?>
-                <a href="<?= $this->Url->build(['controller'=>'users','action'=>'logout'])?>" class="btn btn-primary me-2">Logout</a>
+                <a href="<?= $this->Url->build(['controller'=>'users','action'=>'logout'])?>" style="margin-right:10px" class="btn btn-primary me-2">Logout</a>
                     <!-- Nested if -- if role == admin, then we want a dropdown user to have admin dashboard -->
                     <?php if($role == 'admin') : ?>
                     <a href="<?= $this->Url->build(['controller'=>'dashboard','action'=>'index'])?>" class="btn btn-primary me-2">Dashboard</a>

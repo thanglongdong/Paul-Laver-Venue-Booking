@@ -63,14 +63,17 @@ class TalentsTable extends Table
             ->allowEmptyString('id', null, 'create');
 
         $validator
-            ->scalar('name')
+            ->ascii('name')
             ->maxLength('name', 64)
             ->requirePresence('name', 'create')
             ->notEmptyString('name');
 
         $validator
-            ->scalar('phone')
-            ->maxLength('phone', 10)
+            ->integer('phone')
+            ->add('phone', 'length', [
+                'rule' => ['lengthBetween', 10,10],
+                'message' => 'Please enter a valid phone number.'
+            ])
             ->requirePresence('phone', 'create')
             ->notEmptyString('phone');
 

@@ -97,7 +97,11 @@ class BookingsTable extends Table
 
         $validator
             ->integer('no_of_people')
-            ->allowEmptyString('no_of_people');
+            ->allowEmptyString('no_of_people')
+            ->add('no_of_people', 'range', [
+                'rule' => ['range',1,5000],
+                'message' => 'Please enter a valid number.'
+            ]);
 
         return $validator;
     }

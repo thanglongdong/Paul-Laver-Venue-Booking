@@ -61,7 +61,7 @@ class VenuesTable extends Table
             ->allowEmptyString('id', null, 'create');
 
         $validator
-            ->scalar('name')
+            ->asciiAlphaNumeric('name')
             ->maxLength('name', 64)
             ->requirePresence('name', 'create')
             ->notEmptyString('name');
@@ -73,31 +73,41 @@ class VenuesTable extends Table
             ->notEmptyString('street_address');
 
         $validator
-            ->scalar('suburb')
+            ->ascii('suburb')
             ->maxLength('suburb', 64)
             ->requirePresence('suburb', 'create')
             ->notEmptyString('suburb');
 
         $validator
-            ->scalar('state')
-            ->maxLength('state', 64)
             ->requirePresence('state', 'create')
-            ->notEmptyString('state');
+            ->notEmptyString('state')
+            ->add('state', 'inList', [
+                'rule' => ['inList', ['ACT', 'NSW','NT','QLD','SA','TAS','VIC','WA']],
+                'message' => 'Please enter a valid state,e.g.VIC,NSW..'
+            ]);
 
         $validator
             ->scalar('postcode')
             ->maxLength('postcode', 4)
+            ->minLength('postcode', 4)
             ->requirePresence('postcode', 'create')
             ->notEmptyString('postcode');
 
         $validator
             ->integer('capacity')
             ->requirePresence('capacity', 'create')
-            ->notEmptyString('capacity');
+            ->notEmptyString('capacity')
+            ->add('capacity', 'range', [
+                'rule' => ['range',1,5000],
+                'message' => 'Please enter a valid number.'
+            ]);
 
         $validator
-            ->scalar('phone')
-            ->maxLength('phone', 10)
+            ->integer('phone')
+            ->add('phone', 'length', [
+                'rule' => ['lengthBetween', 10,10],
+                'message' => 'Please enter a valid phone number.'
+            ])
             ->requirePresence('phone', 'create')
             ->notEmptyString('phone');
 
