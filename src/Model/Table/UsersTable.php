@@ -9,10 +9,10 @@ class UsersTable extends Table
     public function validationDefault(Validator $validator): Validator
     {
         return $validator
-            ->notEmpty('email', 'An email is required')
+            ->notEmptyString('email', 'An email is required')
             ->email('email')
 
-            ->notEmpty('password', 'A password is required')
+            ->notEmptyString('password', 'A password is required')
             ->add('password', 'length', [
                 'rule' => ['lengthBetween', 8,100],
                 'message' => 'A password must be at least 8 characters'
