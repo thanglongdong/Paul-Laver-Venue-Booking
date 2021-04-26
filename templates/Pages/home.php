@@ -214,7 +214,7 @@ echo $this -> Html->css("home.css",['block'=>true]);
                         <div class="testimonial-item mx-auto mb-5 mb-lg-0">
                             <img class="img-fluid rounded-circle mb-3" src="img/testimonials-2.jpg" alt="">
                             <h5>Fred S.</h5>
-                            <p class="font-weight-light mb-0">"Venue Virtual is amazing. I've been using it as an event manager at my work and it has never failed me."</p>
+                            <p class="font-weight-light mb-0">"Paul Laver Entertainment is amazing. I've been using it as an event manager at my work and it has never failed me."</p>
                         </div>
                     </div>
                     <div class="col-lg-4">
