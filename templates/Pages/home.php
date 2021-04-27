@@ -148,7 +148,7 @@ echo $this -> Html->css("home.css",['block'=>true]);
                                 <p class="card-text">Text that adequately describes the best parts of the venue and shows a reason for people to book here.</p>
                             </div>
                             <div class="card-footer">
-                                <a class="btn btn-primary">Find Out More!</a>
+                                <a href= "<?= $this->Url->build('/venues/profile/1')?>" class="btn btn-primary">Find Out More!</a>
                             </div>
                         </div>
                     </div>
@@ -161,7 +161,7 @@ echo $this -> Html->css("home.css",['block'=>true]);
                                 <p class="card-text">Text that adequately describes the best parts of the venue and shows a reason for people to book here.</p>
                             </div>
                             <div class="card-footer">
-                                <a class="btn btn-primary">Find Out More!</a>
+                                <a href= "<?= $this->Url->build('/venues/profile/2')?>" class="btn btn-primary">Find Out More!</a>
                             </div>
                         </div>
                     </div>
@@ -174,7 +174,7 @@ echo $this -> Html->css("home.css",['block'=>true]);
                                 <p class="card-text">Text that adequately describes the best parts of the venue and shows a reason for people to book here.</p>
                             </div>
                             <div class="card-footer">
-                                <a class="btn btn-primary">Find Out More!</a>
+                                <a href= "<?= $this->Url->build('/venues/profile/3')?>" class="btn btn-primary">Find Out More!</a>
                             </div>
                         </div>
                     </div>
@@ -187,7 +187,7 @@ echo $this -> Html->css("home.css",['block'=>true]);
                                 <p class="card-text">Text that adequately describes the best parts of the venue and shows a reason for people to book here.</p>
                             </div>
                             <div class="card-footer">
-                                <a class="btn btn-primary">Find Out More!</a>
+                                <a href= "<?= $this->Url->build('/venues/profile/4')?>" class="btn btn-primary">Find Out More!</a>
                             </div>
                         </div>
                     </div>
