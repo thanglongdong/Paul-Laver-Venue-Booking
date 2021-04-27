@@ -80,24 +80,24 @@ class BookingsTable extends Table
 
         $validator
             ->date('date')
-            ->allowEmptyDate('date');
+            ->notEmptyDate('date','Please select a date.');
 
         $validator
             ->dateTime('start_time')
-            ->allowEmptyDateTime('start_time');
+            ->notEmptyDateTime('start_time','Please select a start time.');
 
         $validator
             ->dateTime('end_time')
-            ->allowEmptyDateTime('end_time');
+            ->notEmptyDateTime('end_time','Please select an end time.');
 
         $validator
             ->scalar('event_type')
             ->maxLength('event_type', 64)
-            ->allowEmptyString('event_type');
+            ->notEmptyString('event_type','Please select an event type.');
 
         $validator
             ->integer('no_of_people')
-            ->allowEmptyString('no_of_people')
+            ->notEmptyString('no_of_people','Please provide a number.')
             ->add('no_of_people', 'range', [
                 'rule' => ['range',1,5000],
                 'message' => 'Please enter a valid number.'

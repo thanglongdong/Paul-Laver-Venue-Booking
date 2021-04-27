@@ -37,7 +37,7 @@ echo $this -> Html->css("login.css",['block'=>true]);
                                         <input type="checkbox" class="custom-control-input" id="customCheck1">
                                         <label class="custom-control-label" for="customCheck1">Remember password</label>
                                     </div>
-                                    <?= $this->Form->submit(__('Login'), ['class'=>'btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2']); ?>
+                                    <?= $this->Form->submit(__('Login'), ['class'=>'btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2','formnovalidate' => true]); ?>
                                     <div class="text-center">
                                         <a class="small" href="#">Forgot password?</a></div>
                                     <?= $this->Html->link("Don't have an account?", ['action' => 'register']) ?>

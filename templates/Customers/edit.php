@@ -12,7 +12,7 @@
 
 <h1 class="h3 mb-2 text-gray-800"><?= __('Edit Customer') ?></h1>
 
-<?= $this->Form->create($customer) ?>
+<?= $this->Form->create($customer,['novalidate' => true]) ?>
     <?php
         echo $this->Form->control('first_name');
         echo $this->Form->control('last_name');

@@ -12,12 +12,14 @@
 
 <h1 class="h3 mb-2 text-gray-800"><?= __('New Venue') ?></h1>
 
-<?= $this->Form->create($venue) ?>
+<?= $this->Form->create($venue,['novalidate' => true]) ?>
     <?php
     echo $this->Form->control('name');
     echo $this->Form->control('street_address');
     echo $this->Form->control('suburb');
-    echo $this->Form->control('state');
+    echo $this->Form->control('state', [
+        'options' => ['ACT'=>'ACT','NSW'=>'NSW','NT'=>'NT','QLD'=>'QLD','SA'=>'SA','TAS'=>'TAS','VIC'=>'VIC','WA'=>'WA']
+    ]);
     echo $this->Form->control('postcode');
     echo $this->Form->control('capacity');
     echo $this->Form->control('phone');

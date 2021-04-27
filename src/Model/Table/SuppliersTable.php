@@ -63,24 +63,24 @@ class SuppliersTable extends Table
             ->allowEmptyString('id', null, 'create');
 
         $validator
-            ->ascii('name')
+            ->scalar('name')
             ->maxLength('name', 64)
             ->requirePresence('name', 'create')
-            ->notEmptyString('name');
+            ->notEmptyString('name','Please provide a name.');
 
         $validator
-            ->integer('phone')
+            ->numeric('phone')
             ->add('phone', 'length', [
                 'rule' => ['lengthBetween', 10,11],
-                'message' => 'Please enter a valid phone number.'
+                'message' => 'Please enter a 10-digit phone number.'
             ])
             ->requirePresence('phone', 'create')
-            ->notEmptyString('phone');
+            ->notEmptyString('phone','Please provide a phone number.');
 
         $validator
             ->email('email')
             ->requirePresence('email', 'create')
-            ->notEmptyString('email');
+            ->notEmptyString('email','Please provide an email.');
 
         return $validator;
     }

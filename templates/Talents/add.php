@@ -12,12 +12,14 @@
 
 <h1 class="h3 mb-2 text-gray-800"><?= __('New Talent') ?></h1>
 
-<?= $this->Form->create($talent) ?>
+<?= $this->Form->create($talent,['novalidate' => true]) ?>
     <?php
         echo $this->Form->control('name');
         echo $this->Form->control('phone');
         echo $this->Form->control('email');
-        echo $this->Form->control('genre');
+        echo $this->Form->control('genre', [
+            'options' => ['Singer'=>'Singer','Dancer'=>'Dancer','Clown'=>'Clown','Magician'=>'Magician']
+        ]);
         echo $this->Form->control('bookings._ids', ['options' => $bookings]);
     ?>
 <br </br>

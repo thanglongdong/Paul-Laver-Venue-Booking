@@ -12,7 +12,7 @@
 
 <h1 class="h3 mb-2 text-gray-800"><?= __('Edit Supplier') ?></h1>
 
-<?= $this->Form->create($supplier) ?>
+<?= $this->Form->create($supplier,['novalidate' => true]) ?>
     <?php
         echo $this->Form->control('name');
         echo $this->Form->control('phone');

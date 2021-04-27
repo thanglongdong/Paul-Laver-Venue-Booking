@@ -12,7 +12,7 @@ echo $this -> Html->css("login.css",['block'=>true]);
                             <div class="col-md-9 col-lg-8 mx-auto">
                                 <h3 class="login-heading mb-4">Create an Account</h3>
                                 <?= $this->Flash->render() ?>
-                                <?= $this->Form->create($user) ?>
+                                <?= $this->Form->create($user,['novalidate' => true]) ?>
                                     <div class="form-label-group">
                                         <?= $this->Form->control('email', [
                                             'placeholder'=>'Email address',

@@ -64,32 +64,32 @@ class CustomersTable extends Table
             ->scalar('first_name')
             ->maxLength('first_name', 64)
             ->requirePresence('first_name', 'create')
-            ->notEmptyString('first_name');
+            ->notEmptyString('first_name','Please provide your first name.');
 
         $validator
             ->scalar('last_name')
             ->maxLength('last_name', 64)
             ->requirePresence('last_name', 'create')
-            ->notEmptyString('last_name');
+            ->notEmptyString('last_name','Please provide your last name.');
 
         $validator
-            ->scalar('mobile')
+            ->numeric('phone')
             ->add('phone', 'length', [
                 'rule' => ['lengthBetween', 10,11],
-                'message' => 'Please enter a valid phone number.'
+                'message' => 'Please enter a 10-digit mobile number.'
             ])
             ->requirePresence('mobile', 'create')
-            ->notEmptyString('mobile');
+            ->notEmptyString('mobile','Please provide a mobile number.');
 
         $validator
             ->scalar('address')
             ->requirePresence('address', 'create')
-            ->notEmptyString('address');
+            ->notEmptyString('address','Please provide an address.');
 
         $validator
             ->email('email')
             ->requirePresence('email', 'create')
-            ->notEmptyString('email');
+            ->notEmptyString('email','Please provide an email.');
 
         return $validator;
     }

@@ -31,7 +31,7 @@ class UsersController extends AppController
                 //return $this->redirect($this->referer()); //want to redirect to page before we clicked sign up
                 //return $this->redirect('/');
             }
-            $this->Flash->error(__('Unable to register the user.'));
+            // $this->Flash->error(__('Unable to register the user.'));
         }
         $this->set('user', $user);
     }

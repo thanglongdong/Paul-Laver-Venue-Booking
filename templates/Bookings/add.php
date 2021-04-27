@@ -12,12 +12,14 @@
 
 <h1 class="h3 mb-2 text-gray-800"><?= __('New Booking') ?></h1>
 
-<?= $this->Form->create($booking) ?>
+<?= $this->Form->create($booking,['novalidate' => true]) ?>
     <?php
         echo $this->Form->control('date', ['empty' => true]);
         echo $this->Form->control('start_time', ['empty' => true]);
         echo $this->Form->control('end_time', ['empty' => true]);
-        echo $this->Form->control('event_type');
+        echo $this->Form->control('event_type', [
+            'options' => ['Birthday'=>'Birthday','Wedding'=>'Wedding','Engagement Party'=>'Engagement Party','Meeting'=>'Meeting','Workshop'=>'Workshop','Others']
+        ]);
         echo $this->Form->control('no_of_people');
         echo $this->Form->control('venue_id', ['options' => $venues]);
         echo $this->Form->control('customer_id', ['options' => $customers]);

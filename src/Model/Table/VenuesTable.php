@@ -62,62 +62,58 @@ class VenuesTable extends Table
             ->allowEmptyString('id', null, 'create');
 
         $validator
-            ->asciiAlphaNumeric('name')
+            ->scalar('name')
             ->maxLength('name', 64)
             ->requirePresence('name', 'create')
-            ->notEmptyString('name');
+            ->notEmptyString('name','Please provide a name.');
 
         $validator
             ->scalar('street_address')
             ->maxLength('street_address', 64)
             ->requirePresence('street_address', 'create')
-            ->notEmptyString('street_address');
+            ->notEmptyString('street_address','Please provide an address.');
 
         $validator
-            ->ascii('suburb')
+            ->scalar('suburb')
             ->maxLength('suburb', 64)
             ->requirePresence('suburb', 'create')
-            ->notEmptyString('suburb');
+            ->notEmptyString('suburb','Please provide a suburb.');
 
         $validator
             ->requirePresence('state', 'create')
-            ->notEmptyString('state')
-            ->add('state', 'inList', [
-                'rule' => ['inList', ['ACT', 'NSW','NT','QLD','SA','TAS','VIC','WA']],
-                'message' => 'Please enter a valid state,e.g.VIC,NSW..'
-            ]);
+            ->notEmptyString('state','Please select a state.');
 
         $validator
-            ->integer('postcode')
             ->add('postcode', 'length', [
                 'rule' => ['lengthBetween', 4,4],
                 'message' => 'Postcode must be 4 characters in length.'
             ])
             ->requirePresence('postcode', 'create')
-            ->notEmptyString('postcode');
+            ->notEmptyString('postcode','Please provide a postcode.')
+            ->numeric('postcode','Postcode should be number');
 
         $validator
             ->integer('capacity')
             ->requirePresence('capacity', 'create')
-            ->notEmptyString('capacity')
+            ->notEmptyString('capacity','Please provide a capacity.')
             ->add('capacity', 'range', [
                 'rule' => ['range',1,5000],
                 'message' => 'Please enter a valid number.'
             ]);
 
         $validator
-            ->integer('phone')
+            ->numeric('phone')
             ->add('phone', 'length', [
                 'rule' => ['lengthBetween', 10,11],
-                'message' => 'Please enter a valid phone number.'
+                'message' => 'Please enter a 10-digit phone number.'
             ])
             ->requirePresence('phone', 'create')
-            ->notEmptyString('phone');
+            ->notEmptyString('phone','Please provide a phone number.');
 
         $validator
             ->email('email')
             ->requirePresence('email', 'create')
-            ->notEmptyString('email');
+            ->notEmptyString('email','Please provide an email.');
 
         return $validator;
     }
