@@ -25,8 +25,6 @@ echo $this -> Html->script("/js/demo/datatables-demo.js",['block'=>true]);
                     <th><?= h('id') ?></th>
                     <th><?= h('booking_id') ?></th>
                     <th><?= h('talent_id') ?></th>
-                    <th><?= h('perform_stime') ?></th>
-                    <th><?= h('perform_etime') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
             </thead>
@@ -36,8 +34,6 @@ echo $this -> Html->script("/js/demo/datatables-demo.js",['block'=>true]);
                     <td><?= $this->Number->format($bookingsTalent->id) ?></td>
                     <td><?= $bookingsTalent->has('booking') ? $this->Html->link($bookingsTalent->booking->id, ['controller' => 'Bookings', 'action' => 'view', $bookingsTalent->booking->id]) : '' ?></td>
                     <td><?= $bookingsTalent->has('talent') ? $this->Html->link($bookingsTalent->talent->name, ['controller' => 'Talents', 'action' => 'view', $bookingsTalent->talent->id]) : '' ?></td>
-                    <td><?= h($bookingsTalent->perform_stime) ?></td>
-                    <td><?= h($bookingsTalent->perform_etime) ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $bookingsTalent->id]) ?>
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $bookingsTalent->id]) ?>

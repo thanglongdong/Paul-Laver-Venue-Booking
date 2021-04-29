@@ -103,6 +103,14 @@ class BookingsTable extends Table
                 'message' => 'Please enter a valid number.'
             ]);
 
+        $validator
+            ->scalar('cost')
+            ->requirePresence('cost', 'create')
+            ->notEmptyString('cost')
+            ->add('cost', 'range', [
+                'rule' => ['range',1,5000],
+                'message' => 'Please enter a valid number.'
+            ]);
         return $validator;
     }
 

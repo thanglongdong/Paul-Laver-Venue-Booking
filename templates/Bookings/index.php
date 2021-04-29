@@ -32,6 +32,7 @@ echo $this -> Html->script("/js/demo/datatables-demo.js",['block'=>true]);
                     <th><?= h('no_of_people') ?></th>
                     <th><?= h('venue_id') ?></th>
                     <th><?= h('customer_id') ?></th>
+                    <th><?= h('cost') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
             </thead>
@@ -46,6 +47,7 @@ echo $this -> Html->script("/js/demo/datatables-demo.js",['block'=>true]);
                     <td><?= $this->Number->format($booking->no_of_people) ?></td>
                     <td><?= $booking->has('venue') ? $this->Html->link($booking->venue->name, ['controller' => 'Venues', 'action' => 'view', $booking->venue->id]) : '' ?></td>
                     <td><?= $booking->has('customer') ? $this->Html->link($booking->customer->id, ['controller' => 'Customers', 'action' => 'view', $booking->customer->id]) : '' ?></td>
+                    <td><?= h($booking->cost) ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $booking->id]) ?>
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $booking->id]) ?>

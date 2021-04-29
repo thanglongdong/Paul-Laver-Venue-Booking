@@ -20,6 +20,7 @@
         echo $this->Form->control('genre', [
             'options' => ['Singer'=>'Singer','Dancer'=>'Dancer','Clown'=>'Clown','Magician'=>'Magician']
         ]);
+        echo $this->Form->control('pph');
         echo $this->Form->control('bookings._ids', ['options' => $bookings]);
     ?>
 <br </br>

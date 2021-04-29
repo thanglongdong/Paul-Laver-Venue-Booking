@@ -30,6 +30,7 @@ echo $this -> Html->script("/js/demo/datatables-demo.js",['block'=>true]);
                     <th><?= h('phone') ?></th>
                     <th><?= h('email') ?></th>
                     <th><?= h('genre') ?></th>
+                    <th><?= h('pph') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
             </thead>
@@ -41,6 +42,7 @@ echo $this -> Html->script("/js/demo/datatables-demo.js",['block'=>true]);
                     <td><?= h($talent->phone) ?></td>
                     <td><?= h($talent->email) ?></td>
                     <td><?= h($talent->genre) ?></td>
+                    <td><?= h($talent->pph) ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $talent->id]) ?>
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $talent->id]) ?>

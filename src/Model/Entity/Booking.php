@@ -16,6 +16,7 @@ use Cake\ORM\Entity;
  * @property int|null $no_of_people
  * @property int $venue_id
  * @property int $customer_id
+ * @property float $cost
  *
  * @property \App\Model\Entity\Venue $venue
  * @property \App\Model\Entity\Customer $customer
@@ -41,6 +42,7 @@ class Booking extends Entity
         'no_of_people' => true,
         'venue_id' => true,
         'customer_id' => true,
+        'cost' => true,
         'venue' => true,
         'customer' => true,
         'suppliers' => true,

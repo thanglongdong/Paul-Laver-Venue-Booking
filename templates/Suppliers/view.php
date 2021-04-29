@@ -17,6 +17,7 @@
 echo $this->Form->control('name',['disabled']);
 echo $this->Form->control('phone',['disabled']);
 echo $this->Form->control('email',['disabled']);
+echo $this->Form->control('pph',['disabled']);
 ?>
 <br </br>
 <div>
@@ -41,6 +42,7 @@ echo $this->Form->control('email',['disabled']);
             <th><?= __('No Of People') ?></th>
             <th><?= __('Venue Id') ?></th>
             <th><?= __('Customer Id') ?></th>
+            <th><?= __('Cost') ?></th>
             <th class="actions"><?= __('Actions') ?></th>
         </tr>
         <?php foreach ($supplier->bookings as $bookings) : ?>
@@ -53,6 +55,7 @@ echo $this->Form->control('email',['disabled']);
             <td><?= h($bookings->no_of_people) ?></td>
             <td><?= h($bookings->venue_id) ?></td>
             <td><?= h($bookings->customer_id) ?></td>
+            <td><?= h($bookings->cost) ?></td>
             <td class="actions">
                 <?= $this->Html->link(__('View'), ['controller' => 'Bookings', 'action' => 'view', $bookings->id]) ?>
                 <?= $this->Html->link(__('Edit'), ['controller' => 'Bookings', 'action' => 'edit', $bookings->id]) ?>

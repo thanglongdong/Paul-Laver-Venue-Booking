@@ -16,8 +16,6 @@
     <?php
         echo $this->Form->control('booking_id', ['options' => $bookings, 'empty' => true]);
         echo $this->Form->control('talent_id', ['options' => $talents, 'empty' => true]);
-        echo $this->Form->control('perform_stime', ['empty' => true]);
-        echo $this->Form->control('perform_etime', ['empty' => true]);
     ?>
 <br </br>
 <div>

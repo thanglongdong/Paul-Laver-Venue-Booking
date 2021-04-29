@@ -11,7 +11,6 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property int|null $booking_id
  * @property int|null $supplier_id
- * @property string|null $role
  *
  * @property \App\Model\Entity\Booking $booking
  * @property \App\Model\Entity\Supplier $supplier
@@ -30,7 +29,6 @@ class BookingsSupplier extends Entity
     protected $_accessible = [
         'booking_id' => true,
         'supplier_id' => true,
-        'role' => true,
         'booking' => true,
         'supplier' => true,
     ];

@@ -64,11 +64,6 @@ class BookingsSuppliersTable extends Table
             ->integer('id')
             ->allowEmptyString('id', null, 'create');
 
-        $validator
-            ->scalar('role')
-            ->maxLength('role', 256)
-            ->allowEmptyString('role');
-
         return $validator;
     }
 

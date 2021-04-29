@@ -16,7 +16,6 @@
     <?php
         echo $this->Form->control('booking_id', ['options' => $bookings, 'empty' => true]);
         echo $this->Form->control('supplier_id', ['options' => $suppliers, 'empty' => true]);
-        echo $this->Form->control('role');
     ?>
 <br </br>
 <div>

@@ -20,20 +20,18 @@ class BookingsTalentsFixture extends TestFixture
         'id' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'autoIncrement' => true, 'precision' => null],
         'booking_id' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'talent_id' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
-        'perform_stime' => ['type' => 'datetime', 'length' => null, 'precision' => null, 'null' => true, 'default' => null, 'comment' => ''],
-        'perform_etime' => ['type' => 'datetime', 'length' => null, 'precision' => null, 'null' => true, 'default' => null, 'comment' => ''],
         '_indexes' => [
             'FK_BOOKINGS_TALENTS_BOOKINGS' => ['type' => 'index', 'columns' => ['booking_id'], 'length' => []],
             'FK_BOOKINGS_TALENTS_TALENTS' => ['type' => 'index', 'columns' => ['talent_id'], 'length' => []],
         ],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
-            'FK_BOOKINGS_TALENTS_TALENTS' => ['type' => 'foreign', 'columns' => ['talent_id'], 'references' => ['talents', 'id'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
-            'FK_BOOKINGS_TALENTS_BOOKINGS' => ['type' => 'foreign', 'columns' => ['booking_id'], 'references' => ['bookings', 'id'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
+            'FK_BOOKINGS_TALENTS_BOOKINGS' => ['type' => 'foreign', 'columns' => ['booking_id'], 'references' => ['bookings', 'id'], 'update' => 'noAction', 'delete' => 'noAction', 'length' => []],
+            'FK_BOOKINGS_TALENTS_TALENTS' => ['type' => 'foreign', 'columns' => ['talent_id'], 'references' => ['talents', 'id'], 'update' => 'noAction', 'delete' => 'noAction', 'length' => []],
         ],
         '_options' => [
             'engine' => 'InnoDB',
-            'collation' => 'latin1_swedish_ci'
+            'collation' => 'utf8mb4_0900_ai_ci'
         ],
     ];
     // phpcs:enable
@@ -49,8 +47,6 @@ class BookingsTalentsFixture extends TestFixture
                 'id' => 1,
                 'booking_id' => 1,
                 'talent_id' => 1,
-                'perform_stime' => '2021-04-13 15:11:55',
-                'perform_etime' => '2021-04-13 15:11:55',
             ],
         ];
         parent::init();

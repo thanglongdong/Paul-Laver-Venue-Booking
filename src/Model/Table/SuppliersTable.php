@@ -82,6 +82,16 @@ class SuppliersTable extends Table
             ->requirePresence('email', 'create')
             ->notEmptyString('email','Please provide an email.');
 
+        $validator
+            ->numeric('pph')
+            ->requirePresence('pph', 'create')
+            ->notEmptyString('pph')
+            ->add('pph', 'range', [
+                'rule' => ['range',1,5000],
+                'message' => 'Please enter a valid number.'
+            ]);
+
+
         return $validator;
     }
 }

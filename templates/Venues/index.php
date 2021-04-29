@@ -34,6 +34,9 @@ echo $this -> Html->script("/js/demo/datatables-demo.js",['block'=>true]);
                     <th><?= h('Capacity') ?></th>
                     <th><?= h('Phone') ?></th>
                     <th><?= h('Email') ?></th>
+                    <th><?= h('description') ?></th>
+                    <th><?= h('image') ?></th>
+                    <th><?= h('pph') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
             </thead>
@@ -49,6 +52,9 @@ echo $this -> Html->script("/js/demo/datatables-demo.js",['block'=>true]);
                     <td><?= $this->Number->format($venue->capacity) ?></td>
                     <td><?= h($venue->phone) ?></td>
                     <td><?= h($venue->email) ?></td>
+                    <td><?= h($venue->description) ?></td>
+                    <td><?= h($venue->image) ?></td>
+                    <td><?= h($venue->pph) ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $venue->id]) ?>
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $venue->id]) ?>

@@ -64,14 +64,6 @@ class BookingsTalentsTable extends Table
             ->integer('id')
             ->allowEmptyString('id', null, 'create');
 
-        $validator
-            ->dateTime('perform_stime')
-            ->allowEmptyDateTime('perform_stime');
-
-        $validator
-            ->dateTime('perform_etime')
-            ->allowEmptyDateTime('perform_etime');
-
         return $validator;
     }
 

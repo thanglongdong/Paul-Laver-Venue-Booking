@@ -19,6 +19,7 @@ echo $this->Form->control('start_time', ['empty' => true, 'disabled']);
 echo $this->Form->control('end_time', ['empty' => true, 'disabled']);
 echo $this->Form->control('event_type',['disabled']);
 echo $this->Form->control('no_of_people',['disabled']);
+echo $this->Form->control('cost',['disabled']);
 ?>
 <br </br>
 <div>
@@ -39,6 +40,7 @@ echo $this->Form->control('no_of_people',['disabled']);
             <th><?= __('Name') ?></th>
             <th><?= __('Phone') ?></th>
             <th><?= __('Email') ?></th>
+            <th><?= __('Price Per Hour') ?></th>
             <th class="actions"><?= __('Actions') ?></th>
         </tr>
         <?php foreach ($booking->suppliers as $suppliers) : ?>
@@ -47,6 +49,7 @@ echo $this->Form->control('no_of_people',['disabled']);
             <td><?= h($suppliers->name) ?></td>
             <td><?= h($suppliers->phone) ?></td>
             <td><?= h($suppliers->email) ?></td>
+            <td><?= h($suppliers->pph) ?></td>
             <td class="actions">
                 <?= $this->Html->link(__('View'), ['controller' => 'Suppliers', 'action' => 'view', $suppliers->id]) ?>
                 <?= $this->Html->link(__('Edit'), ['controller' => 'Suppliers', 'action' => 'edit', $suppliers->id]) ?>
@@ -70,6 +73,7 @@ echo $this->Form->control('no_of_people',['disabled']);
             <th><?= __('Phone') ?></th>
             <th><?= __('Email') ?></th>
             <th><?= __('Genre') ?></th>
+            <th><?= __('Price Per Hour') ?></th>
             <th class="actions"><?= __('Actions') ?></th>
         </tr>
         <?php foreach ($booking->talents as $talents) : ?>
@@ -79,6 +83,7 @@ echo $this->Form->control('no_of_people',['disabled']);
             <td><?= h($talents->phone) ?></td>
             <td><?= h($talents->email) ?></td>
             <td><?= h($talents->genre) ?></td>
+            <td><?= h($talents->pph) ?></td>
             <td class="actions">
                 <?= $this->Html->link(__('View'), ['controller' => 'Talents', 'action' => 'view', $talents->id]) ?>
                 <?= $this->Html->link(__('Edit'), ['controller' => 'Talents', 'action' => 'edit', $talents->id]) ?>

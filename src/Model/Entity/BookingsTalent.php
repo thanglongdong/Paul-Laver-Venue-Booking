@@ -11,8 +11,6 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property int|null $booking_id
  * @property int|null $talent_id
- * @property \Cake\I18n\FrozenTime|null $perform_stime
- * @property \Cake\I18n\FrozenTime|null $perform_etime
  *
  * @property \App\Model\Entity\Booking $booking
  * @property \App\Model\Entity\Talent $talent
@@ -31,8 +29,6 @@ class BookingsTalent extends Entity
     protected $_accessible = [
         'booking_id' => true,
         'talent_id' => true,
-        'perform_stime' => true,
-        'perform_etime' => true,
         'booking' => true,
         'talent' => true,
     ];

@@ -25,7 +25,6 @@ echo $this -> Html->script("/js/demo/datatables-demo.js",['block'=>true]);
                     <th><?= h('id') ?></th>
                     <th><?= h('booking_id') ?></th>
                     <th><?= h('supplier_id') ?></th>
-                    <th><?= h('role') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
             </thead>
@@ -35,7 +34,6 @@ echo $this -> Html->script("/js/demo/datatables-demo.js",['block'=>true]);
                     <td><?= $this->Number->format($bookingsSupplier->id) ?></td>
                     <td><?= $bookingsSupplier->has('booking') ? $this->Html->link($bookingsSupplier->booking->id, ['controller' => 'Bookings', 'action' => 'view', $bookingsSupplier->booking->id]) : '' ?></td>
                     <td><?= $bookingsSupplier->has('supplier') ? $this->Html->link($bookingsSupplier->supplier->name, ['controller' => 'Suppliers', 'action' => 'view', $bookingsSupplier->supplier->id]) : '' ?></td>
-                    <td><?= h($bookingsSupplier->role) ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $bookingsSupplier->id]) ?>
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $bookingsSupplier->id]) ?>

@@ -17,7 +17,6 @@
 <?php
 echo $this->Form->control('booking_id', ['options' => $bookings, 'empty' => true, 'disabled']);
 echo $this->Form->control('supplier_id', ['options' => $suppliers, 'empty' => true, 'disabled']);
-echo $this->Form->control('role',['disabled']);
 ?>
 <br </br>
 <div>

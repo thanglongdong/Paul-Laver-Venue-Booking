@@ -20,19 +20,18 @@ class BookingsSuppliersFixture extends TestFixture
         'id' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'autoIncrement' => true, 'precision' => null],
         'booking_id' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'supplier_id' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
-        'role' => ['type' => 'string', 'length' => 256, 'null' => true, 'default' => null, 'collate' => 'latin1_swedish_ci', 'comment' => '', 'precision' => null],
         '_indexes' => [
             'FK_BOOKINGS_SUPPLIERS_BOOKINGS' => ['type' => 'index', 'columns' => ['booking_id'], 'length' => []],
             'FK_BOOKINGS_SUPPLIERS_SUPPLIERS' => ['type' => 'index', 'columns' => ['supplier_id'], 'length' => []],
         ],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
-            'FK_BOOKINGS_SUPPLIERS_SUPPLIERS' => ['type' => 'foreign', 'columns' => ['supplier_id'], 'references' => ['suppliers', 'id'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
-            'FK_BOOKINGS_SUPPLIERS_BOOKINGS' => ['type' => 'foreign', 'columns' => ['booking_id'], 'references' => ['bookings', 'id'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
+            'FK_BOOKINGS_SUPPLIERS_BOOKINGS' => ['type' => 'foreign', 'columns' => ['booking_id'], 'references' => ['bookings', 'id'], 'update' => 'noAction', 'delete' => 'noAction', 'length' => []],
+            'FK_BOOKINGS_SUPPLIERS_SUPPLIERS' => ['type' => 'foreign', 'columns' => ['supplier_id'], 'references' => ['suppliers', 'id'], 'update' => 'noAction', 'delete' => 'noAction', 'length' => []],
         ],
         '_options' => [
             'engine' => 'InnoDB',
-            'collation' => 'latin1_swedish_ci'
+            'collation' => 'utf8mb4_0900_ai_ci'
         ],
     ];
     // phpcs:enable
@@ -48,7 +47,6 @@ class BookingsSuppliersFixture extends TestFixture
                 'id' => 1,
                 'booking_id' => 1,
                 'supplier_id' => 1,
-                'role' => 'Lorem ipsum dolor sit amet',
             ],
         ];
         parent::init();

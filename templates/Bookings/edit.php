@@ -25,6 +25,7 @@
         echo $this->Form->control('customer_id', ['options' => $customers]);
         echo $this->Form->control('suppliers._ids', ['options' => $suppliers]);
         echo $this->Form->control('talents._ids', ['options' => $talents]);
+        echo $this->Form->control('cost');
     ?>
 <br </br>
 <div>

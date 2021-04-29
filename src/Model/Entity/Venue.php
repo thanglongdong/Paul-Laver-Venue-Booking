@@ -17,6 +17,9 @@ use Cake\ORM\Entity;
  * @property int $capacity
  * @property string $phone
  * @property string $email
+ * @property string $description
+ * @property string $image
+ * @property float $pph
  *
  * @property \App\Model\Entity\Booking[] $bookings
  */
@@ -40,6 +43,9 @@ class Venue extends Entity
         'capacity' => true,
         'phone' => true,
         'email' => true,
+        'description' => true,
+        'image' => true,
+        'pph' => true,
         'bookings' => true,
     ];
 }

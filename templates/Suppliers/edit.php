@@ -17,6 +17,7 @@
         echo $this->Form->control('name');
         echo $this->Form->control('phone');
         echo $this->Form->control('email');
+        echo $this->Form->control('pph');
         echo $this->Form->control('bookings._ids', ['options' => $bookings]);
     ?>
 <br </br>
