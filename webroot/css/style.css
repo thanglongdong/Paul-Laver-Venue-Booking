@@ -16,6 +16,15 @@ a:hover {
 
 
 /* header     //////////////////////////////////////////////////////////////////////*/
+
+h3 {
+    font-size: 40px;
+    font-weight: 900;
+    text-align: center;
+    color: #158467;
+}
+
+
 header {
     color: black;
     background-color: #98dfb3;

@@ -169,7 +169,7 @@ echo $this -> Html->css("home.css",['block'=>true]);
 
                     <div class="col-lg-3 col-md-6 mb-4">
                         <div class="card h-100">
-                            <img class="card-img-top" src="http://placehold.it/500x325" alt="">
+                            <?=$this->Html->image('venue3.jpeg', ["class"=>'card-body',"alt" => "","style"=>"width:253px;height:164px"]);?>
                             <div class="card-body">
                                 <h4 class="card-title">Venue Name</h4>
                                 <p class="card-text">Text that adequately describes the best parts of the venue and shows a reason for people to book here.</p>
@@ -182,7 +182,7 @@ echo $this -> Html->css("home.css",['block'=>true]);
 
                     <div class="col-lg-3 col-md-6 mb-4">
                         <div class="card h-100">
-                            <img class="card-img-top" src="http://placehold.it/500x325" alt="">
+                            <?=$this->Html->image('venue4.jpeg', ["class"=>'card-body',"alt" => "","style"=>"width:253px;height:164px"]);?>
                             <div class="card-body">
                                 <h4 class="card-title">Venue Name</h4>
                                 <p class="card-text">Text that adequately describes the best parts of the venue and shows a reason for people to book here.</p>
