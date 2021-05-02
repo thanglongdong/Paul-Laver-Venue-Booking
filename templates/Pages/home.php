@@ -98,26 +98,46 @@ echo $this -> Html->css("home.css",['block'=>true]);
                         <div class="col-lg-12">
                             <div class="d-flex">
                                 <div class="col-lg-3 col-md-3 col-sm-12 p-0" style="margin-right:10px">
-                                    <input type="location"  class="form-control search-slt" placeholder="Location" id="location">
+                                    <?= $this->Form->create(); ?>
+                                    <?= $this->Form->control('Location', [
+                                        'label'=>false,
+                                        'class' => 'form-control search-slt',
+                                        'placeholder'=>'Location'
+                                    ]);
+                                    ?>
+                                    <?php $location = 'Location' ?>
                                 </div>
+
                                 <div class="col-lg-3 col-md-3 col-sm-12 p-0" style="margin-right:10px">
-                                    <input type="date" class="form-control search-slt" placeholder="Date" id="date">
+                                    <?= $this->Form->control('Date', [
+                                        'label'=>false,
+                                        'class' => 'form-control search-slt',
+                                        'placeholder'=>'Date',
+                                        'type'=>'date'
+                                    ]); ?>
+                                    <?php $date = 'Date' ?>
                                 </div>
+
                                 <div class="col-lg-3 col-md-3 col-sm-12 p-0" style="margin-right:10px">
-                                    <select class="form-control search-slt"  id="numOfPeople">
-                                        <option># of People</option>
-                                        <option><50</option>
-                                        <option>50-100</option>
-                                        <option>100-200</option>
-                                        <option>200+</option>
-                                    </select>
+                                    <?= $this->Form->control('NumOfPeople', [
+                                        'label'=>false,
+                                        'class' => 'form-control search-slt',
+                                        'placeholder'=>'# of People',
+                                        'options' => ['None'=>'# of People','<50'=>'<50','50-100'=>'50-100','100-200'=>'100-200','200+'=>'200+']
+
+                                    ]); ?>
+                                    <?php $numPeople = 'NumOfPeople' ?>
                                 </div>
                                 <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                                    <!-- making button type search/submit throws an error as no action performed yet -->
-                                    <!-- jessie: I just make the type 'button' so that there is no error for integrity testing (for iteration 1 only) -->
-                                    <button type="button" class="btn btn-lg-3 btn-md-3 btn-sm-12 btn-block btn-primary">Search</button>
-                                    <!-- use search() function here-->
+                                    <?= $this->Html->link(__('Search'), [
+                                        'controller' =>'Venues',
+                                        'action' => 'results',
+                                        'location'=> $location,
+                                        'date'=> $date,
+                                        'numPeople'=> $numPeople],
+                                        ['class'=> 'btn btn-lg-3 btn-md-3 btn-sm-12 btn-block btn-primary']) ?>
                                 </div>
+                                <?= $this->Form->end(); ?>
                             </div>
                         </div>
                     </div>
@@ -143,7 +163,6 @@ echo $this -> Html->css("home.css",['block'=>true]);
                     <div class="col-lg-3 col-md-6 mb-4">
                         <div class="card h-100">
                             <?=$this->Html->image('venue1.jpeg', ["class"=>'card-body',"alt" => "","style"=>"width:253px;height:164px"]);?>
-                        
                             <div class="card-body">
                                 <h4 class="card-title">Venue Name</h4>
                                 <p class="card-text">Text that adequately describes the best parts of the venue and shows a reason for people to book here.</p>
