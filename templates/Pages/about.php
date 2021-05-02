@@ -32,7 +32,7 @@ echo $this -> Html->css("about.css",['block'=>true]);
             Our Mission
           </div>
           <div class="intro">
-          We dedicate to helping our customers to book their event with ease. Only the best experience with Venue Virtual.
+          We dedicate to helping our customers to book their event with ease. Only the best experience with Paul Laver Entertainment.
           </div>
           <div class="title" style="color: #009970">
             Our Vision

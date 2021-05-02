@@ -103,11 +103,6 @@ class VenuesController extends AppController
         return $this->redirect(['action' => 'index']);
     }
 
-    public function search($location, $date, $numberOfPeople)
-    {
-        //some code
-    }
-
     /**
      * Profile method
      *
@@ -118,5 +113,16 @@ class VenuesController extends AppController
     public function profile($id = null){
         $venue = $this->Venues->get($id);
         $this->set(compact('venue'));
+    }
+
+
+    /**
+     * Results method
+     *
+     * @return \Cake\Http\Response|null|void Renders view
+     */
+    public function results($location = null, $date = null, $numPeople = null)
+    {
+
     }
 }
