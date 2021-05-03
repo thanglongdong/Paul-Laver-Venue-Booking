@@ -34,9 +34,9 @@ echo $this -> Html->script("/js/demo/datatables-demo.js",['block'=>true]);
                     <th><?= h('Capacity') ?></th>
                     <th><?= h('Phone') ?></th>
                     <th><?= h('Email') ?></th>
-                    <th><?= h('description') ?></th>
-                    <th><?= h('image') ?></th>
-                    <th><?= h('pph') ?></th>
+                    <th><?= h('Description') ?></th>
+                    <th><?= h('Image') ?></th>
+                    <th><?= h('PPH') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
             </thead>
