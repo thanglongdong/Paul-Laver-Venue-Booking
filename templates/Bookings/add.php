@@ -3,6 +3,7 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Booking $booking
  */
+use Cake\I18n\Date;
 ?>
 <!-- Tabs -->
 <?php $page_name = $this->request->getparam("controller") ?>

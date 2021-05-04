@@ -11,6 +11,7 @@ use Cake\Validation\Validator;
 /**
  * Talents Model
  *
+ * @property \App\Model\Table\UsersTable&\Cake\ORM\Association\BelongsTo $Users
  * @property \App\Model\Table\BookingsTable&\Cake\ORM\Association\BelongsToMany $Bookings
  *
  * @method \App\Model\Entity\Talent newEmptyEntity()
@@ -43,6 +44,9 @@ class TalentsTable extends Table
         $this->setDisplayField('name');
         $this->setPrimaryKey('id');
 
+        $this->belongsTo('Users', [
+            'foreignKey' => 'user_id',
+        ]);
         $this->belongsToMany('Bookings', [
             'foreignKey' => 'talent_id',
             'targetForeignKey' => 'booking_id',
@@ -98,5 +102,19 @@ class TalentsTable extends Table
             ]);
 
         return $validator;
+    }
+
+    /**
+     * Returns a rules checker object that will be used for validating
+     * application integrity.
+     *
+     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
+     * @return \Cake\ORM\RulesChecker
+     */
+    public function buildRules(RulesChecker $rules): RulesChecker
+    {
+        $rules->add($rules->existsIn(['user_id'], 'Users'), ['errorField' => 'user_id']);
+
+        return $rules;
     }
 }

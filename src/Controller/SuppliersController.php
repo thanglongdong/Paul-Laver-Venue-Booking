@@ -18,6 +18,9 @@ class SuppliersController extends AppController
      */
     public function index()
     {
+        $this->paginate = [
+            'contain' => ['Users'],
+        ];
         $suppliers = $this->paginate($this->Suppliers);
 
         $this->set(compact('suppliers'));
@@ -33,7 +36,7 @@ class SuppliersController extends AppController
     public function view($id = null)
     {
         $supplier = $this->Suppliers->get($id, [
-            'contain' => ['Bookings'],
+            'contain' => ['Users', 'Bookings'],
         ]);
 
         $this->set(compact('supplier'));
@@ -56,8 +59,9 @@ class SuppliersController extends AppController
             }
             $this->Flash->error(__('The supplier could not be saved. Please, try again.'));
         }
+        $users = $this->Suppliers->Users->find('list', ['limit' => 200]);
         $bookings = $this->Suppliers->Bookings->find('list', ['limit' => 200]);
-        $this->set(compact('supplier', 'bookings'));
+        $this->set(compact('supplier', 'users', 'bookings'));
     }
 
     /**
@@ -81,8 +85,9 @@ class SuppliersController extends AppController
             }
             $this->Flash->error(__('The supplier could not be saved. Please, try again.'));
         }
+        $users = $this->Suppliers->Users->find('list', ['limit' => 200]);
         $bookings = $this->Suppliers->Bookings->find('list', ['limit' => 200]);
-        $this->set(compact('supplier', 'bookings'));
+        $this->set(compact('supplier', 'users', 'bookings'));
     }
 
     /**

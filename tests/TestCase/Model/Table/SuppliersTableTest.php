@@ -25,6 +25,7 @@ class SuppliersTableTest extends TestCase
      */
     protected $fixtures = [
         'app.Suppliers',
+        'app.Users',
         'app.Bookings',
     ];
 
@@ -58,6 +59,16 @@ class SuppliersTableTest extends TestCase
      * @return void
      */
     public function testValidationDefault(): void
+    {
+        $this->markTestIncomplete('Not implemented yet.');
+    }
+
+    /**
+     * Test buildRules method
+     *
+     * @return void
+     */
+    public function testBuildRules(): void
     {
         $this->markTestIncomplete('Not implemented yet.');
     }

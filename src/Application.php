@@ -33,6 +33,9 @@ use Authentication\AuthenticationServiceInterface;
 use Authentication\AuthenticationServiceProviderInterface;
 use Authentication\Middleware\AuthenticationMiddleware;
 use Psr\Http\Message\ServerRequestInterface;
+use Authentication\Identifier\IdentifierInterface;
+use Cake\Routing\Router;
+
 /**
  * Application setup class.
  *
@@ -173,6 +176,10 @@ class Application extends BaseApplication  implements AuthenticationServiceProvi
             ],
             'loginUrl' => \Cake\Routing\Router::url(['controller'=>'Users','action'=>'login']),
         ]);
+
+        // // Load identifiers
+        // $authenticationService->loadIdentifier('Authentication.Password', compact('fields'));
+
 
         return $authenticationService;
     }

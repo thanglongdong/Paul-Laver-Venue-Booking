@@ -18,6 +18,9 @@ class TalentsController extends AppController
      */
     public function index()
     {
+        $this->paginate = [
+            'contain' => ['Users'],
+        ];
         $talents = $this->paginate($this->Talents);
 
         $this->set(compact('talents'));
@@ -33,7 +36,7 @@ class TalentsController extends AppController
     public function view($id = null)
     {
         $talent = $this->Talents->get($id, [
-            'contain' => ['Bookings'],
+            'contain' => ['Users', 'Bookings'],
         ]);
 
         $this->set(compact('talent'));
@@ -56,8 +59,9 @@ class TalentsController extends AppController
             }
             $this->Flash->error(__('The talent could not be saved. Please, try again.'));
         }
+        $users = $this->Talents->Users->find('list', ['limit' => 200]);
         $bookings = $this->Talents->Bookings->find('list', ['limit' => 200]);
-        $this->set(compact('talent', 'bookings'));
+        $this->set(compact('talent', 'users', 'bookings'));
     }
 
     /**
@@ -81,8 +85,9 @@ class TalentsController extends AppController
             }
             $this->Flash->error(__('The talent could not be saved. Please, try again.'));
         }
+        $users = $this->Talents->Users->find('list', ['limit' => 200]);
         $bookings = $this->Talents->Bookings->find('list', ['limit' => 200]);
-        $this->set(compact('talent', 'bookings'));
+        $this->set(compact('talent', 'users', 'bookings'));
     }
 
     /**

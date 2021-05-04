@@ -18,6 +18,23 @@ class UsersController extends AppController
         $this->set(compact('user'));
     }
 
+    public function edit($id = null)
+    {
+        $user = $this->Users->get($id, [
+            'contain' => [],
+        ]);
+        if ($this->request->is(['patch', 'post', 'put'])) {
+            $user = $this->Users->patchEntity($user, $this->request->getData());
+            if ($this->Users->save($user)) {
+                $this->Flash->success(__('The user has been saved.'));
+
+                return $this->redirect(['action' => 'index']);
+            }
+            $this->Flash->error(__('The user could not be saved. Please, try again.'));
+        }
+        $this->set(compact('user'));
+    }
+
     public function register()
     {
         $user = $this->Users->newEmptyEntity();
@@ -54,30 +71,33 @@ class UsersController extends AppController
 
         if ($result->isValid()) {
 
-            // $user = $this->Users->find()->firstOrFail();
+            $user=$this->Authentication->getIdentity();
+            $role=$user->get('role');
 
-            // if($user['role']=='admin'){
-            //     $this->Auth->setUser($user);
-            //     $redirect = $this->request->getQuery('redirect', [
-            //         'controller' => 'dashboard',
-            //         'action' => 'index',
-            //     ]);
-            // }
-            // elseif($user['role']=='customer'){
+            if($role==='admin'){
+                $redirect = $this->request->getQuery('redirect', [
+                    'controller' => 'dashboard',
+                    'action' => 'index',
+                ]);
+                $this->Flash->success("Welcome back " . $user->email);
+            }
 
-            //     $this->Auth->setUser($user);
-            //     $redirect = $this->request->getQuery('redirect', [
-            //         'controller' => 'dashboard',
-            //         'action' => 'index',
-            //     ]);
-            //     }
+            elseif($role==='customer'){
+                $redirect = $this->request->getQuery('redirect', [
+                    'controller' => 'Page',
+                    'action' => 'home',
+                ]);
+                $this->Flash->success("Welcome back");
+            }
             //more elseif condition for talents/suppliers should be added below
-            //$redirect = $this->request->getQuery('redirect', [
-            //   'controller' => 'pages',
-            //   'action' => 'home',
-            //]);
-            //return $this->redirect($redirect);
-            return $this->redirect('/');
+            else{
+                $redirect = $this->request->getQuery('redirect', [
+              'controller' => 'pages',
+              'action' => 'home',
+            ]);
+            }
+            return $this->redirect($redirect);
+            //return $this->redirect('/');
             //return $this->redirect($this->referer()); //want to redirect to page before we clicked log in
         }
         // display error if user submitted and authentication failed

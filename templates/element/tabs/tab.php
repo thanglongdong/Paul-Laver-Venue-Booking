@@ -17,6 +17,13 @@
         <?php endif; ?>
     </li>
     <li class="nav-item">
+        <?php if($page == 'Users') : ?>
+            <a class="nav-link active font-weight-bold" href="<?= $this->Url->build('/users')?>">Users</a>
+        <?php else : ?>
+            <a class="nav-link" href="<?= $this->Url->build('/users')?>">Users</a>
+        <?php endif; ?>
+    </li>
+    <li class="nav-item">
         <?php if($page == 'Talents') : ?>
             <a class="nav-link active font-weight-bold" href="<?= $this->Url->build('/talents')?>">Talents</a>
         <?php else : ?>

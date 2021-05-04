@@ -13,7 +13,9 @@ use Cake\ORM\Entity;
  * @property string $phone
  * @property string $email
  * @property float $pph
+ * @property int|null $user_id
  *
+ * @property \App\Model\Entity\User $user
  * @property \App\Model\Entity\Booking[] $bookings
  */
 class Supplier extends Entity
@@ -32,6 +34,8 @@ class Supplier extends Entity
         'phone' => true,
         'email' => true,
         'pph' => true,
+        'user_id' => true,
+        'user' => true,
         'bookings' => true,
     ];
 }

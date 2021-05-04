@@ -22,6 +22,7 @@
         ]);
         echo $this->Form->control('pph');
         echo $this->Form->control('bookings._ids', ['options' => $bookings]);
+        echo $this->Form->control('user_id', ['options' => $users, 'empty' => true]);
     ?>
 <br </br>
 <div>
