@@ -121,11 +121,11 @@ class VenuesTable extends Table
             ->requirePresence('description', 'create')
             ->notEmptyString('description','Please provide a description for the venue.');
 
-        $validator
-            ->scalar('image')
-            ->maxLength('image', 256)
-            ->requirePresence('image', 'create')
-            ->allowEmptyFile('image');
+        //$validator
+         //   ->scalar('image')
+        //    ->maxLength('image', 256)
+         //   ->requirePresence('image', 'create')
+         //   ->allowEmptyFile('image');
 
         $validator
             ->numeric('pph')
