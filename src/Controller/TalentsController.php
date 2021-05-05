@@ -136,4 +136,10 @@ class TalentsController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
+    public function profile($id = null){
+        $talent = $this->Talents->get($id);
+        $this->set(compact('talent'));
+    }
+
 }
