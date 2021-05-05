@@ -83,18 +83,12 @@ class UsersController extends AppController
             }
 
             elseif($role==='customer'){
-                $redirect = $this->request->getQuery('redirect', [
-                    'controller' => 'Page',
-                    'action' => 'home',
-                ]);
+                $redirect ='/';
                 $this->Flash->success("Welcome back");
             }
             //more elseif condition for talents/suppliers should be added below
             else{
-                $redirect = $this->request->getQuery('redirect', [
-              'controller' => 'pages',
-              'action' => 'home',
-            ]);
+                $redirect ='/';
             }
             return $this->redirect($redirect);
             //return $this->redirect('/');

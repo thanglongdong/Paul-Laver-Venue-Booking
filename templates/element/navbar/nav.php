@@ -1,8 +1,35 @@
 <?php
+use Cake\ORM\TableRegistry;
 $this->loadHelper('Authentication.Identity');
+
 $loggedin = $this->Identity->isLoggedIn();
+$user_id=$this->Identity->get('id');
 $role = $this->Identity->get('role');
 $email = $this->Identity->get('email');
+$talents = TableRegistry::getTableLocator()->get('Talents');
+$suppliers = TableRegistry::getTableLocator()->get('Suppliers');
+$customers = TableRegistry::getTableLocator()->get('Customers');
+
+if($role == 'admin'){ 
+    $username= 'Admin';}
+elseif($role == 'customer'){ 
+    $user = $customers
+    ->find()
+    ->where(['user_id' => $user_id])
+    ->first();
+    $username= $user->first_name."  ".$user->last_name;}
+elseif($role == 'supplier'){ 
+    $user = $suppliers
+    ->find()
+    ->where(['user_id' => $user_id])
+    ->first();
+    $username= $user->name;}
+elseif($role == 'talent'){ 
+    $user = $talents
+    ->find()
+    ->where(['user_id' => $user_id])
+    ->first();
+    $username= $user->name;}
 ?>
 
 <nav>
@@ -21,21 +48,20 @@ $email = $this->Identity->get('email');
             </ul>
 
             <div class="d-flex col-md-3 text-end ">
-                <?php if($loggedin) : ?>
+                <?php if($loggedin): ?>
                     <!-- User Information -->
                     <li class="navbar-nav nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mr-2 d-none d-lg-inline nav-link px-2 link-dark">User Name</span>
+                            <?php if($role != null): ?>
+                            <span class="mr-2 d-none d-lg-inline nav-link px-2 link-dark"><?= $username ?></span>
+                            <?php endif; ?>
                             <?=$this->Html->image('blankuser.png', ["alt" => "UserImage","class"=>"img-profile rounded-circle","style"=>"width:30px;height:30px"]);?>
                         </a>
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                              aria-labelledby="userDropdown">
-                            <a class="dropdown-item" href="#">
-                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Profile
-                            </a>
+                           
                             <!-- Nested if -- if role == admin, then we want a dropdown user to have admin dashboard -->
                             <?php if($role == 'admin') : ?>
                                 <a class="dropdown-item" href="<?= $this->Url->build(['controller'=>'dashboard','action'=>'index'])?>">
@@ -43,8 +69,45 @@ $email = $this->Identity->get('email');
                                     Admin Dashboard
                                 </a>
                             <?php endif; ?>
+
                             <!-- Nested elseif -- if role == talent, then we want a dropdown user to have talent dashboard -->
+                            <?php if($role == 'talent') : 
+                                $user = $talents
+                                ->find()
+                                ->where(['user_id' => $user_id])
+                                ->first();
+                                $talent_id= $user->id?>
+                                <a class="dropdown-item" href="<?= $this->Url->build(['controller'=>'talents','action'=>'profile',$talent_id])?>">
+                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                My Profile
+                                 </a>
+                            <?php endif; ?>
+
                             <!-- Nested elseif -- if role == supplier, then we want a dropdown user to have supplier dashboard -->
+                            <?php if($role == 'supplier') : 
+                                $user = $suppliers
+                                ->find()
+                                ->where(['user_id' => $user_id])
+                                ->first();
+                                $supplier_id= $user->id?>
+                                <a class="dropdown-item" href="<?= $this->Url->build(['controller'=>'suppliers','action'=>'profile',$supplier_id])?>">
+                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                My Profile
+                                 </a>
+                            <?php endif; ?>
+
+                            <?php if($role == 'customer') : 
+                                $user = $customers
+                                ->find()
+                                ->where(['user_id' => $user_id])
+                                ->first();
+                                $customers_id= $user->id?>
+                                <a class="dropdown-item" href="<?= $this->Url->build(['controller'=>'customers','action'=>'profile',$customers_id])?>">
+                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                My Profile
+                                 </a>
+                            <?php endif; ?>
+
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="<?= $this->Url->build(['controller'=>'users','action'=>'logout'])?>" >
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>

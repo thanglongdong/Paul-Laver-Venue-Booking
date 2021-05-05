@@ -107,4 +107,9 @@ class CustomersController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+    public function profile($id = null){
+        
+        $customer = $this->Customers->get($id);
+        $this->set(compact('customer'));
+    }
 }
