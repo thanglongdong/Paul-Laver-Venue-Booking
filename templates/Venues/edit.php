@@ -26,7 +26,6 @@ echo $this->Form->control('phone');
 echo $this->Form->control('email');
 echo $this->Form->control('description');
 echo $this->Form->control('change_image',['type'=>'file']);
-debug($venue->image);
 echo $this->Form->control('pph');
 ?>
 <br </br>

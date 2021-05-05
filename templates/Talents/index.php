@@ -44,7 +44,7 @@ echo $this -> Html->script("/js/demo/datatables-demo.js",['block'=>true]);
                     <td><?= h($talent->phone) ?></td>
                     <td><?= h($talent->email) ?></td>
                     <td><?= h($talent->genre) ?></td>
-                    <td><?= h($talent->image) ?></td>
+                    <td><?= $this->Html->image($talent->image, ["style"=>"width:150px;height:100px;object-fit: cover"]) ?></td>
                     <td><?= h($talent->pph) ?></td>
                     <td><?= $talent->has('user') ? $talent->user->id : '' ?></td>
                     <td class="actions">

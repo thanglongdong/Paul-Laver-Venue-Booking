@@ -12,7 +12,7 @@
 
 <h1 class="h3 mb-2 text-gray-800"><?= __('New Talent') ?></h1>
 
-<?= $this->Form->create($talent,['novalidate' => true]) ?>
+<?= $this->Form->create($talent,['novalidate' => true, 'type'=>'file']) ?>
 <?php
 echo $this->Form->control('name');
 echo $this->Form->control('phone');
@@ -21,7 +21,7 @@ echo $this->Form->control('genre', [
     'options' => ['Singer'=>'Singer','Dancer'=>'Dancer','Clown'=>'Clown','Magician'=>'Magician']
 ]);
 echo $this->Form->control('description');
-echo $this->Form->control('image');
+echo $this->Form->control('image_file',['type'=>'file']);
 echo $this->Form->control('pph');
 echo $this->Form->control('bookings._ids', ['options' => $bookings]);
 echo $this->Form->control('user_id', ['options' => $users, 'empty' => true]);

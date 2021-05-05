@@ -30,7 +30,7 @@ $booking =$bookings
 <section id="intro-section">
 
 <div class="group">
-    <?=$this->Html->image('blankuser.png', ["class"=>'img-fluid rounded-circle mb-3',"alt" => "","style"=>"width:200px;height:200px"]);?>  
+    <?=$this->Html->image('blankuser.png', ["class"=>'img-fluid rounded-circle mb-3',"alt" => "","style"=>"width:200px;height:200px"]);?>
     <div class="left-side flex-col">
         <div class="item1">
             <?= h($customer->first_name."  ". $customer->last_name) ?>
@@ -57,27 +57,25 @@ $booking =$bookings
     </div>
     <?php if ($booking->isEmpty()): ?>
         <div class='flex' style='margin-top:15px;margin-bottom:15px;text-align:center'>
-            <h4>There is no bookings.</h4>
+            <h4>You have not made any bookings yet.</h4>
         </div>
     <?php else: ?>
         <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
-                        <th><?= h('id') ?></th>
-                        <th><?= h('date') ?></th>
-                        <th><?= h('start_time') ?></th>
-                        <th><?= h('end_time') ?></th>
-                        <th><?= h('event_type') ?></th>
-                        <th><?= h('no_of_people') ?></th>
-                        <th><?= h('venue') ?></th>
-                        <th><?= h('cost') ?></th>
+                        <th><?= h('Booking Date') ?></th>
+                        <th><?= h('Start Time') ?></th>
+                        <th><?= h('End Time') ?></th>
+                        <th><?= h('Event Type') ?></th>
+                        <th><?= h('# of People') ?></th>
+                        <th><?= h('Venue') ?></th>
+                        <th><?= h('Cost') ?></th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php foreach ($booking as $eachbooking): ?>
                     <tr>
-                        <td><?= $this->Number->format($eachbooking->id) ?></td>
                         <td><?= h($eachbooking->date) ?></td>
                         <td><?= h($eachbooking->start_time) ?></td>
                         <td><?= h($eachbooking->end_time) ?></td>

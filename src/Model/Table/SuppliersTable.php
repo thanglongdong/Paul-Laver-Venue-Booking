@@ -92,10 +92,17 @@ class SuppliersTable extends Table
             ->notEmptyString('description');
 
         $validator
-            ->scalar('image')
-            ->maxLength('image', 256)
-            ->requirePresence('image', 'create')
-            ->notEmptyFile('image');
+            ->add('image', [
+                'mimeType'=>[
+                    'rule'=>['mimeType',['image/jpg', 'image/png', 'image/jpeg']],
+                    'message'=>'Please upload only jpg & png.'
+                ],
+                'fileSize'=>[
+                    'rule'=>['filesize', '<=', '1MB'],
+                    'message'=>'Image file size must be less than 1MB.'
+                ]
+            ])
+            ->allowEmptyFile('image',Validator::WHEN_UPDATE);
 
         $validator
             ->scalar('preferred')

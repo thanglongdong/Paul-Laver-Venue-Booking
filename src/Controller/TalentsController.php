@@ -52,6 +52,14 @@ class TalentsController extends AppController
         $talent = $this->Talents->newEmptyEntity();
         if ($this->request->is('post')) {
             $talent = $this->Talents->patchEntity($talent, $this->request->getData());
+
+            $image = $this->request->getData('image_file');
+            $name = $image->getClientFileName();
+            $targetPath = WWW_ROOT.'talent-img'.DS.$name;
+            if($name)
+                $image->moveTo($targetPath);
+            $talent->image = $name;
+
             if ($this->Talents->save($talent)) {
                 $this->Flash->success(__('The talent has been saved.'));
 
@@ -78,6 +86,21 @@ class TalentsController extends AppController
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $talent = $this->Talents->patchEntity($talent, $this->request->getData());
+
+            $image = $this->request->getData('change_image');
+            $name = $image->getClientFileName();
+
+            if($name){
+                $targetPath = WWW_ROOT.'talent-img'.DS.$name;
+                $image->moveTo($targetPath);
+
+                $imgpath = WWW_ROOT.'talent-img'.DS.$talent->image;
+                if(file_exists($imgpath)){
+                    unlink($imgpath);
+                }
+                $talent->image = $name;
+            }
+
             if ($this->Talents->save($talent)) {
                 $this->Flash->success(__('The talent has been saved.'));
 
@@ -101,6 +124,10 @@ class TalentsController extends AppController
     {
         $this->request->allowMethod(['post', 'delete']);
         $talent = $this->Talents->get($id);
+
+        $venue = $this->Talents->get($id);
+        $imgpath = WWW_ROOT.'talent-img'.DS.$talent->image;
+
         if ($this->Talents->delete($talent)) {
             $this->Flash->success(__('The talent has been deleted.'));
         } else {

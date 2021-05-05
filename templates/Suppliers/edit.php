@@ -12,16 +12,17 @@
 
 <h1 class="h3 mb-2 text-gray-800"><?= __('Edit Supplier') ?></h1>
 
-<?= $this->Form->create($supplier,['novalidate' => true]) ?>
+<?= $this->Form->create($supplier,['novalidate' => true,'type'=>'file']) ?>
 <?php
 echo $this->Form->control('name');
 echo $this->Form->control('phone');
 echo $this->Form->control('email');
 echo $this->Form->control('description');
-echo $this->Form->control('image');
-echo $this->Form->control('preferred');
+echo $this->Form->control('change_image',['type'=>'file']);
+echo $this->Form->control('preferred', [
+    'options' => ['no'=>'no','yes'=>'yes']
+]);
 echo $this->Form->control('pph');
-echo $this->Form->control('bookings._ids', ['options' => $bookings]);
 echo $this->Form->control('user_id', ['options' => $users, 'empty' => true]);
 ?>
 <br </br>

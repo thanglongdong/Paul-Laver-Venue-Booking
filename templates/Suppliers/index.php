@@ -43,7 +43,7 @@ echo $this -> Html->script("/js/demo/datatables-demo.js",['block'=>true]);
                     <td><?= h($supplier->name) ?></td>
                     <td><?= h($supplier->phone) ?></td>
                     <td><?= h($supplier->email) ?></td>
-                    <td><?= h($supplier->image) ?></td>
+                    <td><?= $this->Html->image($supplier->image, ["style"=>"width:150px;height:100px;object-fit: cover"]) ?></td>
                     <td><?= h($supplier->preferred) ?></td>
                     <td><?= $supplier->has('user') ? $supplier->user->id : '' ?></td>
                     <td><?= h($supplier->pph) ?></td>

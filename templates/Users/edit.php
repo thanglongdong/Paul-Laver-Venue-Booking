@@ -16,7 +16,9 @@
     <?php
     echo $this->Form->control('email',['disabled']);
     echo $this->Form->control('password',['disabled']);
-    echo $this->Form->control('role');
+    echo $this->Form->control('role', [
+        'options' => ['admin'=>'admin','talent'=>'talent','supplier'=>'supplier','customer'=>'customer']
+    ]);
     ?>
 <br </br>
 <div>
