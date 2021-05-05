@@ -146,8 +146,18 @@ class VenuesController extends AppController
      *
      * @return \Cake\Http\Response|null|void Renders view
      */
-    public function results($location = null, $date = null, $numPeople = null)
+    public function results($location=null, $date=null, $numPeople=null)
     {
+        //$key = $this->request->getQuery('location');
+        //if($key){
+//            $query = $this->Venues->findBySuburb($key);
+//        } else{
+//            $query = $this->Venues;
+//        }
+//
+//        $this->set(compact('query'));
+        $venues = $this->paginate($this->Venues);
 
+        $this->set(compact('venues'));
     }
 }

@@ -99,13 +99,13 @@ echo $this -> Html->css("home.css",['block'=>true]);
                             <div class="d-flex">
                                 <div class="col-lg-3 col-md-3 col-sm-12 p-0" style="margin-right:10px">
                                     <?= $this->Form->create(); ?>
-                                    <?= $this->Form->control('Location', [
+                                    <?= $this->Form->text('location', [
                                         'label'=>false,
                                         'class' => 'form-control search-slt',
-                                        'placeholder'=>'Location'
-                                    ]);
-                                    ?>
-                                    <?php $location = 'Location' ?>
+                                        'placeholder'=>'Location',
+                                        //'default' => 'Location'
+                                        $location = 'location'
+                                    ]); ?>
                                 </div>
 
                                 <div class="col-lg-3 col-md-3 col-sm-12 p-0" style="margin-right:10px">
@@ -113,31 +113,49 @@ echo $this -> Html->css("home.css",['block'=>true]);
                                         'label'=>false,
                                         'class' => 'form-control search-slt',
                                         'placeholder'=>'Date',
-                                        'type'=>'date'
+                                        'type'=>'date',
+                                        $date = 'Date'
                                     ]); ?>
-                                    <?php $date = 'Date' ?>
                                 </div>
 
                                 <div class="col-lg-3 col-md-3 col-sm-12 p-0" style="margin-right:10px">
-                                    <?= $this->Form->control('NumOfPeople', [
+                                    <?php $sizes = ['None'=>'# of People','<50'=>'<50','50-100'=>'50-100','100-200'=>'100-200','200+'=>'200+']; ?>
+                                    <?= $this->Form->select('NumOfPeople', $sizes, [
+                                        'default' => 'None',
                                         'label'=>false,
                                         'class' => 'form-control search-slt',
                                         'placeholder'=>'# of People',
-                                        'options' => ['None'=>'# of People','<50'=>'<50','50-100'=>'50-100','100-200'=>'100-200','200+'=>'200+']
+                                        $numOfPeople = 'Number of People'
 
                                     ]); ?>
-                                    <?php $numPeople = 'NumOfPeople' ?>
                                 </div>
-                                <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                                    <?= $this->Html->link(__('Search'), [
-                                        'controller' =>'Venues',
-                                        'action' => 'results',
-                                        'location'=> $location,
-                                        'date'=> $date,
-                                        'numPeople'=> $numPeople],
-                                        ['class'=> 'btn btn-lg-3 btn-md-3 btn-sm-12 btn-block btn-primary']) ?>
-                                </div>
+
+
+
                                 <?= $this->Form->end(); ?>
+
+                                <!--debug( $yolo = $this->Form->getData(location));-->
+
+                                <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                                    <?= $this->Form->postLink('Search',
+                                        ['controller' => 'Venues','action' => 'results', $location, $date, $numOfPeople],
+                                        ['class' => 'btn btn-lg-3 btn-md-3 btn-sm-12 btn-block btn-primary'])
+
+
+                                    //                                    $this->Form->postLink(__('Search'), ['controller' =>'Venues', 'action' => 'results', $location->'Location'], [
+                                    //                                        'block'=>true,
+                                    //                                        'class'=> 'btn btn-lg-3 btn-md-3 btn-sm-12 btn-block btn-primary'])
+
+                                    //                                    'controller' =>'Venues',
+                                    //                                        'action' => 'results'], [
+                                    //                                        'location'=> $location,
+                                    //                                        'date'=> $date,
+                                    //                                        'numPeople'=> $numPeople,
+                                    //                                        'block'=>true,
+                                    //                                        'class'=> 'btn btn-lg-3 btn-md-3 btn-sm-12 btn-block btn-primary'])
+
+                                    ?>
+                                </div>
                             </div>
                         </div>
                     </div>
