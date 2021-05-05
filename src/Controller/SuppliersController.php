@@ -109,9 +109,4 @@ class SuppliersController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
-
-    public function profile($id = null){
-        $supplier = $this->Suppliers->get($id);
-        $this->set(compact('supplier'));
-    }
 }

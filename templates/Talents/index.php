@@ -24,25 +24,27 @@ echo $this -> Html->script("/js/demo/datatables-demo.js",['block'=>true]);
     <div class="table-responsive">
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
-                <tr>
-                    <th><?= h('id') ?></th>
-                    <th><?= h('name') ?></th>
-                    <th><?= h('phone') ?></th>
-                    <th><?= h('email') ?></th>
-                    <th><?= h('genre') ?></th>
-                    <th><?= h('pph') ?></th>
-                    <th><?= h('user_id') ?></th>
-                    <th class="actions"><?= __('Actions') ?></th>
-                </tr>
+            <tr>
+                <th><?= h('id') ?></th>
+                <th><?= h('name') ?></th>
+                <th><?= h('phone') ?></th>
+                <th><?= h('email') ?></th>
+                <th><?= h('genre') ?></th>
+                <th><?= h('image') ?></th>
+                <th><?= h('pph') ?></th>
+                <th><?= h('user_id') ?></th>
+                <th class="actions"><?= __('Actions') ?></th>
+            </tr>
             </thead>
             <tbody>
-                <?php foreach ($talents as $talent): ?>
+            <?php foreach ($talents as $talent): ?>
                 <tr>
                     <td><?= $this->Number->format($talent->id) ?></td>
                     <td><?= h($talent->name) ?></td>
                     <td><?= h($talent->phone) ?></td>
                     <td><?= h($talent->email) ?></td>
                     <td><?= h($talent->genre) ?></td>
+                    <td><?= h($talent->image) ?></td>
                     <td><?= h($talent->pph) ?></td>
                     <td><?= $talent->has('user') ? $talent->user->id : '' ?></td>
                     <td class="actions">
@@ -51,7 +53,7 @@ echo $this -> Html->script("/js/demo/datatables-demo.js",['block'=>true]);
                         <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $talent->id], ['confirm' => __('Are you sure you want to delete talent {0}?', $talent->name)]) ?>
                     </td>
                 </tr>
-                <?php endforeach; ?>
+            <?php endforeach; ?>
             </tbody>
         </table>
     </div>

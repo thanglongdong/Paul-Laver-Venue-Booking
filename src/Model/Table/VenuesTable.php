@@ -27,7 +27,6 @@ use Cake\Validation\Validator;
  * @method \App\Model\Entity\Venue[]|\Cake\Datasource\ResultSetInterface|false deleteMany(iterable $entities, $options = [])
  * @method \App\Model\Entity\Venue[]|\Cake\Datasource\ResultSetInterface deleteManyOrFail(iterable $entities, $options = [])
  */
-
 class VenuesTable extends Table
 {
     /**
@@ -115,11 +114,11 @@ class VenuesTable extends Table
             ->requirePresence('email', 'create')
             ->notEmptyString('email','Please provide an email.');
 
+
         $validator
             ->scalar('description')
-            ->maxLength('description', 256)
             ->requirePresence('description', 'create')
-            ->notEmptyString('description','Please provide a description for the venue.');
+            ->notEmptyString('description');
 
         $validator
             ->add('image', [
@@ -135,15 +134,16 @@ class VenuesTable extends Table
             ->allowEmptyFile('image',Validator::WHEN_UPDATE);
 
         //$validator
-         //   ->scalar('image')
+        //   ->scalar('image')
         //    ->maxLength('image', 256)
-         //   ->requirePresence('image', 'create')
-         //   ->allowEmptyFile('image');
+        //   ->requirePresence('image', 'create')
+        //   ->allowEmptyFile('image');
 
         $validator
             ->numeric('pph')
             ->requirePresence('pph', 'create')
             ->notEmptyString('pph','Please provide the price per hour');
+
 
         return $validator;
     }

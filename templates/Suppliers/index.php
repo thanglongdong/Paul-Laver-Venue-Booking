@@ -24,23 +24,27 @@ echo $this -> Html->script("/js/demo/datatables-demo.js",['block'=>true]);
     <div class="table-responsive">
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
-                <tr>
-                    <th><?= h('id') ?></th>
-                    <th><?= h('name') ?></th>
-                    <th><?= h('phone') ?></th>
-                    <th><?= h('email') ?></th>
-                    <th><?= h('user_id') ?></th>
-                    <th><?= h('pph') ?></th>
-                    <th class="actions"><?= __('Actions') ?></th>
-                </tr>
+            <tr>
+                <th><?= h('id') ?></th>
+                <th><?= h('name') ?></th>
+                <th><?= h('phone') ?></th>
+                <th><?= h('email') ?></th>
+                <th><?= h('image') ?></th>
+                <th><?= h('preferred') ?></th>
+                <th><?= h('user_id') ?></th>
+                <th><?= h('pph') ?></th>
+                <th class="actions"><?= __('Actions') ?></th>
+            </tr>
             </thead>
             <tbody>
-                <?php foreach ($suppliers as $supplier): ?>
+            <?php foreach ($suppliers as $supplier): ?>
                 <tr>
                     <td><?= $this->Number->format($supplier->id) ?></td>
                     <td><?= h($supplier->name) ?></td>
                     <td><?= h($supplier->phone) ?></td>
                     <td><?= h($supplier->email) ?></td>
+                    <td><?= h($supplier->image) ?></td>
+                    <td><?= h($supplier->preferred) ?></td>
                     <td><?= $supplier->has('user') ? $supplier->user->id : '' ?></td>
                     <td><?= h($supplier->pph) ?></td>
                     <td class="actions">
@@ -49,7 +53,7 @@ echo $this -> Html->script("/js/demo/datatables-demo.js",['block'=>true]);
                         <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $supplier->id], ['confirm' => __('Are you sure you want to delete supplier {0}?', $supplier->name)]) ?>
                     </td>
                 </tr>
-                <?php endforeach; ?>
+            <?php endforeach; ?>
             </tbody>
         </table>
     </div>

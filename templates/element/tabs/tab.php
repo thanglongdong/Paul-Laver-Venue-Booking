@@ -17,13 +17,6 @@
         <?php endif; ?>
     </li>
     <li class="nav-item">
-        <?php if($page == 'Users') : ?>
-            <a class="nav-link active font-weight-bold" href="<?= $this->Url->build('/users')?>">Users</a>
-        <?php else : ?>
-            <a class="nav-link" href="<?= $this->Url->build('/users')?>">Users</a>
-        <?php endif; ?>
-    </li>
-    <li class="nav-item">
         <?php if($page == 'Talents') : ?>
             <a class="nav-link active font-weight-bold" href="<?= $this->Url->build('/talents')?>">Talents</a>
         <?php else : ?>
@@ -52,17 +45,10 @@
         <?php endif; ?>
     </li>
     <li class="nav-item">
-        <?php if($page == 'BookingsSuppliers') : ?>
-            <a class="nav-link active font-weight-bold" href="<?= $this->Url->build('/bookings-suppliers')?>">Bookings Suppliers</a>
+        <?php if($page == 'Users') : ?>
+            <a class="nav-link active font-weight-bold" href="<?= $this->Url->build('/users')?>">Users</a>
         <?php else : ?>
-            <a class="nav-link" href="<?= $this->Url->build('/bookings-suppliers')?>">Bookings Suppliers</a>
-        <?php endif; ?>
-    </li>
-    <li class="nav-item">
-        <?php if($page == 'BookingsTalents') : ?>
-            <a class="nav-link active font-weight-bold" href="<?= $this->Url->build('/bookings-talents')?>">Bookings Talents</a>
-        <?php else : ?>
-            <a class="nav-link" href="<?= $this->Url->build('/bookings-talents')?>">Bookings Talents</a>
+            <a class="nav-link" href="<?= $this->Url->build('/users')?>">Users</a>
         <?php endif; ?>
     </li>
 </ul>

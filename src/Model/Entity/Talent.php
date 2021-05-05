@@ -13,6 +13,8 @@ use Cake\ORM\Entity;
  * @property string $phone
  * @property string $email
  * @property string $genre
+ * @property string $description
+ * @property string $image
  * @property float $pph
  * @property int|null $user_id
  *
@@ -35,6 +37,8 @@ class Talent extends Entity
         'phone' => true,
         'email' => true,
         'genre' => true,
+        'description' => true,
+        'image' => true,
         'pph' => true,
         'user_id' => true,
         'user' => true,

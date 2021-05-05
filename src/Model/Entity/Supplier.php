@@ -12,6 +12,9 @@ use Cake\ORM\Entity;
  * @property string $name
  * @property string $phone
  * @property string $email
+ * @property string $description
+ * @property string $image
+ * @property string $preferred
  * @property float $pph
  * @property int|null $user_id
  *
@@ -33,6 +36,9 @@ class Supplier extends Entity
         'name' => true,
         'phone' => true,
         'email' => true,
+        'description' => true,
+        'image' => true,
+        'preferred' => true,
         'pph' => true,
         'user_id' => true,
         'user' => true,

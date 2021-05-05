@@ -49,14 +49,6 @@ class VenuesController extends AppController
         $venue = $this->Venues->newEmptyEntity();
         if ($this->request->is('post')) {
             $venue = $this->Venues->patchEntity($venue, $this->request->getData());
-
-            $image = $this->request->getData('image_file');
-            $name = $image->getClientFileName();
-            $targetPath = WWW_ROOT.'venue-img'.DS.$name;
-            if($name)
-            $image->moveTo($targetPath);
-            $venue->image = $name;
-
             if ($this->Venues->save($venue)) {
                 $this->Flash->success(__('The venue has been saved.'));
 
@@ -76,24 +68,11 @@ class VenuesController extends AppController
      */
     public function edit($id = null)
     {
-        $venue = $this->Venues->get($id);
+        $venue = $this->Venues->get($id, [
+            'contain' => [],
+        ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $venue = $this->Venues->patchEntity($venue, $this->request->getData());
-
-            $image = $this->request->getData('change_image');
-            $name = $image->getClientFileName();
-
-            if($name){
-                $targetPath = WWW_ROOT.'venue-img'.DS.$name;
-                $image->moveTo($targetPath);
-
-                $imgpath = WWW_ROOT.'venue-img'.DS.$venue->image;
-                if(file_exists($imgpath)){
-                    unlink($imgpath);
-                }
-                $venue->image = $name;
-            }
-
             if ($this->Venues->save($venue)) {
                 $this->Flash->success(__('The venue has been saved.'));
 
@@ -115,49 +94,12 @@ class VenuesController extends AppController
     {
         $this->request->allowMethod(['post', 'delete']);
         $venue = $this->Venues->get($id);
-        $imgpath = WWW_ROOT.'venue-img'.DS.$venue->image;
         if ($this->Venues->delete($venue)) {
-            if(file_exists($imgpath)){
-                unlink($imgpath);
-            }
             $this->Flash->success(__('The venue has been deleted.'));
         } else {
             $this->Flash->error(__('The venue could not be deleted. Please, try again.'));
         }
 
         return $this->redirect(['action' => 'index']);
-    }
-
-    /**
-     * Profile method
-     *
-     * @param string|null $id Venue id.
-     * @return \Cake\Http\Response|null|void Renders view
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
-    public function profile($id = null){
-        $venue = $this->Venues->get($id);
-        $this->set(compact('venue'));
-    }
-
-
-    /**
-     * Results method
-     *
-     * @return \Cake\Http\Response|null|void Renders view
-     */
-    public function results($location=null, $date=null, $numPeople=null)
-    {
-        //$key = $this->request->getQuery('location');
-        //if($key){
-//            $query = $this->Venues->findBySuburb($key);
-//        } else{
-//            $query = $this->Venues;
-//        }
-//
-//        $this->set(compact('query'));
-        $venues = $this->paginate($this->Venues);
-
-        $this->set(compact('venues'));
     }
 }

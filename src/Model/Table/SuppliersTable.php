@@ -87,6 +87,23 @@ class SuppliersTable extends Table
             ->notEmptyString('email','Please provide an email.');
 
         $validator
+            ->scalar('description')
+            ->requirePresence('description', 'create')
+            ->notEmptyString('description');
+
+        $validator
+            ->scalar('image')
+            ->maxLength('image', 256)
+            ->requirePresence('image', 'create')
+            ->notEmptyFile('image');
+
+        $validator
+            ->scalar('preferred')
+            ->maxLength('preferred', 3)
+            ->requirePresence('preferred', 'create')
+            ->notEmptyString('preferred');
+
+        $validator
             ->numeric('pph')
             ->requirePresence('pph', 'create')
             ->notEmptyString('pph')

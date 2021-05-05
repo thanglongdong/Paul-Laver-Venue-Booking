@@ -92,6 +92,18 @@ class TalentsTable extends Table
             ->requirePresence('genre', 'create')
             ->notEmptyString('genre','Please select a genre.');
 
+
+        $validator
+            ->scalar('description')
+            ->requirePresence('description', 'create')
+            ->notEmptyString('description');
+
+        $validator
+            ->scalar('image')
+            ->maxLength('image', 256)
+            ->requirePresence('image', 'create')
+            ->notEmptyFile('image');
+
         $validator
             ->numeric('pph')
             ->requirePresence('pph', 'create')
@@ -100,6 +112,7 @@ class TalentsTable extends Table
                 'rule' => ['range',1,5000],
                 'message' => 'Please enter a valid number.'
             ]);
+
 
         return $validator;
     }

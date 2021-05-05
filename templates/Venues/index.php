@@ -24,24 +24,23 @@ echo $this -> Html->script("/js/demo/datatables-demo.js",['block'=>true]);
     <div class="table-responsive">
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
-                <tr>
-                    <th><?= h('id') ?></th>
-                    <th><?= h('Name') ?></th>
-                    <th><?= h('Street Address') ?></th>
-                    <th><?= h('Suburb') ?></th>
-                    <th><?= h('State') ?></th>
-                    <th><?= h('Postcode') ?></th>
-                    <th><?= h('Capacity') ?></th>
-                    <th><?= h('Phone') ?></th>
-                    <th><?= h('Email') ?></th>
-                    <th><?= h('Description') ?></th>
-                    <th><?= h('Image') ?></th>
-                    <th><?= h('PPH') ?></th>
-                    <th class="actions"><?= __('Actions') ?></th>
-                </tr>
+            <tr>
+                <th><?= h('id') ?></th>
+                <th><?= h('Name') ?></th>
+                <th><?= h('Street Address') ?></th>
+                <th><?= h('Suburb') ?></th>
+                <th><?= h('State') ?></th>
+                <th><?= h('Postcode') ?></th>
+                <th><?= h('Capacity') ?></th>
+                <th><?= h('Phone') ?></th>
+                <th><?= h('Email') ?></th>
+                <th><?= h('Image') ?></th>
+                <th><?= h('PPH') ?></th>
+                <th class="actions"><?= __('Actions') ?></th>
+            </tr>
             </thead>
             <tbody>
-                <?php foreach ($venues as $venue): ?>
+            <?php foreach ($venues as $venue): ?>
                 <tr>
                     <td><?= $this->Number->format($venue->id) ?></td>
                     <td><?= h($venue->name) ?></td>
@@ -52,7 +51,6 @@ echo $this -> Html->script("/js/demo/datatables-demo.js",['block'=>true]);
                     <td><?= $this->Number->format($venue->capacity) ?></td>
                     <td><?= h($venue->phone) ?></td>
                     <td><?= h($venue->email) ?></td>
-                    <td><?= h($venue->description) ?></td>
                     <td><?= $this->Html->image($venue->image, ["style"=>"width:150px;height:100px;object-fit: cover"]) ?></td>
                     <td><?= h($venue->pph) ?></td>
                     <td class="actions">
@@ -61,7 +59,7 @@ echo $this -> Html->script("/js/demo/datatables-demo.js",['block'=>true]);
                         <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $venue->id], ['confirm' => __('Are you sure you want to delete venue {0}?', $venue->name)]) ?>
                     </td>
                 </tr>
-                <?php endforeach; ?>
+            <?php endforeach; ?>
             </tbody>
         </table>
     </div>
