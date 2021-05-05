@@ -121,6 +121,19 @@ class VenuesTable extends Table
             ->requirePresence('description', 'create')
             ->notEmptyString('description','Please provide a description for the venue.');
 
+        $validator
+            ->add('image', [
+                'mimeType'=>[
+                    'rule'=>['mimeType',['image/jpg', 'image/png', 'image/jpeg']],
+                    'message'=>'Please upload only jpg & png.'
+                ],
+                'fileSize'=>[
+                    'rule'=>['filesize', '<=', '1MB'],
+                    'message'=>'Image file size must be less than 1MB.'
+                ]
+            ])
+            ->allowEmptyFile('image',Validator::WHEN_UPDATE);
+
         //$validator
          //   ->scalar('image')
         //    ->maxLength('image', 256)

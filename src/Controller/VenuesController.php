@@ -49,6 +49,14 @@ class VenuesController extends AppController
         $venue = $this->Venues->newEmptyEntity();
         if ($this->request->is('post')) {
             $venue = $this->Venues->patchEntity($venue, $this->request->getData());
+
+            $image = $this->request->getData('image_file');
+            $name = $image->getClientFileName();
+            $targetPath = WWW_ROOT.'venue-img'.DS.$name;
+            if($name)
+            $image->moveTo($targetPath);
+            $venue->image = $name;
+
             if ($this->Venues->save($venue)) {
                 $this->Flash->success(__('The venue has been saved.'));
 
@@ -68,11 +76,24 @@ class VenuesController extends AppController
      */
     public function edit($id = null)
     {
-        $venue = $this->Venues->get($id, [
-            'contain' => [],
-        ]);
+        $venue = $this->Venues->get($id);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $venue = $this->Venues->patchEntity($venue, $this->request->getData());
+
+            $image = $this->request->getData('change_image');
+            $name = $image->getClientFileName();
+
+            if($name){
+                $targetPath = WWW_ROOT.'venue-img'.DS.$name;
+                $image->moveTo($targetPath);
+
+                $imgpath = WWW_ROOT.'venue-img'.DS.$venue->image;
+                if(file_exists($imgpath)){
+                    unlink($imgpath);
+                }
+                $venue->image = $name;
+            }
+
             if ($this->Venues->save($venue)) {
                 $this->Flash->success(__('The venue has been saved.'));
 
@@ -94,7 +115,11 @@ class VenuesController extends AppController
     {
         $this->request->allowMethod(['post', 'delete']);
         $venue = $this->Venues->get($id);
+        $imgpath = WWW_ROOT.'venue-img'.DS.$venue->image;
         if ($this->Venues->delete($venue)) {
+            if(file_exists($imgpath)){
+                unlink($imgpath);
+            }
             $this->Flash->success(__('The venue has been deleted.'));
         } else {
             $this->Flash->error(__('The venue could not be deleted. Please, try again.'));

@@ -7,7 +7,7 @@ echo $this -> Html->css("pagetitle.css",['block'=>true]);
 echo $this -> Html->css("venue-profile.css",['block'=>true]);
 ?>
 <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
-    <img src="http://placehold.it/1300x300">
+    <?=$this->Html->image($venue->image, ["style"=>"width:1300px;height:300px;object-fit: cover"]);?>
 </div>
 
 <div class="row">

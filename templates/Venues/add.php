@@ -12,7 +12,7 @@
 
 <h1 class="h3 mb-2 text-gray-800"><?= __('New Venue') ?></h1>
 
-<?= $this->Form->create($venue,['novalidate' => true]) ?>
+<?= $this->Form->create($venue,['novalidate' => true, 'type'=>'file']) ?>
     <?php
     echo $this->Form->control('name');
     echo $this->Form->control('street_address');

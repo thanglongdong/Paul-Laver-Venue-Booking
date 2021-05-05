@@ -53,7 +53,7 @@ echo $this -> Html->script("/js/demo/datatables-demo.js",['block'=>true]);
                     <td><?= h($venue->phone) ?></td>
                     <td><?= h($venue->email) ?></td>
                     <td><?= h($venue->description) ?></td>
-                    <td><?= h($venue->image) ?></td>
+                    <td><?= $this->Html->image($venue->image, ["style"=>"width:150px;height:100px;object-fit: cover"]) ?></td>
                     <td><?= h($venue->pph) ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $venue->id]) ?>

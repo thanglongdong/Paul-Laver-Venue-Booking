@@ -12,7 +12,7 @@
 
 <h1 class="h3 mb-2 text-gray-800"><?= __('Edit Venue') ?></h1>
 
-<?= $this->Form->create($venue,['novalidate' => true]) ?>
+<?= $this->Form->create($venue,['novalidate' => true,'type'=>'file']) ?>
     <?php
     echo $this->Form->control('name');
     echo $this->Form->control('street_address');
@@ -25,7 +25,8 @@
     echo $this->Form->control('phone');
     echo $this->Form->control('email');
     echo $this->Form->control('description');
-    echo $this->Form->control('image');
+    echo $this->Form->control('change_image',['type'=>'file']);
+    debug($venue->image);
     echo $this->Form->control('pph');
     ?>
 <br </br>
