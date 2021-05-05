@@ -104,7 +104,7 @@ echo $this -> Html->css("home.css",['block'=>true]);
                                         'class' => 'form-control search-slt',
                                         'placeholder'=>'Location',
                                         //'default' => 'Location'
-                                        $location = 'location'
+                                        $location = 'Location'
                                     ]); ?>
                                 </div>
 
@@ -125,7 +125,7 @@ echo $this -> Html->css("home.css",['block'=>true]);
                                         'label'=>false,
                                         'class' => 'form-control search-slt',
                                         'placeholder'=>'# of People',
-                                        $numOfPeople = 'Number of People'
+                                        $numOfPeople = 'NumPeople'
 
                                     ]); ?>
                                 </div>

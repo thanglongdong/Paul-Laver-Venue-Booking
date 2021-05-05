@@ -26,10 +26,9 @@
                 <div class="col-md-7">
                     <a href="<?= $this->Url->build(['action'=>'profile', $venue->id])?>">
                         <td><?= $this->Html->image($venue->image, ["style"=>"width:700px;height:300px;object-fit: cover", 'class' =>"img-fluid rounded mb-3 mb-md-0"]) ?></td>
-
                     </a>
-
                 </div>
+
                 <div class="col-md-5">
                     <h3><td><?= h($venue->name) ?></td></h3>
                     <p><td><?= h($venue->description) ?></td></p>
@@ -59,7 +58,7 @@
 
 
 <?php endforeach; ?>
-<!-- Pagination -->
+<!-- Pagination
 <ul class="pagination justify-content-center">
     <li class="page-item">
         <a class="page-link" href="#" aria-label="Previous">
@@ -82,6 +81,6 @@
             <span class="sr-only">Next</span>
         </a>
     </li>
-</ul>
+</ul>-->
 </tbody>
 

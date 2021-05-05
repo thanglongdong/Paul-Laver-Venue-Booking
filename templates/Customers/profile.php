@@ -51,13 +51,14 @@ $booking =$bookings
 </div>
 
 </section>
+
 <section>
     <div class='flex' style='margin-top:15px;margin-bottom:15px;text-align:center'>
         <h4>My bookings</h4>
     </div>
     <?php if ($booking->isEmpty()): ?>
         <div class='flex' style='margin-top:15px;margin-bottom:15px;text-align:center'>
-            <h4>You have not made any bookings yet.</h4>
+            <h2>You have not made any bookings yet.</h2>
         </div>
     <?php else: ?>
         <div class="table-responsive">

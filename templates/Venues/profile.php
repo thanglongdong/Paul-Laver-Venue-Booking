@@ -3,6 +3,20 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Venue $venue
  */
+use Cake\ORM\TableRegistry;
+
+$talents = TableRegistry::getTableLocator()->get('Talents');
+$suppliers = TableRegistry::getTableLocator()->get('Suppliers');
+
+$talent = $talents
+    ->find()
+    ->all();
+
+$supplier =$suppliers
+    ->find()
+    ->where(['preferred' => 'yes'])
+    ->all();
+
 echo $this -> Html->css("pagetitle.css",['block'=>true]);
 echo $this -> Html->css("venue-profile.css",['block'=>true]);
 ?>
@@ -42,47 +56,38 @@ echo $this -> Html->css("venue-profile.css",['block'=>true]);
     </div>
 </div>
 
-<!-- Page Features-->
-<div class="row text-center">
-    <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card h-100">
-            <img class="card-img-top" src="https://via.placeholder.com/500x325" alt="..." />
-            <div class="card-body">
-                <h4 class="card-title">Card title</h4>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
-            </div>
-            <div class="card-footer"><a class="btn btn-primary" href="#!">Find Out More!</a></div>
-        </div>
+<!-- Talents -->
+<section>
+    <div class='flex' style='margin-top:15px;margin-bottom:15px;text-align:center'>
+        <h4>Available Talent</h4>
     </div>
-    <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card h-100">
-            <img class="card-img-top" src="https://via.placeholder.com/500x325" alt="..." />
-            <div class="card-body">
-                <h4 class="card-title">Card title</h4>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente, tempore debitis beatae culpa natus architecto.</p>
+    <div class="row text-center">
+    <?php foreach ($talent as $eachtalent): ?>
+
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="card h-100">
+
+                    <a href="<?= $this->Url->build(['controller'=>'Talents','action'=>'profile', $eachtalent->id])?>">
+                    <?= $this->Html->image($eachtalent->image, ["style"=>"width:200px;height:130px;", 'class' =>"card-img-top rounded mx-auto d-block"]) ?>
+                    </a>
+
+                    <div class="card-body">
+                    <h4 class="card-title"><?= h($eachtalent->name) ?></h4>
+                        <p class="card-text"><?= h($eachtalent->genre) ?> </p>
+                        <p><?= h($eachtalent->description) ?> </p>
+                    </div>
+                </div>
+                <div class="card-footer"><a class="btn btn-primary" href="<?= $this->Url->build(['controller'=>'Talents','action'=>'profile', $eachtalent->id])?>">Check them out!</a></div>
             </div>
-            <div class="card-footer"><a class="btn btn-primary" href="#!">Find Out More!</a></div>
-        </div>
+
+    <?php endforeach; ?>
     </div>
-    <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card h-100">
-            <img class="card-img-top" src="https://via.placeholder.com/500x325" alt="..." />
-            <div class="card-body">
-                <h4 class="card-title">Card title</h4>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
-            </div>
-            <div class="card-footer"><a class="btn btn-primary" href="#!">Find Out More!</a></div>
-        </div>
-    </div>
-    <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card h-100">
-            <img class="card-img-top" src="https://via.placeholder.com/500x325" alt="..." />
-            <div class="card-body">
-                <h4 class="card-title">Card title</h4>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente, tempore debitis beatae culpa natus architecto.</p>
-            </div>
-            <div class="card-footer"><a class="btn btn-primary" href="#!">Find Out More!</a></div>
-        </div>
-    </div>
-</div>
-</div>
+
+<br>
+</section>
+
+<!-- Suppliers
+<section>
+     Same above, but for suppliers instead of talent!
+
+</section> -->
