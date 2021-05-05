@@ -13,7 +13,7 @@ $loggedin = $this->Identity->isLoggedIn();
 $user_id=$this->Identity->get('id');
 $customers = TableRegistry::getTableLocator()->get('Customers');
 $bookings = TableRegistry::getTableLocator()->get('Bookings');
-
+$venues = TableRegistry::getTableLocator()->get('Venues');
 $customer = $customers
     ->find()
     ->where(['user_id' => $user_id])
@@ -24,7 +24,6 @@ $booking =$bookings
     ->find()
     ->where(['customer_id' => $customer_id])
     ->all();
-
 ?>
 
 
@@ -54,36 +53,46 @@ $booking =$bookings
 </section>
 <section>
     <div class='flex' style='margin-top:15px;margin-bottom:15px;text-align:center'>
-    <h4>My bookings</h4>
+        <h4>My bookings</h4>
     </div>
-    <div class="table-responsive">
-        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-            <thead>
-                <tr>
-                    <th><?= h('id') ?></th>
-                    <th><?= h('date') ?></th>
-                    <th><?= h('start_time') ?></th>
-                    <th><?= h('end_time') ?></th>
-                    <th><?= h('event_type') ?></th>
-                    <th><?= h('no_of_people') ?></th>
-                    <!-- <th><?= h('venue') ?></th> -->
-                    <th><?= h('cost') ?></th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($booking as $eachbooking): ?>
-                <tr>
-                    <td><?= $this->Number->format($eachbooking->id) ?></td>
-                    <td><?= h($eachbooking->date) ?></td>
-                    <td><?= h($eachbooking->start_time) ?></td>
-                    <td><?= h($eachbooking->end_time) ?></td>
-                    <td><?= h($eachbooking->event_type) ?></td>
-                    <td><?= $this->Number->format($eachbooking->no_of_people) ?></td>
-                    <!-- <td><?= h($eachbooking->venue->name) ?></td> -->
-                    <td><?= h($eachbooking->cost) ?></td>
-                </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
-    </div>
+    <?php if ($booking->isEmpty()): ?>
+        <div class='flex' style='margin-top:15px;margin-bottom:15px;text-align:center'>
+            <h4>There is no bookings.</h4>
+        </div>
+    <?php else: ?>
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th><?= h('id') ?></th>
+                        <th><?= h('date') ?></th>
+                        <th><?= h('start_time') ?></th>
+                        <th><?= h('end_time') ?></th>
+                        <th><?= h('event_type') ?></th>
+                        <th><?= h('no_of_people') ?></th>
+                        <th><?= h('venue') ?></th>
+                        <th><?= h('cost') ?></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($booking as $eachbooking): ?>
+                    <tr>
+                        <td><?= $this->Number->format($eachbooking->id) ?></td>
+                        <td><?= h($eachbooking->date) ?></td>
+                        <td><?= h($eachbooking->start_time) ?></td>
+                        <td><?= h($eachbooking->end_time) ?></td>
+                        <td><?= h($eachbooking->event_type) ?></td>
+                        <td><?= $this->Number->format($eachbooking->no_of_people) ?></td>
+                        <?php $venue = $venues
+                        ->find()
+                        ->where(['id' => $eachbooking->venue_id])
+                        ->first();?>
+                        <td><?= h($venue->name) ?></td>
+                        <td><?= h($eachbooking->cost) ?></td>
+                    </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+    <?php endif; ?>
 </section>
