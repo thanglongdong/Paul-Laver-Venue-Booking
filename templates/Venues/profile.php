@@ -6,8 +6,8 @@
 echo $this -> Html->css("pagetitle.css",['block'=>true]);
 echo $this -> Html->css("venue-profile.css",['block'=>true]);
 ?>
-<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
-    <?=$this->Html->image($venue->image, ["style"=>"width:1300px;height:300px;object-fit: cover"]);?>
+<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center">
+    <?=$this->Html->image($venue->image, ["style"=>"width:700px;height:300px;object-fit: cover"]);?>
 </div>
 
 <div class="row">
@@ -40,6 +40,49 @@ echo $this -> Html->css("venue-profile.css",['block'=>true]);
         </div>
 
     </div>
-
 </div>
 
+<!-- Page Features-->
+<div class="row text-center">
+    <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card h-100">
+            <img class="card-img-top" src="https://via.placeholder.com/500x325" alt="..." />
+            <div class="card-body">
+                <h4 class="card-title">Card title</h4>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+            </div>
+            <div class="card-footer"><a class="btn btn-primary" href="#!">Find Out More!</a></div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card h-100">
+            <img class="card-img-top" src="https://via.placeholder.com/500x325" alt="..." />
+            <div class="card-body">
+                <h4 class="card-title">Card title</h4>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente, tempore debitis beatae culpa natus architecto.</p>
+            </div>
+            <div class="card-footer"><a class="btn btn-primary" href="#!">Find Out More!</a></div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card h-100">
+            <img class="card-img-top" src="https://via.placeholder.com/500x325" alt="..." />
+            <div class="card-body">
+                <h4 class="card-title">Card title</h4>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+            </div>
+            <div class="card-footer"><a class="btn btn-primary" href="#!">Find Out More!</a></div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card h-100">
+            <img class="card-img-top" src="https://via.placeholder.com/500x325" alt="..." />
+            <div class="card-body">
+                <h4 class="card-title">Card title</h4>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente, tempore debitis beatae culpa natus architecto.</p>
+            </div>
+            <div class="card-footer"><a class="btn btn-primary" href="#!">Find Out More!</a></div>
+        </div>
+    </div>
+</div>
+</div>

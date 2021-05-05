@@ -24,7 +24,7 @@
             <!-- Venue-->
             <div class="row">
                 <div class="col-md-7">
-                    <a href="#">
+                    <a href="<?= $this->Url->build(['action'=>'profile', $venue->id])?>">
                         <td><?= $this->Html->image($venue->image, ["style"=>"width:700px;height:300px;object-fit: cover", 'class' =>"img-fluid rounded mb-3 mb-md-0"]) ?></td>
 
                     </a>
@@ -48,30 +48,7 @@
             <hr>
 
 
-            <!-- Pagination
-            <ul class="pagination justify-content-center">
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                </li>
-                <li class="page-item">
-                    <a class="page-link" href="#">1</a>
-                </li>
-                <li class="page-item">
-                    <a class="page-link" href="#">2</a>
-                </li>
-                <li class="page-item">
-                    <a class="page-link" href="#">3</a>
-                </li>
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </li>
-            </ul>-->
+
 
         </div>
         <!-- /.container -->
@@ -82,4 +59,29 @@
 
 
 <?php endforeach; ?>
+<!-- Pagination -->
+<ul class="pagination justify-content-center">
+    <li class="page-item">
+        <a class="page-link" href="#" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+            <span class="sr-only">Previous</span>
+        </a>
+    </li>
+    <li class="page-item">
+        <a class="page-link" href="#">1</a>
+    </li>
+    <li class="page-item">
+        <a class="page-link" href="#">2</a>
+    </li>
+    <li class="page-item">
+        <a class="page-link" href="#">3</a>
+    </li>
+    <li class="page-item">
+        <a class="page-link" href="#" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+            <span class="sr-only">Next</span>
+        </a>
+    </li>
+</ul>
 </tbody>
+

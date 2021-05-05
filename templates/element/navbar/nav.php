@@ -10,21 +10,21 @@ $talents = TableRegistry::getTableLocator()->get('Talents');
 $suppliers = TableRegistry::getTableLocator()->get('Suppliers');
 $customers = TableRegistry::getTableLocator()->get('Customers');
 
-if($role == 'admin'){ 
+if($role == 'admin'){
     $username= 'Admin';}
-elseif($role == 'customer'){ 
+elseif($role == 'customer'){
     $user = $customers
     ->find()
     ->where(['user_id' => $user_id])
     ->first();
     $username= $user->first_name."  ".$user->last_name;}
-elseif($role == 'supplier'){ 
+elseif($role == 'supplier'){
     $user = $suppliers
     ->find()
     ->where(['user_id' => $user_id])
     ->first();
     $username= $user->name;}
-elseif($role == 'talent'){ 
+elseif($role == 'talent'){
     $user = $talents
     ->find()
     ->where(['user_id' => $user_id])
@@ -61,17 +61,15 @@ elseif($role == 'talent'){
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                              aria-labelledby="userDropdown">
-                           
+
                             <!-- Nested if -- if role == admin, then we want a dropdown user to have admin dashboard -->
                             <?php if($role == 'admin') : ?>
                                 <a class="dropdown-item" href="<?= $this->Url->build(['controller'=>'dashboard','action'=>'index'])?>">
                                     <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Admin Dashboard
                                 </a>
-                            <?php endif; ?>
-
                             <!-- Nested elseif -- if role == talent, then we want a dropdown user to have talent dashboard -->
-                            <?php if($role == 'talent') : 
+                            <?php elseif($role == 'talent') :
                                 $user = $talents
                                 ->find()
                                 ->where(['user_id' => $user_id])
@@ -81,10 +79,8 @@ elseif($role == 'talent'){
                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                 My Profile
                                  </a>
-                            <?php endif; ?>
-
                             <!-- Nested elseif -- if role == supplier, then we want a dropdown user to have supplier dashboard -->
-                            <?php if($role == 'supplier') : 
+                            <?php elseif($role == 'supplier') :
                                 $user = $suppliers
                                 ->find()
                                 ->where(['user_id' => $user_id])
@@ -94,9 +90,7 @@ elseif($role == 'talent'){
                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                 My Profile
                                  </a>
-                            <?php endif; ?>
-
-                            <?php if($role == 'customer') : 
+                            <?php elseif($role == 'customer') :
                                 $user = $customers
                                 ->find()
                                 ->where(['user_id' => $user_id])
