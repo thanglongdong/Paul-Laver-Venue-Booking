@@ -57,8 +57,13 @@ class TalentsController extends AppController
             $name = $image->getClientFileName();
 
             if(!is_dir(WWW_ROOT.'talent-img'))
+<<<<<<< HEAD
             mkdir(WWW_ROOT.'talent-img',0775);
+=======
+                mkdir(WWW_ROOT.'talent-img',0775);
+>>>>>>> cb58333e6b65dcb772529651f927d2f84af53923
             $targetPath = WWW_ROOT.'talent-img'.DS.$name;
+
             if($name)
                 $image->moveTo($targetPath);
             $talent->image = $name;
@@ -92,6 +97,9 @@ class TalentsController extends AppController
 
             $image = $this->request->getData('change_image');
             $name = $image->getClientFileName();
+
+            if(!is_dir(WWW_ROOT.'talent-img'))
+                mkdir(WWW_ROOT.'talent-img',0775);
 
             if($name){
                 $targetPath = WWW_ROOT.'talent-img'.DS.$name;

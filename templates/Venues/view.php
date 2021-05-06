@@ -26,7 +26,7 @@ echo $this->Form->control('description',['disabled']);
 echo $this->Form->control('image',['disabled']);
 echo $this->Form->control('pph',['disabled']);
 ?>
-
+<?= $this->Form->end() ?>
 <br></br>
 <div>
     <?= $this->Html->link(__('Edit Venue'), ['action' => 'edit', $venue->id], ['class' => 'btn btn-primary']) ?>
