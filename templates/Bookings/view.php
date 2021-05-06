@@ -22,6 +22,7 @@ echo $this->Form->control('no_of_people',['disabled']);
 echo $this->Form->control('cost',['disabled']);
 ?>
 <br </br>
+<?= $this->Form->end() ?>
 <div>
 <?= $this->Html->link(__('Edit Booking'), ['action' => 'edit', $booking->id], ['class' => 'btn btn-primary']) ?>
 <?= $this->Form->postLink(__('Delete Booking'), ['action' => 'delete', $booking->id], ['confirm' => __('Are you sure you want to delete # {0}?', $booking->id), 'class' => 'btn btn-outline-primary me-2 float-right mr-2']) ?>

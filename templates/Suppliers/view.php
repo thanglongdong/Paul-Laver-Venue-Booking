@@ -23,6 +23,7 @@ echo $this->Form->control('preferred',['disabled']);
 echo $this->Form->control('pph',['disabled']);
 ?>
 <br </br>
+<?= $this->Form->end() ?>
 <div>
     <?= $this->Html->link(__('Edit Supplier'), ['action' => 'edit', $supplier->id], ['class' => 'btn btn-primary']) ?>
     <?= $this->Form->postLink(__('Delete Supplier'), ['action' => 'delete', $supplier->id], ['confirm' => __('Are you sure you want to delete supplier {0}?', $supplier->name), 'class' => 'btn btn-outline-primary me-2 float-right mr-2']) ?>

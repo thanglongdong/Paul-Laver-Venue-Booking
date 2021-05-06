@@ -22,6 +22,7 @@
         echo $this->Form->control('user_id', ['options' => $users, 'empty' => true]);
     ?>
 <br>
+<?= $this->Form->end() ?>
 <div>
     <?= $this->Form->button(__('Edit Customer'), ['class' => 'btn btn-primary']) ?>
     <?= $this->Form->postLink(
@@ -31,5 +32,5 @@
     ) ?>
     <?= $this->Html->link(__('List Customers'), ['action' => 'index'], ['class' => 'btn btn-outline-primary me-2 float-right mr-2']) ?>
 </div>
-<?= $this->Form->end() ?>
+
 <br </br>
