@@ -27,18 +27,21 @@ echo $this->Form->control('email');
 echo $this->Form->control('description');
 echo $this->Form->control('change_image',['type'=>'file']);
 echo $this->Form->control('pph');
+debug($venue->id);
 ?>
 <br </br>
+
+
+<?= $this->Form->end() ?>
 <div>
     <?= $this->Form->button(__('Edit Venue'), ['class' => 'btn btn-primary']) ?>
     <?= $this->Form->postLink(
         __('Delete Venue'),
         ['action' => 'delete', $venue->id],
-        ['confirm' => __('Are you sure you want to delete venue {0}?', $venue->name), 'class' => 'btn btn-outline-primary me-2 float-right mr-2']
+        ['confirm' => __('Are you sure you want to delete venue {0}?', $venue->name),'block'=>true, 'class' => 'btn btn-outline-primary me-2 float-right mr-2']
     ) ?>
     <?= $this->Html->link(__('List Venues'), ['action' => 'index'], ['class' => 'btn btn-outline-primary me-2 float-right mr-2']) ?>
 </div>
-<?= $this->Form->end() ?>
 <br </br>
 
 
