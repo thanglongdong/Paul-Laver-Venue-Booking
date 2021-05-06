@@ -55,6 +55,9 @@ class TalentsController extends AppController
 
             $image = $this->request->getData('image_file');
             $name = $image->getClientFileName();
+
+            if(!is_dir(WWW_ROOT.'talent-img'))
+            mkdir(WWW_ROOT.'talent-img',0775);
             $targetPath = WWW_ROOT.'talent-img'.DS.$name;
             if($name)
                 $image->moveTo($targetPath);

@@ -55,6 +55,9 @@ class SuppliersController extends AppController
 
             $image = $this->request->getData('image_file');
             $name = $image->getClientFileName();
+
+            if(!is_dir(WWW_ROOT.'supplier-img'))
+            mkdir(WWW_ROOT.'supplier-img',0775);
             $targetPath = WWW_ROOT.'supplier-img'.DS.$name;
             if($name)
                 $image->moveTo($targetPath);
