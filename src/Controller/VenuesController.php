@@ -52,7 +52,11 @@ class VenuesController extends AppController
 
             $image = $this->request->getData('image_file');
             $name = $image->getClientFileName();
+
+            if(!is_dir(WWW_ROOT.'venue-img'))
+            mkdir(WWW_ROOT.'venue-img',0775);
             $targetPath = WWW_ROOT.'venue-img'.DS.$name;
+
             if($name)
                 $image->moveTo($targetPath);
             $venue->image = $name;
