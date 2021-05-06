@@ -21,6 +21,7 @@
     ]);
     ?>
 <br </br>
+<?= $this->Form->end() ?>
 <div>
 <?= $this->Form->button(__('Edit User'), ['class' => 'btn btn-primary']) ?>
 <?= $this->Form->postLink(
@@ -30,6 +31,6 @@
 ) ?>
 <?= $this->Html->link(__('List Users'), ['action' => 'index'], ['class' => 'btn btn-outline-primary me-2 float-right mr-2']) ?>
 </div>
-<?= $this->Form->end() ?>
+
 <br </br>
 

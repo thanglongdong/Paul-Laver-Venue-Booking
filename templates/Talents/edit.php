@@ -27,6 +27,7 @@ echo $this->Form->control('bookings._ids', ['options' => $bookings]);
 echo $this->Form->control('user_id', ['options' => $users, 'empty' => true]);
 ?>
 <br </br>
+<?= $this->Form->end() ?>
 <div>
     <?= $this->Form->button(__('Edit Talent'), ['class' => 'btn btn-primary']) ?>
     <?= $this->Form->postLink(
@@ -36,5 +37,5 @@ echo $this->Form->control('user_id', ['options' => $users, 'empty' => true]);
     ) ?>
     <?= $this->Html->link(__('List Talents'), ['action' => 'index'], ['class' => 'btn btn-outline-primary me-2 float-right mr-2']) ?>
 </div>
-<?= $this->Form->end() ?>
+
 <br </br>
