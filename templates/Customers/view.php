@@ -21,6 +21,7 @@ echo $this->Form->control('address',['disabled']);
 echo $this->Form->control('email',['disabled']);
 ?>
 <br> </br>
+<?= $this->Form->end() ?>
 <div>
 <?= $this->Html->link(__('Edit Customer'), ['action' => 'edit', $customer->id], ['class' => 'btn btn-primary']) ?>
 <?= $this->Form->postLink(__('Delete Customer'), ['action' => 'delete', $customer->id], ['confirm' => __('Are you sure you want to delete  customer {0} {1}?', $customer->first_name,$customer->last_name), 'class' => 'btn btn-outline-primary me-2 float-right mr-2']) ?>
