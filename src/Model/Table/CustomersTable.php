@@ -77,8 +77,8 @@ class CustomersTable extends Table
             ->notEmptyString('last_name','Please provide your last name.');
 
         $validator
-            ->numeric('phone')
-            ->add('phone', 'length', [
+            ->numeric('mobile')
+            ->add('mobile', 'length', [
                 'rule' => ['lengthBetween', 10,11],
                 'message' => 'Please enter a 10-digit mobile number.'
             ])

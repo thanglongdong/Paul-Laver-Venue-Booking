@@ -29,6 +29,11 @@ echo $this -> Html->css("about.css",['block'=>true]);
             <i class="fas fa-dollar-sign fa-sm fa-fw mr-2 text-gray-400"></i>
             <?= h($supplier->pph)."/hour" ?>
         </div>
+        <div class="item2">
+            <?= h($supplier->description) ?>
+        </div>
+        <a href="<?= $this->Url->build(['action' => 'editprofile', $supplier->id])?>" class="d-none d-sm-inline-block btn btn-outline-primary shadow-sm" style="width:116px"><i
+                class="fas fa-sm text-white-50"></i>Edit</a>
     </div>
 </div>
 

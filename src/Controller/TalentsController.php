@@ -142,4 +142,38 @@ class TalentsController extends AppController
         $this->set(compact('talent'));
     }
 
+    public function editprofile($id = null)
+    {
+        $talent = $this->Talents->get($id, [
+            'contain' => ['Bookings'],
+        ]);
+        if ($this->request->is(['patch', 'post', 'put'])) {
+            $talent = $this->Talents->patchEntity($talent, $this->request->getData());
+
+            $image = $this->request->getData('change_image');
+            $name = $image->getClientFileName();
+
+            if($name){
+                $targetPath = WWW_ROOT.'talent-img'.DS.$name;
+                $image->moveTo($targetPath);
+
+                $imgpath = WWW_ROOT.'talent-img'.DS.$talent->image;
+                if(file_exists($imgpath)){
+                    unlink($imgpath);
+                }
+                $talent->image = $name;
+            }
+
+            if ($this->Talents->save($talent)) {
+                $this->Flash->success(__('The talent has been saved.'));
+
+                return $this->redirect(['action' => 'profile',$talent->id]);
+            }
+            $this->Flash->error(__('The talent could not be saved. Please, try again.'));
+        }
+        $users = $this->Talents->Users->find('list', ['limit' => 200]);
+        $bookings = $this->Talents->Bookings->find('list', ['limit' => 200]);
+        $this->set(compact('talent', 'users', 'bookings'));
+    }
+
 }

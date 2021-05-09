@@ -112,4 +112,22 @@ class CustomersController extends AppController
         $customer = $this->Customers->get($id);
         $this->set(compact('customer'));
     }
+
+    public function editprofile($id = null)
+    {
+        $customer = $this->Customers->get($id, [
+            'contain' => [],
+        ]);
+        if ($this->request->is(['patch', 'post', 'put'])) {
+            $customer = $this->Customers->patchEntity($customer, $this->request->getData());
+            if ($this->Customers->save($customer)) {
+                $this->Flash->success(__('The customer has been saved.'));
+
+                return $this->redirect(['action' => 'profile',$customer->id]);
+            }
+            $this->Flash->error(__('The customer could not be saved. Please, try again.'));
+        }
+        $users = $this->Customers->Users->find('list', ['limit' => 200]);
+        $this->set(compact('customer', 'users'));
+    }
 }

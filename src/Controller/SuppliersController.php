@@ -142,4 +142,38 @@ class SuppliersController extends AppController
         $supplier = $this->Suppliers->get($id);
         $this->set(compact('supplier'));
     }
+
+    public function editprofile($id = null)
+    {
+        $supplier = $this->Suppliers->get($id, [
+            'contain' => ['Bookings'],
+        ]);
+        if ($this->request->is(['patch', 'post', 'put'])) {
+            $supplier = $this->Suppliers->patchEntity($supplier, $this->request->getData());
+
+            $image = $this->request->getData('change_image');
+            $name = $image->getClientFileName();
+
+            if($name){
+                $targetPath = WWW_ROOT.'supplier-img'.DS.$name;
+                $image->moveTo($targetPath);
+
+                $imgpath = WWW_ROOT.'supplier-img'.DS.$supplier->image;
+                if(file_exists($imgpath)){
+                    unlink($imgpath);
+                }
+                $supplier->image = $name;
+            }
+
+            if ($this->Suppliers->save($supplier)) {
+                $this->Flash->success(__('The supplier has been saved.'));
+
+                return $this->redirect(['action' => 'profile',$supplier->id]);
+            }
+            $this->Flash->error(__('The supplier could not be saved. Please, try again.'));
+        }
+        $users = $this->Suppliers->Users->find('list', ['limit' => 200]);
+        $bookings = $this->Suppliers->Bookings->find('list', ['limit' => 200]);
+        $this->set(compact('supplier', 'users', 'bookings'));
+    }
 }

@@ -47,6 +47,8 @@ $booking =$bookings
             <i class="fas fa-map-marker-alt fa-sm fa-fw mr-2 text-gray-400"></i>
             <?= h($customer->address) ?>
         </div>
+        <a href="<?= $this->Url->build(['action' => 'editprofile', $customer->id])?>" class="d-none d-sm-inline-block btn btn-outline-primary shadow-sm" style="width:116px"><i
+                class="fas fa-sm text-white-50"></i>Edit</a>
     </div>
 </div>
 
