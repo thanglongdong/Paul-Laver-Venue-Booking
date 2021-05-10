@@ -26,9 +26,10 @@ echo $this->Form->control('pph');
 echo $this->Form->control('user_id', ['options' => $users, 'empty' => true]);
 ?>
 <br </br>
-<?= $this->Form->end() ?>
+
 <div>
     <?= $this->Form->button(__('Edit Supplier'), ['class' => 'btn btn-primary']) ?>
+    <?= $this->Form->end() ?>
     <?= $this->Form->postLink(
         __('Delete Supplier'),
         ['action' => 'delete', $supplier->id],

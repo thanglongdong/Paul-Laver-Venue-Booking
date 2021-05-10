@@ -22,9 +22,10 @@
         echo $this->Form->control('user_id', ['options' => $users, 'empty' => true]);
     ?>
 <br>
-<?= $this->Form->end() ?>
+
 <div>
     <?= $this->Form->button(__('Edit Customer'), ['class' => 'btn btn-primary']) ?>
+    <?= $this->Form->end() ?>
     <?= $this->Form->postLink(
         __('Delete Customer'),
         ['action' => 'delete', $customer->id],
