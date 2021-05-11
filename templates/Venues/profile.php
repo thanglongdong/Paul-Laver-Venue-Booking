@@ -86,6 +86,7 @@ echo $this -> Html->css("venue-profile.css",['block'=>true]);
 <br>
 </section>
 
+<br>
 <!-- Suppliers
 <section>
      Same above, but for suppliers instead of talent!

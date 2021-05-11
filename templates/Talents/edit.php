@@ -27,9 +27,10 @@ echo $this->Form->control('bookings._ids', ['options' => $bookings]);
 echo $this->Form->control('user_id', ['options' => $users, 'empty' => true]);
 ?>
 <br </br>
-<?= $this->Form->end() ?>
+
 <div>
     <?= $this->Form->button(__('Edit Talent'), ['class' => 'btn btn-primary']) ?>
+    <?= $this->Form->end() ?>
     <?= $this->Form->postLink(
         __('Delete Talent'),
         ['action' => 'delete', $talent->id],
