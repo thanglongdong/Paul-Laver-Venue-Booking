@@ -46,11 +46,10 @@ class UsersController extends AppController
         $user = $this->Users->newEmptyEntity();
         if ($this->request->is(['patch', 'post', 'put'])) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
-
+            $user['role']='customer';
             if ($this->Users->save($user)) {
                 $this->Flash->success(__('The user has been saved.'));
                 $this->Authentication->setIdentity($user); //As we have just registered as a user, we can login using those credentials
-                $user['role']='customer';
                 $customer = $customers->newEntity([
                     'first_name'=>'Null',
                     'last_name'=>'Null',
