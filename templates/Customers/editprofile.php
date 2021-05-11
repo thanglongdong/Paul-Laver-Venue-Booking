@@ -14,7 +14,6 @@
         echo $this->Form->control('mobile');
         echo $this->Form->control('address');
         echo $this->Form->control('email');
-        echo $this->Form->control('user_id', ['disabled']);
     ?>
 <br>
 <div>

@@ -28,7 +28,6 @@ echo $this -> Html->script("/js/demo/datatables-demo.js",['block'=>true]);
                 <tr>
                     <th><?= h('id') ?></th>
                     <th><?= h('email') ?></th>
-                    <th><?= h('password') ?></th>
                     <th><?= h('role') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
@@ -38,7 +37,6 @@ echo $this -> Html->script("/js/demo/datatables-demo.js",['block'=>true]);
                 <tr>
                     <td><?= $this->Number->format($users->id) ?></td>
                     <td><?= h($users->email) ?></td>
-                    <td><?= h($users->password) ?></td>
                     <td><?= h($users->role) ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $users->id]) ?>

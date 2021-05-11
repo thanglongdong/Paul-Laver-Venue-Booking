@@ -21,9 +21,10 @@
     ]);
     ?>
 <br </br>
-<?= $this->Form->end() ?>
+
 <div>
 <?= $this->Form->button(__('Edit User'), ['class' => 'btn btn-primary']) ?>
+<?= $this->Form->end() ?>
 <?= $this->Form->postLink(
     __('Delete User'),
     ['action' => 'delete', $user->id],

@@ -17,7 +17,6 @@ echo $this->Form->control('preferred', [
     'options' => ['no'=>'no','yes'=>'yes']
 ]);
 echo $this->Form->control('pph');
-echo $this->Form->control('user_id', ['disabled']);
 ?>
 <br </br>
 <div>

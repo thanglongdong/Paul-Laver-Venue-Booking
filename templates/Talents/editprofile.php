@@ -17,7 +17,6 @@ echo $this->Form->control('genre', [
 ]);
 echo $this->Form->control('description');
 echo $this->Form->control('pph');
-echo $this->Form->control('user_id', ['disabled']);
 ?>
 <br </br>
 <div>
