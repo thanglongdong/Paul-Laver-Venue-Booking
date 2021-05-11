@@ -13,7 +13,6 @@ echo $this->Form->control('name');
 echo $this->Form->control('phone');
 echo $this->Form->control('email');
 echo $this->Form->control('description');
-echo $this->Form->control('change_image',['type'=>'file']);
 echo $this->Form->control('preferred', [
     'options' => ['no'=>'no','yes'=>'yes']
 ]);

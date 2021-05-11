@@ -1,12 +1,14 @@
 <?php
 namespace App\Controller;
 
+use Cake\ORM\TableRegistry;
 use App\Controller\AppController;
 use Cake\Event\EventInterface;
 
+
+
 class UsersController extends AppController
 {
-
     public function index()
     {
         $this->set('users', $this->Users->find()->all());
@@ -36,19 +38,30 @@ class UsersController extends AppController
     }
 
     public function register()
-    {
+    {   //get the customers/talent/suppleirs table to initialise a new entry 
+        $customers = TableRegistry::getTableLocator()->get('Customers');
+        $talents = TableRegistry::getTableLocator()->get('Talents');
+        $suppliers = TableRegistry::getTableLocator()->get('Suppliers');
+
         $user = $this->Users->newEmptyEntity();
-        if ($this->request->is('post')) {
+        if ($this->request->is(['patch', 'post', 'put'])) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
+
             if ($this->Users->save($user)) {
                 $this->Flash->success(__('The user has been saved.'));
                 $this->Authentication->setIdentity($user); //As we have just registered as a user, we can login using those credentials
-                return $this->redirect('/');
-                //return $this->redirect(['action' => 'register']);
-                //return $this->redirect($this->referer()); //want to redirect to page before we clicked sign up
-                //return $this->redirect('/');
+                $user['role']='customer';
+                $customer = $customers->newEntity([
+                    'first_name'=>'Null',
+                    'last_name'=>'Null',
+                    'mobile'=>'0000000000',
+                    'address'=>'Null',
+                    'email'=>$user->email,
+                    'user_id'=>$user->id
+                    ]);
+                $customers->save($customer);
+                return $this->redirect(['controller'=>'customers','action' => 'editprofile',$customer->id]);
             }
-            // $this->Flash->error(__('Unable to register the user.'));
         }
         $this->set('user', $user);
     }

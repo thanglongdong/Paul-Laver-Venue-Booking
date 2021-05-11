@@ -16,7 +16,6 @@ echo $this->Form->control('genre', [
     'options' => ['Singer'=>'Singer','Dancer'=>'Dancer','Clown'=>'Clown','Magician'=>'Magician']
 ]);
 echo $this->Form->control('description');
-echo $this->Form->control('change_image',['type'=>'file']);
 echo $this->Form->control('pph');
 echo $this->Form->control('user_id', ['disabled']);
 ?>

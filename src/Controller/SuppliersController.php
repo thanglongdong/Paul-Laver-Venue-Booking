@@ -158,20 +158,6 @@ class SuppliersController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $supplier = $this->Suppliers->patchEntity($supplier, $this->request->getData());
 
-            $image = $this->request->getData('change_image');
-            $name = $image->getClientFileName();
-
-            if($name){
-                $targetPath = WWW_ROOT.'supplier-img'.DS.$name;
-                $image->moveTo($targetPath);
-
-                $imgpath = WWW_ROOT.'supplier-img'.DS.$supplier->image;
-                if(file_exists($imgpath)){
-                    unlink($imgpath);
-                }
-                $supplier->image = $name;
-            }
-
             if ($this->Suppliers->save($supplier)) {
                 $this->Flash->success(__('The supplier has been saved.'));
 

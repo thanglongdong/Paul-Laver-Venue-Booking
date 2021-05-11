@@ -157,20 +157,6 @@ class TalentsController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $talent = $this->Talents->patchEntity($talent, $this->request->getData());
 
-            $image = $this->request->getData('change_image');
-            $name = $image->getClientFileName();
-
-            if($name){
-                $targetPath = WWW_ROOT.'talent-img'.DS.$name;
-                $image->moveTo($targetPath);
-
-                $imgpath = WWW_ROOT.'talent-img'.DS.$talent->image;
-                if(file_exists($imgpath)){
-                    unlink($imgpath);
-                }
-                $talent->image = $name;
-            }
-
             if ($this->Talents->save($talent)) {
                 $this->Flash->success(__('The talent has been saved.'));
 
