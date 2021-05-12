@@ -27,6 +27,7 @@ use Cake\Datasource\ConnectionManager;
 use Cake\Error\Debugger;
 use Cake\ORM\Locator\LocatorAwareTrait;
 use Cake\Http\Exception\NotFoundException;
+use Cake\ORM\TableRegistry;
 
 $this->disableAutoLayout();
 
@@ -44,9 +45,13 @@ echo $this -> Html->css("home.css",['block'=>true]);
 
 //debug($venues->find()->where(['id' => 1]));
 
+$venues_table = TableRegistry::getTableLocator()->get('Venues');
 
-
+$venues =$venues_table
+    ->find()
+    ->all();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -127,57 +132,34 @@ echo $this -> Html->css("home.css",['block'=>true]);
                 <!-- Page Features -->
                 <div class="row text-center">
 
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="card h-100">
-                            <?=$this->Html->image('venue1.jpeg', ["class"=>'card-body',"alt" => "","style"=>"width:253px;height:164px"]);?>
-                            <div class="card-body">
-                                <h4 class="card-title">Venue Name</h4>
-                                <p class="card-text">Text that adequately describes the best parts of the venue and shows a reason for people to book here.</p>
-                            </div>
-                            <div class="card-footer">
-                                <a href= "<?= $this->Url->build('/venues/profile/1')?>" class="btn btn-primary">Find Out More!</a>
-                            </div>
-                        </div>
-                    </div>
+                    <?php $i = 0; ?>
 
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="card h-100">
-                            <?=$this->Html->image('venue2.jpeg', ["class"=>'card-body',"alt" => "","style"=>"width:253px;height:164px"]);?>
-                            <div class="card-body">
-                                <h4 class="card-title">Venue Name</h4>
-                                <p class="card-text">Text that adequately describes the best parts of the venue and shows a reason for people to book here.</p>
-                            </div>
-                            <div class="card-footer">
-                                <a href= "<?= $this->Url->build('/venues/profile/2')?>" class="btn btn-primary">Find Out More!</a>
-                            </div>
-                        </div>
-                    </div>
+                    <?php foreach ($venues as $venue): ?>
 
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="card h-100">
-                            <?=$this->Html->image('venue3.jpeg', ["class"=>'card-body',"alt" => "","style"=>"width:253px;height:164px"]);?>
-                            <div class="card-body">
-                                <h4 class="card-title">Venue Name</h4>
-                                <p class="card-text">Text that adequately describes the best parts of the venue and shows a reason for people to book here.</p>
-                            </div>
-                            <div class="card-footer">
-                                <a href= "<?= $this->Url->build('/venues/profile/3')?>" class="btn btn-primary">Find Out More!</a>
-                            </div>
-                        </div>
-                    </div>
+                        <?php if($i==4){
+                            break;
+                        }
+                        ?>
 
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="card h-100">
-                            <?=$this->Html->image('venue4.jpeg', ["class"=>'card-body',"alt" => "","style"=>"width:253px;height:164px"]);?>
-                            <div class="card-body">
-                                <h4 class="card-title">Venue Name</h4>
-                                <p class="card-text">Text that adequately describes the best parts of the venue and shows a reason for people to book here.</p>
-                            </div>
-                            <div class="card-footer">
-                                <a href= "<?= $this->Url->build('/venues/profile/4')?>" class="btn btn-primary">Find Out More!</a>
+                        <div class="col-lg-3 col-md-6 mb-4">
+                            <div class="card h-100">
+                                <a href="<?= $this->Url->build(['action'=>'profile', $venue->id])?>">
+                                    <td><?= $this->Html->image($venue->image, ["style"=>"width:253px;height:164px;object-fit: cover", 'class' =>"card-body"]) ?></td>
+                                </a>
+                                <div class="card-body">
+                                    <h4 class="card-title"><?= h($venue->name) ?></h4>
+                                    <p class="card-text"><?= h($venue->description) ?></p>
+                                </div>
+                                <div class="card-footer">
+                                    <?= $this->Html->link(__('Find Out More'), ['controller' =>'venues','action' => 'profile', $venue->id],['class'=>'btn btn-primary']) ?>
+                                </div>
                             </div>
                         </div>
-                    </div>
+
+                        <?php $i++; ?>
+
+                    <?php endforeach; ?>
+
                 </div>
                 <!-- /.row -->
             </div>

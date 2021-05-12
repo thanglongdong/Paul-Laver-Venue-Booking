@@ -2,13 +2,7 @@
 ?>
 
 <ul class="nav nav-tabs nav-fill">
-    <li class="nav-item">
-        <?php if($page == 'Dashboard') : ?>
-            <a class="nav-link active font-weight-bold" href="<?= $this->Url->build('/dashboard')?>">Dashboard</a>
-        <?php else : ?>
-            <a class="nav-link" href="<?= $this->Url->build('/dashboard')?>">Dashboard</a>
-        <?php endif; ?>
-    </li>
+<!--Dashboard was here-->
     <li class="nav-item">
         <?php if($page == 'Venues') : ?>
             <a class="nav-link active font-weight-bold" href="<?= $this->Url->build('/venues')?>">Venues</a>
