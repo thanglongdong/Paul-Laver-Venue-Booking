@@ -22,9 +22,9 @@ echo $this -> Html->script("/js/demo/datatables-demo.js",['block'=>true]);
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
                 <tr>
-                    <th><?= h('id') ?></th>
-                    <th><?= h('booking_id') ?></th>
-                    <th><?= h('talent_id') ?></th>
+                    <th><?= h('Id') ?></th>
+                    <th><?= h('Booking_id') ?></th>
+                    <th><?= h('Talent_id') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
             </thead>

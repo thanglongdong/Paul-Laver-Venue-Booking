@@ -24,15 +24,15 @@ echo $this -> Html->script("/js/demo/datatables-demo.js",['block'=>true]);
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
                 <tr>
-                    <th><?= h('id') ?></th>
-                    <th><?= h('date') ?></th>
-                    <th><?= h('start_time') ?></th>
-                    <th><?= h('end_time') ?></th>
-                    <th><?= h('event_type') ?></th>
-                    <th><?= h('no_of_people') ?></th>
-                    <th><?= h('venue_id') ?></th>
-                    <th><?= h('customer_id') ?></th>
-                    <th><?= h('cost') ?></th>
+                    <th><?= h('Id') ?></th>
+                    <th><?= h('Date') ?></th>
+                    <th><?= h('Start_time') ?></th>
+                    <th><?= h('End_time') ?></th>
+                    <th><?= h('Event_type') ?></th>
+                    <th><?= h('No_of_people') ?></th>
+                    <th><?= h('Venue_id') ?></th>
+                    <th><?= h('Customer_id') ?></th>
+                    <th><?= h('Cost') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
             </thead>
