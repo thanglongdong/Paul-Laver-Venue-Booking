@@ -43,6 +43,9 @@ echo $this -> Html->css("home.css",['block'=>true]);
 //ConnectionManager::setConfig('default', ['url' => $dsn]);
 
 //debug($venues->find()->where(['id' => 1]));
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -55,7 +58,9 @@ echo $this -> Html->css("home.css",['block'=>true]);
     <meta name="author" content="">
     <?= $this->Html->meta('icon') ?>
 
-    <title><?= $this->fetch('title') ?></title>
+    <title>
+        <?= $this->fetch('title') ?>
+    </title>
 
     <!-- Bootstrap core CSS -->
     <?= $this->Html->css(['/vendor/bootstrap/css/bootstrap.min.css']) ?>
@@ -97,65 +102,9 @@ echo $this -> Html->css("home.css",['block'=>true]);
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="d-flex">
-                                <div class="col-lg-3 col-md-3 col-sm-12 p-0" style="margin-right:10px">
-                                    <?= $this->Form->create(); ?>
-                                    <?= $this->Form->text('location', [
-                                        'label'=>false,
-                                        'class' => 'form-control search-slt',
-                                        'placeholder'=>'Location',
-                                        //'default' => 'Location'
-                                        $location = 'Location'
-                                    ]); ?>
-                                </div>
 
-                                <div class="col-lg-3 col-md-3 col-sm-12 p-0" style="margin-right:10px">
-                                    <?= $this->Form->control('Date', [
-                                        'label'=>false,
-                                        'class' => 'form-control search-slt',
-                                        'placeholder'=>'Date',
-                                        'type'=>'date',
-                                        $date = 'Date'
-                                    ]); ?>
-                                </div>
+                                <?= $this->Html->link(__('View Venues'), ['controller' =>'Venues','action' => 'results'], ['class' => 'btn btn-lg-3 btn-md-3 btn-sm-12 btn-block btn-primary']) ?>
 
-                                <div class="col-lg-3 col-md-3 col-sm-12 p-0" style="margin-right:10px">
-                                    <?php $sizes = ['None'=>'# of People','<50'=>'<50','50-100'=>'50-100','100-200'=>'100-200','200+'=>'200+']; ?>
-                                    <?= $this->Form->select('NumOfPeople', $sizes, [
-                                        'default' => 'None',
-                                        'label'=>false,
-                                        'class' => 'form-control search-slt',
-                                        'placeholder'=>'# of People',
-                                        $numOfPeople = 'NumPeople'
-
-                                    ]); ?>
-                                </div>
-
-
-
-                                <?= $this->Form->end(); ?>
-
-                                <!--debug( $yolo = $this->Form->getData(location));-->
-
-                                <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                                    <?= $this->Form->postLink('Search',
-                                        ['controller' => 'Venues','action' => 'results', $location, $date, $numOfPeople],
-                                        ['class' => 'btn btn-lg-3 btn-md-3 btn-sm-12 btn-block btn-primary'])
-
-
-                                    //                                    $this->Form->postLink(__('Search'), ['controller' =>'Venues', 'action' => 'results', $location->'Location'], [
-                                    //                                        'block'=>true,
-                                    //                                        'class'=> 'btn btn-lg-3 btn-md-3 btn-sm-12 btn-block btn-primary'])
-
-                                    //                                    'controller' =>'Venues',
-                                    //                                        'action' => 'results'], [
-                                    //                                        'location'=> $location,
-                                    //                                        'date'=> $date,
-                                    //                                        'numPeople'=> $numPeople,
-                                    //                                        'block'=>true,
-                                    //                                        'class'=> 'btn btn-lg-3 btn-md-3 btn-sm-12 btn-block btn-primary'])
-
-                                    ?>
-                                </div>
                             </div>
                         </div>
                     </div>

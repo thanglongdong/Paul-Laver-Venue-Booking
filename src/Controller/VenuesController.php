@@ -153,17 +153,61 @@ class VenuesController extends AppController
      *
      * @return \Cake\Http\Response|null|void Renders view
      */
-    public function results($location=null, $date=null, $numPeople=null)
+    public function results()
     {
-        //$key = $this->request->getQuery('location');
-        //if($key){
-//            $query = $this->Venues->findBySuburb($key);
-//        } else{
-//            $query = $this->Venues;
-//        }
+        $this->paginate = [
+            'limit' => 10
+        ];
+
+        $venues_query = $this->Venues->find('all');
+
+        $key= $this->request->getQuery();
+
+        if (!empty($key['location'])) {
+            $venues_query->where([
+                'Venues.suburb LIKE' => '%' . $key['location'] . '%'
+            ]);
+        }
+
+//        if (!empty($key['num_of_people'])) {
+//            if($key['num_of_people'] == '<50'){
+//                for ($i = 1; $i < 50; $i++) {
+//                    $venues_query->where([
+//                        'Venues.capacity' => $i
 //
-//        $this->set(compact('query'));
-        $venues = $this->paginate($this->Venues);
+//                    ]);
+//                }
+//            }
+//            elseif($key['num_of_people'] == '50-100'){
+//                for ($i = 50; $i <= 100 ; $i++) {
+//                    $venues_query->where([
+//                        'Venues.capacity' => $i
+//                    ]);
+//                }
+//            }
+//            elseif($key['num_of_people'] == '100-200'){
+//                for ($i = 100; $i <= 200; $i++) {
+//                    $venues_query->where([
+//                        'Venues.capacity' => $i
+//                    ]);
+//                }
+//            }
+//            elseif($key['num_of_people'] == '200+'){
+//                for ($i = 201; $i < 400; $i++) {
+//                    $venues_query->where([
+//                        'Venues.capacity' => $i
+//                    ]);
+//                }
+//            }
+//            else{
+        if (!empty($key['num_of_people'])) {
+            $venues_query->where([
+                'Venues.capacity' => $key['num_of_people']
+            ]);
+//            }
+        }
+
+        $venues = $this->paginate($venues_query);
 
         $this->set(compact('venues'));
     }

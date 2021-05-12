@@ -10,12 +10,47 @@
 //echo $numPeople;
 //debug($this->request->getParam('pass'));
 
-
+$search_criteria_context = [
+    'data' => [
+        'location' => $this->request->getQuery('location'),
+        'num_of_people' => $this->request->getQuery('num_of_people')
+    ],
+    'schema' => [
+        'location',
+        'num_of_people'
+    ]
+];
 
 ?>
 
+<?= $this->Form->create($search_criteria_context, ['type' => 'get']) ?>
+<div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="d-flex">
+                <div class="col-lg-3 col-md-3 col-sm-12 p-0" style="margin-right:10px">
+                    <?= $this->Form->control('location', ['label' => false,
+                        'class' => 'form-control search-slt',
+                        'placeholder' => 'Location']); ?>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-12 p-0" style="margin-right:10px">
+                    <?= $this->Form->control('num_of_people', [
+                        'label' => false,
+                        'placeholder' => '# of People',
+                        'class' => 'form-control search-slt']); ?>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                    <?= $this->Form->button('Search', [
+                        'class' => 'btn btn-lg-3 btn-md-3 btn-sm-12 btn-block btn-primary'
+                    ]) ?>
+                    <?= $this->Form->end() ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-<tbody>
+
 <?php foreach ($venues as $venue): ?>
     <div class="table-responsive">
         <!-- Page Content -->
@@ -36,9 +71,9 @@
                     <td><?= h($venue->suburb) ?></td>
                     <td><?= h($venue->state) ?></td>
                     <td><?= h($venue->postcode) ?></td></p>
-                        <p class="list-inline-item float-left"><i class="fas fa-users fa-2x"></i></p>
-                        <p class="list-inline-item font-weight-bold float-left"><td><?= $this->Number->format($venue->capacity) ?></td></p>
-                        <p class="list-inline-item float-right"><?= $this->Html->link(__('Take a Look'), ['action' => 'profile', $venue->id],['class'=>'btn btn-primary']) ?></p>
+                    <p class="list-inline-item float-left"><i class="fas fa-users fa-2x"></i></p>
+                    <p class="list-inline-item font-weight-bold float-left"><td><?= $this->Number->format($venue->capacity) ?></td></p>
+                    <p class="list-inline-item float-right"><?= $this->Html->link(__('Take a Look'), ['action' => 'profile', $venue->id],['class'=>'btn btn-primary']) ?></p>
 
                 </div>
             </div>
@@ -52,35 +87,9 @@
         </div>
         <!-- /.container -->
     </div>
-
-
-
-
-
 <?php endforeach; ?>
-<!-- Pagination
-<ul class="pagination justify-content-center">
-    <li class="page-item">
-        <a class="page-link" href="#" aria-label="Previous">
-            <span aria-hidden="true">&laquo;</span>
-            <span class="sr-only">Previous</span>
-        </a>
-    </li>
-    <li class="page-item">
-        <a class="page-link" href="#">1</a>
-    </li>
-    <li class="page-item">
-        <a class="page-link" href="#">2</a>
-    </li>
-    <li class="page-item">
-        <a class="page-link" href="#">3</a>
-    </li>
-    <li class="page-item">
-        <a class="page-link" href="#" aria-label="Next">
-            <span aria-hidden="true">&raquo;</span>
-            <span class="sr-only">Next</span>
-        </a>
-    </li>
-</ul>-->
-</tbody>
+        </tbody>
+    </table>
+</div>
+
 

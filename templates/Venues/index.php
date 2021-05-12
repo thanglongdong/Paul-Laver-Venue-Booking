@@ -25,7 +25,7 @@ echo $this -> Html->script("/js/demo/datatables-demo.js",['block'=>true]);
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
             <tr>
-                <th><?= h('Dd') ?></th>
+                <th><?= h('Id') ?></th>
                 <th><?= h('Name') ?></th>
                 <th><?= h('Street Address') ?></th>
                 <th><?= h('Suburb') ?></th>

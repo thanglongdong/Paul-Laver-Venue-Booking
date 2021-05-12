@@ -19,7 +19,7 @@ class TalentsController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Users'],
+            'contain' => ['Users']
         ];
         $talents = $this->paginate($this->Talents);
 
@@ -152,7 +152,7 @@ class TalentsController extends AppController
     public function editprofile($id = null)
     {
         $talent = $this->Talents->get($id, [
-            'contain' => ['Bookings'],
+            'contain' => ['Bookings']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $talent = $this->Talents->patchEntity($talent, $this->request->getData());
