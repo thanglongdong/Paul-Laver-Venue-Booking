@@ -13,9 +13,6 @@ echo $this->Form->control('name');
 echo $this->Form->control('phone');
 echo $this->Form->control('email');
 echo $this->Form->control('description');
-echo $this->Form->control('preferred', [
-    'options' => ['no'=>'no','yes'=>'yes']
-]);
 echo $this->Form->control('pph');
 ?>
 <br </br>

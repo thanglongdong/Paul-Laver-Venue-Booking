@@ -143,7 +143,7 @@ $venues =$venues_table
 
                         <div class="col-lg-3 col-md-6 mb-4">
                             <div class="card h-100">
-                                <a href="<?= $this->Url->build(['action'=>'profile', $venue->id])?>">
+                                <a href="<?= $this->Url->build(['controller'=>'venues','action'=>'profile', $venue->id])?>">
                                     <td><?= $this->Html->image($venue->image, ["style"=>"width:253px;height:164px;object-fit: cover", 'class' =>"card-body"]) ?></td>
                                 </a>
                                 <div class="card-body">

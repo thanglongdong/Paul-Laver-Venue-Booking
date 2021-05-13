@@ -10,9 +10,10 @@ echo $this -> Html->css("about.css",['block'=>true]);
 use Cake\ORM\TableRegistry;
 $this->loadHelper('Authentication.Identity');
 
+$loggedin = $this->Identity->isLoggedIn();
 
 if ($loggedin){
-$loggedin = $this->Identity->isLoggedIn();
+
 $user_id=$this->Identity->get('id');
 $suppliers = TableRegistry::getTableLocator()->get('Suppliers');
 $bookings = TableRegistry::getTableLocator()->get('Bookings');
@@ -37,7 +38,7 @@ $booking_supplier =$bookings_suppliers
 <section id="intro-section">
 
 <div class="group">
-    <?=$this->Html->image('blankuser.png', ["class"=>'img-fluid rounded-circle mb-3',"alt" => "","style"=>"width:200px;height:200px"]);?>  
+    <?=$this->Html->image('blankuser.png', ["class"=>'img-fluid rounded-circle mb-3',"alt" => "","style"=>"width:200px;height:200px"]);?>
     <div class="left-side flex-col">
         <div class="item1">
             <?= h($supplier->name) ?>

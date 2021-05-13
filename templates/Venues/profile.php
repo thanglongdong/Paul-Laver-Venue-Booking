@@ -14,7 +14,6 @@ $talent = $talents
 
 $supplier =$suppliers
     ->find()
-    ->where(['preferred' => 'yes'])
     ->all();
 
 echo $this -> Html->css("pagetitle.css",['block'=>true]);
@@ -56,39 +55,83 @@ echo $this -> Html->css("venue-profile.css",['block'=>true]);
     </div>
 </div>
 
-<!-- Talents -->
+<!-- Talent -->
 <section>
     <div class='flex' style='margin-top:15px;margin-bottom:15px;text-align:center'>
         <h4>Available Talent</h4>
     </div>
     <div class="row text-center">
-    <?php foreach ($talent as $eachtalent): ?>
+
+        <?php $i=0; ?>
+
+        <?php foreach ($talent as $eachtalent): ?>
+
+            <?php if($i==4){
+                break;
+            }
+            ?>
 
             <div class="col-lg-3 col-md-6 mb-4">
                 <div class="card h-100">
 
                     <a href="<?= $this->Url->build(['controller'=>'Talents','action'=>'profile', $eachtalent->id])?>">
-                    <?= $this->Html->image($eachtalent->image, ["style"=>"width:200px;height:130px;", 'class' =>"card-img-top rounded mx-auto d-block"]) ?>
+                        <?= $this->Html->image($eachtalent->image, ["style"=>"width:200px;height:130px;", 'class' =>"card-img-top rounded mx-auto d-block"]) ?>
                     </a>
 
                     <div class="card-body">
-                    <h4 class="card-title"><?= h($eachtalent->name) ?></h4>
+                        <h4 class="card-title"><?= h($eachtalent->name) ?></h4>
                         <p class="card-text"><?= h($eachtalent->genre) ?> </p>
                         <p><?= h($eachtalent->description) ?> </p>
                     </div>
                 </div>
-                <div class="card-footer"><a class="btn btn-primary" href="<?= $this->Url->build(['controller'=>'Talents','action'=>'profile', $eachtalent->id])?>">Check them out!</a></div>
+                <div class="card-footer"><a class="btn btn-primary" href="<?= $this->Url->build(['controller'=>'talents','action'=>'profile', $eachtalent->id])?>">Check them out!</a></div>
             </div>
 
-    <?php endforeach; ?>
+            <?php $i++; ?>
+
+        <?php endforeach; ?>
     </div>
 
-<br>
+    <br>
 </section>
 
-<br>
-<!-- Suppliers
-<section>
-     Same above, but for suppliers instead of talent!
 
-</section> -->
+
+<!-- Suppliers -->
+<section>
+    <div class='flex' style='margin-top:15px;margin-bottom:15px;text-align:center'>
+        <h4>Available Suppliers</h4>
+    </div>
+    <div class="row text-center">
+
+        <?php $i=0; ?>
+
+        <?php foreach ($supplier as $eachsupplier): ?>
+
+            <?php if($i==4){
+                break;
+            }
+            ?>
+
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="card h-100">
+
+                    <a href="<?= $this->Url->build(['controller'=>'Suppliers','action'=>'profile', $eachsupplier->id])?>">
+                        <?= $this->Html->image($eachsupplier->image, ["style"=>"width:200px;height:130px;", 'class' =>"card-img-top rounded mx-auto d-block"]) ?>
+                    </a>
+
+                    <div class="card-body">
+                        <h4 class="card-title"><?= h($eachsupplier->name) ?></h4>
+                        <p class="card-text"><?= h($eachsupplier->description) ?></p>
+                    </div>
+                </div>
+                <div class="card-footer"><a class="btn btn-primary" href="<?= $this->Url->build(['controller'=>'Suppliers','action'=>'profile', $eachsupplier->id])?>">Check them out!</a></div>
+            </div>
+
+            <?php $i++; ?>
+
+        <?php endforeach; ?>
+    </div>
+
+    <br>
+</section>

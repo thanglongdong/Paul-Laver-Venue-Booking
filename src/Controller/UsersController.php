@@ -38,7 +38,7 @@ class UsersController extends AppController
     }
 
     public function register()
-    {   //get the customers/talent/suppleirs table to initialise a new entry 
+    {   //get the customers/talent/suppleirs table to initialise a new entry
         $customers = TableRegistry::getTableLocator()->get('Customers');
         $talents = TableRegistry::getTableLocator()->get('Talents');
         $suppliers = TableRegistry::getTableLocator()->get('Suppliers');
@@ -88,7 +88,7 @@ class UsersController extends AppController
 
             if($role==='admin'){
                 $redirect = $this->request->getQuery('redirect', [
-                    'controller' => 'dashboard',
+                    'controller' => 'venues',
                     'action' => 'index',
                 ]);
                 $this->Flash->success("Welcome back " . $user->email);
