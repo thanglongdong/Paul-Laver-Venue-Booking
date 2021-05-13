@@ -14,23 +14,26 @@ $loggedin = $this->Identity->isLoggedIn();
 
 if ($loggedin){
 
-$user_id=$this->Identity->get('id');
-$suppliers = TableRegistry::getTableLocator()->get('Suppliers');
-$bookings = TableRegistry::getTableLocator()->get('Bookings');
-$bookings_suppliers = TableRegistry::getTableLocator()->get('BookingsSuppliers');
-$venues = TableRegistry::getTableLocator()->get('Venues');
+    $suppliers = TableRegistry::getTableLocator()->get('Suppliers');
+    $bookings = TableRegistry::getTableLocator()->get('Bookings');
+    $bookings_suppliers = TableRegistry::getTableLocator()->get('BookingsSuppliers');
+    $venues = TableRegistry::getTableLocator()->get('Venues');
 
+    $user_id=$this->Identity->get('id');
+    $role = $this->Identity->get('role');       
+    if ($role=='supplier' && $user_id== $supplier->user_id){
 
-$supplier = $suppliers
-    ->find()
-    ->where(['user_id' => $user_id])
-    ->first();
-$supplier_id=$supplier->id;
+        $supplier = $suppliers
+            ->find()
+            ->where(['user_id' => $user_id])
+            ->first();
+        $supplier_id=$supplier->id;
 
-$booking_supplier =$bookings_suppliers
-    ->find()
-    ->where(['supplier_id' => $supplier_id])
-    ->all();
+        $booking_supplier =$bookings_suppliers
+            ->find()
+            ->where(['supplier_id' => $supplier_id])
+            ->all();
+    }
 }
 ?>
 
@@ -58,14 +61,19 @@ $booking_supplier =$bookings_suppliers
         <div class="item2">
             <?= h($supplier->description) ?>
         </div>
-        <a href="<?= $this->Url->build(['action' => 'editprofile', $supplier->id])?>" class="d-none d-sm-inline-block btn btn-outline-primary shadow-sm" style="width:116px"><i
-                class="fas fa-sm text-white-50"></i>Edit</a>
+        <?php if ($loggedin): ?>
+            <?php if ($role=='supplier' && $user_id== $supplier->user_id): ?>
+                <a href="<?= $this->Url->build(['action' => 'editprofile', $supplier->id])?>" class="d-none d-sm-inline-block btn btn-outline-primary shadow-sm" style="width:116px"><i
+                        class="fas fa-sm text-white-50"></i>Edit</a>
+            <?php endif; ?>
+        <?php endif; ?>
+        
     </div>
 </div>
 
 </section>
 
-<?php if ($loggedin): ?>
+<?php if ($loggedin && $role=='supplier' && $user_id== $supplier->user_id): ?>
     <section>
         <div class='flex' style='margin-top:15px;margin-bottom:15px;text-align:center'>
             <h4>Related bookings</h4>

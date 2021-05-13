@@ -14,23 +14,27 @@ $this->loadHelper('Authentication.Identity');
 $loggedin = $this->Identity->isLoggedIn();
 
 if ($loggedin){
-$user_id=$this->Identity->get('id');
-$talents = TableRegistry::getTableLocator()->get('Talents');
-$bookings = TableRegistry::getTableLocator()->get('Bookings');
-$bookings_talents = TableRegistry::getTableLocator()->get('BookingsTalents');
-$venues = TableRegistry::getTableLocator()->get('Venues');
 
+    $talents = TableRegistry::getTableLocator()->get('Talents');
+    $bookings = TableRegistry::getTableLocator()->get('Bookings');
+    $bookings_talents = TableRegistry::getTableLocator()->get('BookingsTalents');
+    $venues = TableRegistry::getTableLocator()->get('Venues');
 
-$talent = $talents
-    ->find()
-    ->where(['user_id' => $user_id])
-    ->first();
-$talent_id=$talent->id;
+    $user_id=$this->Identity->get('id');
+    $role = $this->Identity->get('role');       
+    if ($role=='talent' && $user_id== $talent->user_id){
 
-$booking_talent=$bookings_talents
-    ->find()
-    ->where(['talent_id' => $talent_id])
-    ->all();
+        $talent = $talents
+        ->find()
+        ->where(['user_id' => $user_id])
+        ->first();
+        $talent_id=$talent->id;
+    
+        $booking_talent=$bookings_talents
+        ->find()
+        ->where(['talent_id' => $talent_id])
+        ->all();
+    }
 }
 ?>
 
@@ -62,15 +66,19 @@ $booking_talent=$bookings_talents
         <div class="item2">
             <?= h($talent->description) ?>
         </div>
-        <a href="<?= $this->Url->build(['action' => 'editprofile', $talent->id])?>" class="d-none d-sm-inline-block btn btn-outline-primary shadow-sm" style="width:116px"><i
-                class="fas fa-sm text-white-50"></i>Edit</a>
+        <?php if ($loggedin): ?>
+            <?php if ($role=='talent' && $user_id== $talent->user_id): ?>
+                <a href="<?= $this->Url->build(['action' => 'editprofile', $talent->id])?>" class="d-none d-sm-inline-block btn btn-outline-primary shadow-sm" style="width:116px"><i
+                        class="fas fa-sm text-white-50"></i>Edit</a>
+            <?php endif; ?>
+        <?php endif; ?>
     </div>
 </div>
 
 </section>
 
 
-<?php if ($loggedin): ?>
+<?php if ($loggedin && $role=='talent' && $user_id== $talent->user_id): ?>
     <section>
         <div class='flex' style='margin-top:15px;margin-bottom:15px;text-align:center'>
             <h4>Related bookings</h4>
