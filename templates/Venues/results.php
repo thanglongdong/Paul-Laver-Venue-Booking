@@ -88,8 +88,5 @@ $search_criteria_context = [
         <!-- /.container -->
     </div>
 <?php endforeach; ?>
-        </tbody>
-    </table>
-</div>
 
 

@@ -169,4 +169,18 @@ class SuppliersController extends AppController
         $bookings = $this->Suppliers->Bookings->find('list', ['limit' => 200]);
         $this->set(compact('supplier', 'users', 'bookings'));
     }
+
+    public function results()
+    {
+
+        $suppliers_query = $this->Suppliers->find('all');
+
+        $suppliers = $this->paginate($suppliers_query);
+
+        $this->set(compact('suppliers'));
+
+
+    }
+
+
 }

@@ -18,10 +18,10 @@ $supplier =$suppliers
 
 $search_criteria_context = [
     'data' => [
-        'quote' => $this->request->getQuery('pph'),
+        'estimate' => $this->request->getQuery('estimate'),
     ],
     'schema' => [
-        'quote'
+        'estimate'
     ]
 ];
 
@@ -59,20 +59,32 @@ echo $this -> Html->css("venue-profile.css",['block'=>true]);
             <blockquote></blockquote>
             <p class="mb-0"> <strong>Phone:</strong> <?= h($venue->phone) ?></p>
             <p class="mb-0"> <strong>Email:</strong> <?= h($venue->email) ?></p>
+            <hr>
+            <h4 class="fst-italic">Request a Quote</h4>
             <br>
             <?= $this->Form->create($search_criteria_context, ['type' => 'get']) ?>
             <?= $this->Form->control('hours', ['label' => false,
                 'class' => 'form-control search-slt',
-                'placeholder' => 'How many hours']); ?>
-            <?= $this->Form->button('Request Quote', [
-                'class' => 'btn btn-primary'
+                'placeholder' => '# of hours']); ?>
+            <br>
+            <?= $this->Form->button('Enquire', [
+                'class' => 'btn btn-primary col-12'
             ]) ?>
             <?= $this->Form->end() ?>
+
+            <?php if($estimate != null): ?>
+                <i class="list-inline-item fas fa-dollar-sign fa-2x"></i>
+                <h5 class="list-inline-item align-middle" ><?=$estimate?></h5>
+            <?php endif; ?>
+
+
             <!--<a class="btn btn-primary" href="">Request Quote</a></div>-->
         </div>
 
     </div>
 </div>
+
+
 
 <!-- Talent -->
 <section>
@@ -109,8 +121,12 @@ echo $this -> Html->css("venue-profile.css",['block'=>true]);
             <?php $i++; ?>
 
         <?php endforeach; ?>
+
     </div>
 
+    <br> <br>
+
+    <p class="text-center"><?= $this->Html->link(__('View All Talent'), ['controller' => 'talents','action' => 'results']) ?></p>
     <br>
 </section>
 
@@ -150,7 +166,11 @@ echo $this -> Html->css("venue-profile.css",['block'=>true]);
             <?php $i++; ?>
 
         <?php endforeach; ?>
-    </div>
 
+    </div>
+    <br> <br>
+
+    <p class="text-center"><?= $this->Html->link(__('View All Suppliers'), ['controller' => 'suppliers','action' => 'results']) ?></p>
     <br>
 </section>
+

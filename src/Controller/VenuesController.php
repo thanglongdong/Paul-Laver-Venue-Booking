@@ -143,18 +143,23 @@ class VenuesController extends AppController
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function profile($id = null){
+        $venue = $this->Venues->get($id);
 
-        $venues_query = $this->Venues->find('all');
+//      $venues_query = $this->Venues->find('all');
 
         $key= $this->request->getQuery();
 
-        if (!empty($key['quote'])) {
-            $venues_query->where([
-                'Venues.suburb LIKE' => '%' . $key['location'] . '%'
-            ]);
+        if (!empty($key['hours'])) {
+            $hours = $key['hours'];
+            $price = $venue->pph;
+            $estimate =  $price * $hours;
+        }
+        else{
+            $estimate = null;
         }
 
-        $venue = $this->Venues->get($id);
+        $this->set('estimate', $estimate);
+
         $this->set(compact('venue'));
     }
 

@@ -169,4 +169,16 @@ class TalentsController extends AppController
         $this->set(compact('talent', 'users', 'bookings'));
     }
 
+    public function results()
+    {
+
+        $talents_query = $this->Talents->find('all');
+
+        $talents = $this->paginate($talents_query);
+
+        $this->set(compact('talents'));
+
+
+    }
+
 }
