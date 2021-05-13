@@ -16,6 +16,15 @@ $supplier =$suppliers
     ->find()
     ->all();
 
+$search_criteria_context = [
+    'data' => [
+        'quote' => $this->request->getQuery('pph'),
+    ],
+    'schema' => [
+        'quote'
+    ]
+];
+
 echo $this -> Html->css("pagetitle.css",['block'=>true]);
 echo $this -> Html->css("venue-profile.css",['block'=>true]);
 ?>
@@ -50,6 +59,16 @@ echo $this -> Html->css("venue-profile.css",['block'=>true]);
             <blockquote></blockquote>
             <p class="mb-0"> <strong>Phone:</strong> <?= h($venue->phone) ?></p>
             <p class="mb-0"> <strong>Email:</strong> <?= h($venue->email) ?></p>
+            <br>
+            <?= $this->Form->create($search_criteria_context, ['type' => 'get']) ?>
+            <?= $this->Form->control('hours', ['label' => false,
+                'class' => 'form-control search-slt',
+                'placeholder' => 'How many hours']); ?>
+            <?= $this->Form->button('Request Quote', [
+                'class' => 'btn btn-primary'
+            ]) ?>
+            <?= $this->Form->end() ?>
+            <!--<a class="btn btn-primary" href="">Request Quote</a></div>-->
         </div>
 
     </div>

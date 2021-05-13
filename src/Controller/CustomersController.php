@@ -3,6 +3,11 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+//$query = $this->find('list', [
+//    'keyField' => 'id',
+//    'valueField' => 'first_name'
+//]);
+//$data = $query->toArray();
 /**
  * Customers Controller
  *
@@ -19,7 +24,7 @@ class CustomersController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Users'],
+            'contain' => ['Users']
         ];
         $customers = $this->paginate($this->Customers);
 
@@ -108,7 +113,7 @@ class CustomersController extends AppController
         return $this->redirect(['action' => 'index']);
     }
     public function profile($id = null){
-        
+
         $customer = $this->Customers->get($id);
         $this->set(compact('customer'));
     }
