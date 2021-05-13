@@ -22,7 +22,6 @@ $search_criteria_context = [
 ];
 
 ?>
-
 <?= $this->Form->create($search_criteria_context, ['type' => 'get']) ?>
 <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
     <div class="row">
@@ -49,7 +48,6 @@ $search_criteria_context = [
         </div>
     </div>
 </div>
-
 
 <?php foreach ($venues as $venue): ?>
     <div class="table-responsive">
