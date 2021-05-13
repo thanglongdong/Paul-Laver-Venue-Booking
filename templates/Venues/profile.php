@@ -135,7 +135,7 @@ echo $this -> Html->css("venue-profile.css",['block'=>true]);
 <!-- Suppliers -->
 <section>
     <div class='flex' style='margin-top:15px;margin-bottom:15px;text-align:center'>
-        <h4>Available Suppliers</h4>
+        <h4>Preferred Suppliers</h4>
     </div>
     <div class="row text-center">
 
@@ -148,24 +148,56 @@ echo $this -> Html->css("venue-profile.css",['block'=>true]);
             }
             ?>
 
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="card h-100">
+            <?php if($eachsupplier->preferred == 'yes'): ?> <!-- if supplier is preferred, show them -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card h-100">
 
-                    <a href="<?= $this->Url->build(['controller'=>'Suppliers','action'=>'profile', $eachsupplier->id])?>">
-                        <?= $this->Html->image($eachsupplier->image, ["style"=>"width:200px;height:130px;", 'class' =>"card-img-top rounded mx-auto d-block"]) ?>
-                    </a>
+                        <a href="<?= $this->Url->build(['controller'=>'Suppliers','action'=>'profile', $eachsupplier->id])?>">
+                            <?= $this->Html->image($eachsupplier->image, ["style"=>"width:200px;height:130px;", 'class' =>"card-img-top rounded mx-auto d-block"]) ?>
+                        </a>
 
-                    <div class="card-body">
-                        <h4 class="card-title"><?= h($eachsupplier->name) ?></h4>
-                        <p class="card-text"><?= h($eachsupplier->description) ?></p>
+                        <div class="card-body">
+                            <h4 class="card-title"><?= h($eachsupplier->name) ?></h4>
+                            <p class="card-text"><?= h($eachsupplier->description) ?></p>
+                        </div>
                     </div>
+                    <div class="card-footer"><a class="btn btn-primary" href="<?= $this->Url->build(['controller'=>'Suppliers','action'=>'profile', $eachsupplier->id])?>">Check them out!</a></div>
                 </div>
-                <div class="card-footer"><a class="btn btn-primary" href="<?= $this->Url->build(['controller'=>'Suppliers','action'=>'profile', $eachsupplier->id])?>">Check them out!</a></div>
-            </div>
 
-            <?php $i++; ?>
+                <?php $i++; ?>
+            <?php endif; ?>
 
         <?php endforeach; ?>
+
+        <?php if($i < 4): ?> <!-- if all preferred suppliers shown and still spots (in 4 display) left, then show non-preferred -->
+            <?php foreach ($supplier as $eachsupplier): ?>
+
+                <?php if($i==4){
+                    break;
+                }
+                ?>
+
+                <?php if($eachsupplier->preferred == 'no'): ?> <!-- obviously, we dont want to re-show preferred -->
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="card h-100">
+
+                            <a href="<?= $this->Url->build(['controller'=>'Suppliers','action'=>'profile', $eachsupplier->id])?>">
+                                <?= $this->Html->image($eachsupplier->image, ["style"=>"width:200px;height:130px;", 'class' =>"card-img-top rounded mx-auto d-block"]) ?>
+                            </a>
+
+                            <div class="card-body">
+                                <h4 class="card-title"><?= h($eachsupplier->name) ?></h4>
+                                <p class="card-text"><?= h($eachsupplier->description) ?></p>
+                            </div>
+                        </div>
+                        <div class="card-footer"><a class="btn btn-primary" href="<?= $this->Url->build(['controller'=>'Suppliers','action'=>'profile', $eachsupplier->id])?>">Check them out!</a></div>
+                    </div>
+
+                    <?php $i++; ?>
+                <?php endif; ?>
+
+            <?php endforeach; ?>
+        <?php endif; ?>
 
     </div>
     <br> <br>
