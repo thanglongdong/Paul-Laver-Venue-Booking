@@ -8,6 +8,7 @@ use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
 use Cake\I18n\Date;
+use Cake\I18n\FrozenTime;
 
 /**
  * Bookings Model

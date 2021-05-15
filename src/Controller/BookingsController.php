@@ -1,6 +1,7 @@
 <?php
 declare(strict_types=1);
 
+
 namespace App\Controller;
 
 /**
@@ -53,16 +54,22 @@ class BookingsController extends AppController
         if ($this->request->is('post')) {
             $booking = $this->Bookings->patchEntity($booking, $this->request->getData());
 
+
             $stime = $this->request->getData('start_time'); //start time variable
             $etime = $this->request->getData('end_time'); //end time variable
+            $bookingdate = $this->request->getData('date'); //end time variable
+
 
             if ($stime < $etime){ //if start time is before end time (what we want)
-                if ($this->Bookings->save($booking)) {
-                    $this->Flash->success(__('The venue has been saved.'));
+                if ($bookingdate <= $stime){ // make sure booking start time is either on the day it was booked, or later (NOT BEFORE!)
+                    if ($this->Bookings->save($booking)) {
+                        $this->Flash->success(__('The venue has been saved.'));
 
-                    return $this->redirect(['action' => 'index']);
+                        return $this->redirect(['action' => 'index']);
+                    }
+                    $this->Flash->error(__('The booking could not be saved. Please, try again.'));
                 }
-                $this->Flash->error(__('The booking could not be saved. Please, try again.'));
+                $this->Flash->error(__('The booking could not be saved - Booking cannot be in the past'));
             }
             else{ //otherwise, the end time must be before the start (not correct) so we display an customized error message
                 $this->Flash->error(__("The booking could not be saved - The Bookings' end time must be after the start time"));
