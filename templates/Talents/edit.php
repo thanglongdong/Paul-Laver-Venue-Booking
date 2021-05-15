@@ -23,7 +23,6 @@ echo $this->Form->control('genre', [
 echo $this->Form->control('description');
 echo $this->Form->control('change_image',['type'=>'file']);
 echo $this->Form->control('pph');
-echo $this->Form->control('bookings._ids', ['options' => $bookings]);
 echo $this->Form->control('user_id', ['options' => $users, 'empty' => true]);
 ?>
 <br </br>

@@ -61,7 +61,7 @@ if ($loggedin){
         </div>
         <div class="item2">
             <i class="fas fa-dollar-sign fa-sm fa-fw mr-2 text-gray-400"></i>
-            <?= $this->Number->currency($talent->pph)."/hour"?>
+            <?= h($talent->pph)."/hour"?>
         </div>
         <div class="item2">
             <?= h($talent->description) ?>

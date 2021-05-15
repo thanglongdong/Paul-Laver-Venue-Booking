@@ -52,12 +52,22 @@ class BookingsController extends AppController
         $booking = $this->Bookings->newEmptyEntity();
         if ($this->request->is('post')) {
             $booking = $this->Bookings->patchEntity($booking, $this->request->getData());
-            if ($this->Bookings->save($booking)) {
-                $this->Flash->success(__('The booking has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+            $stime = $this->request->getData('start_time'); //start time variable
+            $etime = $this->request->getData('end_time'); //end time variable
+
+            if ($stime < $etime){ //if start time is before end time (what we want)
+                if ($this->Bookings->save($booking)) {
+                    $this->Flash->success(__('The venue has been saved.'));
+
+                    return $this->redirect(['action' => 'index']);
+                }
+                $this->Flash->error(__('The booking could not be saved. Please, try again.'));
             }
-            $this->Flash->error(__('The booking could not be saved. Please, try again.'));
+            else{ //otherwise, the end time must be before the start (not correct) so we display an customized error message
+                $this->Flash->error(__("The booking could not be saved - The Bookings' end time must be after the start time"));
+            }
+
         }
         $venues = $this->Bookings->Venues->find('list', ['limit' => 200]);
         $customers = $this->Bookings->Customers->find('list', ['limit' => 200]);
@@ -80,12 +90,21 @@ class BookingsController extends AppController
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $booking = $this->Bookings->patchEntity($booking, $this->request->getData());
-            if ($this->Bookings->save($booking)) {
-                $this->Flash->success(__('The booking has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+            $stime = $this->request->getData('start_time'); //start time variable
+            $etime = $this->request->getData('end_time'); //end time variable
+
+            if ($stime < $etime) { //if start time is before end time (what we want)
+                if ($this->Bookings->save($booking)) {
+                    $this->Flash->success(__('The booking has been saved.'));
+
+                    return $this->redirect(['action' => 'index']);
+                }
+                $this->Flash->error(__('The booking could not be saved. Please, try again.'));
             }
-            $this->Flash->error(__('The booking could not be saved. Please, try again.'));
+            else{ //otherwise, the end time must be before the start (not correct) so we display an customized error message
+                $this->Flash->error(__("The booking could not be saved - The Bookings' end time must be after the start time"));
+            }
         }
         $venues = $this->Bookings->Venues->find('list', ['limit' => 200]);
         $customers = $this->Bookings->Customers->find('list', ['limit' => 200]);

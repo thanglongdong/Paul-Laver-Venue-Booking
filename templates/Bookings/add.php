@@ -15,9 +15,9 @@ use Cake\I18n\Date;
 
 <?= $this->Form->create($booking,['novalidate' => true]) ?>
     <?php
-        echo $this->Form->control('date', ['empty' => true]);
-        echo $this->Form->control('start_time', ['empty' => true]);
-        echo $this->Form->control('end_time', ['empty' => true]);
+        echo $this->Form->control('date', ['default'=>\Cake\I18n\FrozenDate::now(), 'readonly'=>true]);
+        echo $this->Form->control('start_time');
+        echo $this->Form->control('end_time');
         echo $this->Form->control('event_type', [
             'options' => ['Birthday'=>'Birthday','Wedding'=>'Wedding','Engagement Party'=>'Engagement Party','Meeting'=>'Meeting','Workshop'=>'Workshop','Others'=>'Others']
         ]);
@@ -28,10 +28,10 @@ use Cake\I18n\Date;
         echo $this->Form->control('talents._ids', ['options' => $talents]);
         echo $this->Form->control('cost');
     ?>
-<br </br>
+<br
 <div>
 <?= $this->Form->button(__('Add Booking'), ['class' => 'btn btn-primary']) ?>
 <?= $this->Html->link(__('List Bookings'), ['action' => 'index'], ['class' => 'btn btn-outline-primary me-2 float-right mr-2']) ?>
 </div>
 <?= $this->Form->end() ?>
-<br </br>
+<br

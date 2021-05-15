@@ -37,9 +37,6 @@ if ($loggedin){
 }
 ?>
 
-
-<section id="intro-section">
-
 <div class="group">
     <?=$this->Html->image('blankuser.png', ["class"=>'img-fluid rounded-circle mb-3',"alt" => "","style"=>"width:200px;height:200px"]);?>
     <div class="left-side flex-col">
@@ -56,7 +53,7 @@ if ($loggedin){
         </div>
         <div class="item2">
             <i class="fas fa-dollar-sign fa-sm fa-fw mr-2 text-gray-400"></i>
-            <?= $this->Number->currency($supplier->pph)."/hour" ?>
+            <?= h($supplier->pph)."/hour" ?>
         </div>
         <div class="item2">
             <?= h($supplier->description) ?>
@@ -71,7 +68,7 @@ if ($loggedin){
     </div>
 </div>
 
-</section>
+<hr>
 
 <?php if ($loggedin && $role=='supplier' && $user_id== $supplier->user_id): ?>
     <section>

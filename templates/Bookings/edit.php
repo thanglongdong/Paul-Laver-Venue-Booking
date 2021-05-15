@@ -14,9 +14,9 @@
 
 <?= $this->Form->create($booking,['novalidate' => true]) ?>
     <?php
-        echo $this->Form->control('date', ['empty' => true]);
-        echo $this->Form->control('start_time', ['empty' => true]);
-        echo $this->Form->control('end_time', ['empty' => true]);
+        echo $this->Form->control('date', ['readonly'=>true]);
+        echo $this->Form->control('start_time');
+        echo $this->Form->control('end_time');
         echo $this->Form->control('event_type', [
             'options' => ['Birthday'=>'Birthday','Wedding'=>'Wedding','Engagement Party'=>'Engagement Party','Meeting'=>'Meeting','Workshop'=>'Workshop','Others'=>'Others']
         ]);
@@ -28,9 +28,10 @@
         echo $this->Form->control('cost');
     ?>
 <br </br>
-<?= $this->Form->end() ?>
+
 <div>
     <?= $this->Form->button(__('Edit Booking'), ['class' => 'btn btn-primary']) ?>
+    <?= $this->Form->end() ?>
     <?= $this->Form->postLink(
         __('Delete Booking'),
         ['action' => 'delete', $booking->id],
