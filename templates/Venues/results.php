@@ -47,6 +47,15 @@ $search_criteria_context = [
     </div>
 </div>
 
+<?php if ($venues->isEmpty()): ?>
+    <section style="height:400px" class="d-flex  align-items-center justify-content-center">
+
+        <div >
+            <h4>No results found. </h4>
+        </div>
+
+    </section>
+<?php endif; ?>
 <?php foreach ($venues as $venue): ?>
     <div class="table-responsive">
         <!-- Page Content -->
