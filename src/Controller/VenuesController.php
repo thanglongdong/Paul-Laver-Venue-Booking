@@ -106,15 +106,16 @@ class VenuesController extends AppController
                 $name  = $image->getClientFilename();
 
                 if ($name){
-                    if (!is_dir(WWW_ROOT . 'img' . DS . 'venue-img'))
+                    if (!is_dir(WWW_ROOT . 'img' . DS . 'venue-img')) {
                         mkdir(WWW_ROOT . 'img' . DS . 'venue-img', 0775);
+                    }
 
                     $targetPath = WWW_ROOT . 'img' . DS . 'venue-img' . DS . $name;
 
 
                     $image->moveTo($targetPath);
 
-                    $imgpath = WWW_ROOT . 'img' . DS . $venue->image;
+                    $imgpath = WWW_ROOT . 'img' . DS .'venue-img'. DS. $venue->image;
                     if (file_exists($imgpath)) {
                         unlink($imgpath);
                     }
@@ -165,7 +166,7 @@ class VenuesController extends AppController
 
         $imgpath = WWW_ROOT.'img'.DS.$venue->image;
 //        $imgpath = WWW_ROOT.'venue-img'.DS.$venue->image;
-        
+
         if ($this->Venues->delete($venue)) {
             if(file_exists($imgpath)){
                 unlink($imgpath);
