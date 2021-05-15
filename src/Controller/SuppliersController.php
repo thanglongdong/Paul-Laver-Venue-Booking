@@ -53,16 +53,33 @@ class SuppliersController extends AppController
         if ($this->request->is('post')) {
             $supplier = $this->Suppliers->patchEntity($supplier, $this->request->getData());
 
-            $image = $this->request->getData('image_file');
-            $name = $image->getClientFileName();
+            if(!$supplier->getErrors){
+                $image = $this->request->getData('image_file');
 
-            if(!is_dir(WWW_ROOT.'supplier-img'))
-                mkdir(WWW_ROOT.'supplier-img',0775);
-            $targetPath = WWW_ROOT.'supplier-img'.DS.$name;
+                $name  = $image->getClientFilename();
 
-            if($name)
-                $image->moveTo($targetPath);
-            $supplier->image = $name;
+                if (!is_dir(WWW_ROOT . 'img' . DS . 'supplier-img')) {
+                    mkdir(WWW_ROOT . 'img' . DS . 'supplier-img', 0775);
+                }
+
+                $targetPath = WWW_ROOT.'img'.DS.'supplier-img'.DS.$name;
+
+                if($name)
+                    $image->moveTo($targetPath);
+
+                $supplier->image = 'supplier-img/'.$name;
+            }
+
+//            $image = $this->request->getData('image_file');
+//            $name = $image->getClientFileName();
+//
+//            if(!is_dir(WWW_ROOT.'supplier-img'))
+//                mkdir(WWW_ROOT.'supplier-img',0775);
+//            $targetPath = WWW_ROOT.'supplier-img'.DS.$name;
+//
+//            if($name)
+//                $image->moveTo($targetPath);
+//            $supplier->image = $name;
 
             if ($this->Suppliers->save($supplier)) {
                 $this->Flash->success(__('The supplier has been saved.'));
@@ -92,22 +109,46 @@ class SuppliersController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $supplier = $this->Suppliers->patchEntity($supplier, $this->request->getData());
 
-            $image = $this->request->getData('change_image');
-            $name = $image->getClientFileName();
+            if (!$supplier->getErrors) {
+                $image = $this->request->getData('change_image');
 
-            if(!is_dir(WWW_ROOT.'supplier-img'))
-                mkdir(WWW_ROOT.'supplier-img',0775);
+                $name  = $image->getClientFilename();
 
-            if($name){
-                $targetPath = WWW_ROOT.'supplier-img'.DS.$name;
-                $image->moveTo($targetPath);
+                if ($name){
+                    if (!is_dir(WWW_ROOT . 'img' . DS . 'supplier-img')) {
+                        mkdir(WWW_ROOT . 'img' . DS . 'supplier-img', 0775);
+                    }
 
-                $imgpath = WWW_ROOT.'supplier-img'.DS.$supplier->image;
-                if(file_exists($imgpath)){
-                    unlink($imgpath);
+                    $targetPath = WWW_ROOT . 'img' . DS . 'supplier-img' . DS . $name;
+
+
+                    $image->moveTo($targetPath);
+
+                    $imgpath = WWW_ROOT . 'img' . DS .'supplier-img'. DS. $supplier->image;
+                    if (file_exists($imgpath)) {
+                        unlink($imgpath);
+                    }
+
+                    $supplier->image = 'supplier-img/' . $name;
                 }
-                $supplier->image = $name;
             }
+
+//            $image = $this->request->getData('change_image');
+//            $name = $image->getClientFileName();
+//
+//            if(!is_dir(WWW_ROOT.'supplier-img'))
+//                mkdir(WWW_ROOT.'supplier-img',0775);
+//
+//            if($name){
+//                $targetPath = WWW_ROOT.'supplier-img'.DS.$name;
+//                $image->moveTo($targetPath);
+//
+//                $imgpath = WWW_ROOT.'supplier-img'.DS.$supplier->image;
+//                if(file_exists($imgpath)){
+//                    unlink($imgpath);
+//                }
+//                $supplier->image = $name;
+//            }
 
             if ($this->Suppliers->save($supplier)) {
                 $this->Flash->success(__('The supplier has been saved.'));
@@ -133,10 +174,14 @@ class SuppliersController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $supplier = $this->Suppliers->get($id);
 
-        $venue = $this->Suppliers->get($id);
-        $imgpath = WWW_ROOT.'supplier-img'.DS.$supplier->image;
+//        $venue = $this->Suppliers->get($id);
+        $imgpath = WWW_ROOT.'img'.DS.$supplier->image;
+//        $imgpath = WWW_ROOT.'supplier-img'.DS.$supplier->image;
 
         if ($this->Suppliers->delete($supplier)) {
+            if(file_exists($imgpath)){
+                unlink($imgpath);
+            }
             $this->Flash->success(__('The supplier has been deleted.'));
         } else {
             $this->Flash->error(__('The supplier could not be deleted. Please, try again.'));

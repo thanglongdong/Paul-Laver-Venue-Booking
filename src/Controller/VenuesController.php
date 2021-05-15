@@ -55,8 +55,9 @@ class VenuesController extends AppController
 
                 $name  = $image->getClientFilename();
 
-                if( !is_dir(WWW_ROOT.'img'.DS.'venue-img') )
-                    mkdir(WWW_ROOT.'img'.DS.'venue-img',0775);
+                if (!is_dir(WWW_ROOT . 'img' . DS . 'venue-img')) {
+                    mkdir(WWW_ROOT . 'img' . DS . 'venue-img', 0775);
+                }
 
                 $targetPath = WWW_ROOT.'img'.DS.'venue-img'.DS.$name;
 
