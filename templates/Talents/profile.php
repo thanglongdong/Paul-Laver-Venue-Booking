@@ -21,7 +21,7 @@ if ($loggedin){
     $venues = TableRegistry::getTableLocator()->get('Venues');
 
     $user_id=$this->Identity->get('id');
-    $role = $this->Identity->get('role');       
+    $role = $this->Identity->get('role');
     if ($role=='talent' && $user_id== $talent->user_id){
 
         $talent = $talents
@@ -29,7 +29,7 @@ if ($loggedin){
         ->where(['user_id' => $user_id])
         ->first();
         $talent_id=$talent->id;
-    
+
         $booking_talent=$bookings_talents
         ->find()
         ->where(['talent_id' => $talent_id])
@@ -39,10 +39,10 @@ if ($loggedin){
 ?>
 
 
-<section id="intro-section">
+
 
 <div class="group">
-    <?=$this->Html->image('blankuser.png', ["class"=>'img-fluid rounded-circle mb-3',"alt" => "","style"=>"width:200px;height:200px"]);?>  
+    <?=$this->Html->image('blankuser.png', ["class"=>'img-fluid rounded-circle mb-3',"alt" => "","style"=>"width:200px;height:200px"]);?>
     <div class="left-side flex-col">
         <div class="item1">
             <?= h($talent->name) ?>
@@ -75,8 +75,7 @@ if ($loggedin){
     </div>
 </div>
 
-</section>
-
+<hr>
 
 <?php if ($loggedin && $role=='talent' && $user_id== $talent->user_id): ?>
     <section>
