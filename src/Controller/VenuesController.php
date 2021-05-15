@@ -50,16 +50,32 @@ class VenuesController extends AppController
         if ($this->request->is('post')) {
             $venue = $this->Venues->patchEntity($venue, $this->request->getData());
 
-            $image = $this->request->getData('image_file');
-            $name = $image->getClientFileName();
+            if(!$venue->getErrors){
+                $image = $this->request->getData('image_file');
 
-            if(!is_dir(WWW_ROOT.'venue-img'))
-            mkdir(WWW_ROOT.'venue-img',0775);
-            $targetPath = WWW_ROOT.'venue-img'.DS.$name;
+                $name  = $image->getClientFilename();
 
-            if($name)
-                $image->moveTo($targetPath);
-            $venue->image = $name;
+                if( !is_dir(WWW_ROOT.'img'.DS.'venue-img') )
+                    mkdir(WWW_ROOT.'img'.DS.'venue-img',0775);
+
+                $targetPath = WWW_ROOT.'img'.DS.'venue-img'.DS.$name;
+
+                if($name)
+                    $image->moveTo($targetPath);
+
+                $venue->image = 'venue-img/'.$name;
+            }
+
+//            $image = $this->request->getData('image_file');
+//            $name = $image->getClientFileName();
+//
+//            if(!is_dir(WWW_ROOT.'venue-img'))
+//            mkdir(WWW_ROOT.'venue-img',0775);
+//            $targetPath = WWW_ROOT.'venue-img'.DS.$name;
+//
+//            if($name)
+//            $image->moveTo($targetPath);
+//            $venue->image = 'venue-img/'.$name;
 
             if ($this->Venues->save($venue)) {
                 $this->Flash->success(__('The venue has been saved.'));
@@ -84,22 +100,46 @@ class VenuesController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $venue = $this->Venues->patchEntity($venue, $this->request->getData());
 
-            $image = $this->request->getData('change_image');
-            $name = $image->getClientFileName();
+            if (!$venue->getErrors) {
+                $image = $this->request->getData('change_image');
 
-            if(!is_dir(WWW_ROOT.'venue-img'))
-                mkdir(WWW_ROOT.'venue-img',0775);
+                $name  = $image->getClientFilename();
 
-            if($name){
-                $targetPath = WWW_ROOT.'venue-img'.DS.$name;
-                $image->moveTo($targetPath);
+                if ($name){
+                    if (!is_dir(WWW_ROOT . 'img' . DS . 'venue-img'))
+                        mkdir(WWW_ROOT . 'img' . DS . 'venue-img', 0775);
 
-                $imgpath = WWW_ROOT.'venue-img'.DS.$venue->image;
-                if(file_exists($imgpath)){
-                    unlink($imgpath);
+                    $targetPath = WWW_ROOT . 'img' . DS . 'venue-img' . DS . $name;
+
+
+                    $image->moveTo($targetPath);
+
+                    $imgpath = WWW_ROOT . 'img' . DS . $venue->image;
+                    if (file_exists($imgpath)) {
+                        unlink($imgpath);
+                    }
+
+                    $venue->image = 'venue-img/' . $name;
                 }
-                $venue->image = $name;
             }
+
+
+//            $image = $this->request->getData('change_image');
+//            $name = $image->getClientFileName();
+//
+//            if(!is_dir(WWW_ROOT.'venue-img'))
+//                mkdir(WWW_ROOT.'venue-img',0775);
+//
+//            if($name){
+//                $targetPath = WWW_ROOT.'venue-img'.DS.$name;
+//                $image->moveTo($targetPath);
+//
+//                $imgpath = WWW_ROOT.'venue-img'.DS.$venue->image;
+//                if(file_exists($imgpath)){
+//                    unlink($imgpath);
+//                }
+//                $venue->image = 'venue-img/'.$name;
+//            }
 
             if ($this->Venues->save($venue)) {
                 $this->Flash->success(__('The venue has been saved.'));
@@ -122,7 +162,10 @@ class VenuesController extends AppController
     {
         $this->request->allowMethod(['post', 'delete']);
         $venue = $this->Venues->get($id);
-        $imgpath = WWW_ROOT.'venue-img'.DS.$venue->image;
+
+        $imgpath = WWW_ROOT.'img'.DS.$venue->image;
+//        $imgpath = WWW_ROOT.'venue-img'.DS.$venue->image;
+        
         if ($this->Venues->delete($venue)) {
             if(file_exists($imgpath)){
                 unlink($imgpath);
