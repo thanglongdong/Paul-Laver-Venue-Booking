@@ -149,11 +149,17 @@ class VenuesController extends AppController
 
         $key= $this->request->getQuery();
 
-        if (!empty($key['hours'])) {
-            $hours = $key['hours'];
-            $price = $venue->pph;
-            $estimate =  $price * $hours;
-        }
+        if (!empty($key['hours'])) {  //if not empty (user inputted) - do this
+            if (is_numeric($key['hours'])) { //if entered stuff is int do this
+                $hours = $key['hours'];
+                $price = $venue->pph;
+                $estimate =  $price * $hours;
+            }
+            else {  //if not int, return message error
+                $estimate = 'incorrect'; //handled in view
+            }
+
+        } //else, no user input - do this
         else{
             $estimate = null;
         }
@@ -180,9 +186,16 @@ class VenuesController extends AppController
         $key= $this->request->getQuery();
 
         if (!empty($key['location'])) {
-            $venues_query->where([
-                'Venues.suburb LIKE' => '%' . $key['location'] . '%'
-            ]);
+            if (!is_numeric($key['location'])) { //if input is non-integer (so the suburb), then
+                $venues_query->where([
+                    'Venues.suburb LIKE' => '%' . $key['location'] . '%'
+                ]);
+            }
+            else { //elseif the input is numbers, (so the postcode), then
+                $venues_query->where([
+                    'Venues.postcode' => $key['location']
+                ]);
+            }
         }
 
 //        if (!empty($key['num_of_people'])) {
@@ -217,10 +230,14 @@ class VenuesController extends AppController
 //            }
 //            else{
         if (!empty($key['num_of_people'])) {
-            $venues_query->where([
-                'Venues.capacity' => $key['num_of_people']
-            ]);
-//            }
+            if (is_numeric($key['num_of_people'])){
+                $venues_query->where([
+                    'Venues.capacity >=' => $key['num_of_people']
+                ]);
+                $venues_query->order([
+                    'Venues.capacity' => 'ASC'
+                ]);
+            }
         }
 
         $venues = $this->paginate($venues_query);

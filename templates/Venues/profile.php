@@ -73,8 +73,12 @@ echo $this -> Html->css("venue-profile.css",['block'=>true]);
             <?= $this->Form->end() ?>
 
             <?php if($estimate != null): ?>
+                <?php if($estimate == 'incorrect'): ?>
+                    <h6 class="list-inline-item align-middle text-center text-danger" >Please input numeric value</h6>
+                <?php else: ?>
                 <i class="list-inline-item fas fa-dollar-sign fa-2x"></i>
                 <h5 class="list-inline-item align-middle" ><?=$estimate?></h5>
+                <?php endif; ?>
             <?php endif; ?>
 
 

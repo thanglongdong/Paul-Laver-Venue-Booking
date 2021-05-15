@@ -29,14 +29,12 @@ $search_criteria_context = [
             <div class="d-flex">
                 <div class="col-lg-3 col-md-3 col-sm-12 p-0" style="margin-right:10px">
                     <?= $this->Form->control('location', ['label' => false,
-                        'class' => 'form-control search-slt',
                         'placeholder' => 'Location']); ?>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-12 p-0" style="margin-right:10px">
                     <?= $this->Form->control('num_of_people', [
                         'label' => false,
-                        'placeholder' => '# of People',
-                        'class' => 'form-control search-slt']); ?>
+                        'placeholder' => '# of People']); ?>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-12 p-0">
                     <?= $this->Form->button('Search', [
