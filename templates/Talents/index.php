@@ -31,7 +31,7 @@ echo $this -> Html->script("/js/demo/datatables-demo.js",['block'=>true]);
                 <th><?= h('Email') ?></th>
                 <th><?= h('Genre') ?></th>
                 <th><?= h('Image') ?></th>
-                <th><?= h('Pph') ?></th>
+                <th><?= h('Price Per Hour') ?></th>
                 <th><?= h('User_id') ?></th>
                 <th class="actions"><?= __('Actions') ?></th>
             </tr>
@@ -45,7 +45,7 @@ echo $this -> Html->script("/js/demo/datatables-demo.js",['block'=>true]);
                     <td><?= h($talent->email) ?></td>
                     <td><?= h($talent->genre) ?></td>
                     <td><?= $this->Html->image($talent->image, ["style"=>"width:150px;height:100px;object-fit: cover"]) ?></td>
-                    <td><?= h($talent->pph) ?></td>
+                    <td><?= $this->Number->currency($talent->pph) ?></td>
                     <td><?= $talent->has('user') ? $talent->user->id : '' ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $talent->id]) ?>

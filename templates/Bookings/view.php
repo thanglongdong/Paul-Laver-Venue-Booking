@@ -50,7 +50,7 @@ echo $this->Form->control('cost',['disabled']);
             <td><?= h($suppliers->name) ?></td>
             <td><?= h($suppliers->phone) ?></td>
             <td><?= h($suppliers->email) ?></td>
-            <td><?= h($suppliers->pph) ?></td>
+            <td><?= $this->Number->currency($suppliers->pph) ?></td>
             <td class="actions">
                 <?= $this->Html->link(__('View'), ['controller' => 'Suppliers', 'action' => 'view', $suppliers->id]) ?>
                 <?= $this->Html->link(__('Edit'), ['controller' => 'Suppliers', 'action' => 'edit', $suppliers->id]) ?>
@@ -84,7 +84,7 @@ echo $this->Form->control('cost',['disabled']);
             <td><?= h($talents->phone) ?></td>
             <td><?= h($talents->email) ?></td>
             <td><?= h($talents->genre) ?></td>
-            <td><?= h($talents->pph) ?></td>
+            <td><?= $this->Number->currency($talents->pph) ?></td>
             <td class="actions">
                 <?= $this->Html->link(__('View'), ['controller' => 'Talents', 'action' => 'view', $talents->id]) ?>
                 <?= $this->Html->link(__('Edit'), ['controller' => 'Talents', 'action' => 'edit', $talents->id]) ?>

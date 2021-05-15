@@ -20,7 +20,7 @@ if ($loggedin){
     $venues = TableRegistry::getTableLocator()->get('Venues');
 
     $user_id=$this->Identity->get('id');
-    $role = $this->Identity->get('role');       
+    $role = $this->Identity->get('role');
     if ($role=='supplier' && $user_id== $supplier->user_id){
 
         $supplier = $suppliers
@@ -56,7 +56,7 @@ if ($loggedin){
         </div>
         <div class="item2">
             <i class="fas fa-dollar-sign fa-sm fa-fw mr-2 text-gray-400"></i>
-            <?= h($supplier->pph)."/hour" ?>
+            <?= $this->Number->currency($supplier->pph)."/hour" ?>
         </div>
         <div class="item2">
             <?= h($supplier->description) ?>
@@ -67,7 +67,7 @@ if ($loggedin){
                         class="fas fa-sm text-white-50"></i>Edit</a>
             <?php endif; ?>
         <?php endif; ?>
-        
+
     </div>
 </div>
 
