@@ -22,7 +22,7 @@ echo $this->Form->control('change_image',['type'=>'file']);
 echo $this->Form->control('preferred', [
     'options' => ['no'=>'no','yes'=>'yes']
 ]);
-echo $this->Form->control('pph');
+echo $this->Form->control('pph',['label'=>'Price Per Hour']);
 echo $this->Form->control('user_id', ['options' => $users, 'empty' => true]);
 ?>
 <br </br>
