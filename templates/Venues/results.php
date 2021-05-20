@@ -27,16 +27,16 @@ $search_criteria_context = [
     <div class="row">
         <div class="col-lg-12">
             <div class="d-flex">
-                <div class="col-lg-3 col-md-3 col-sm-12 p-0" style="margin-right:10px">
+                <div class="col" style="margin-right:10px">
                     <?= $this->Form->control('location', ['label' => false,
                         'placeholder' => 'Location']); ?>
                 </div>
-                <div class="col-lg-3 col-md-3 col-sm-12 p-0" style="margin-right:10px">
+                <div class="col" style="margin-right:10px">
                     <?= $this->Form->control('num_of_people', [
                         'label' => false,
                         'placeholder' => '# of People']); ?>
                 </div>
-                <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                <div class="col">
                     <?= $this->Form->button('Search', [
                         'class' => 'btn btn-lg-3 btn-md-3 btn-sm-12 btn-block btn-primary'
                     ]) ?>
@@ -46,6 +46,10 @@ $search_criteria_context = [
         </div>
     </div>
 </div>
+<div class="container">
+    <hr>
+</div>
+<br>
 
 <?php if ($venues->isEmpty()): ?>
     <section style="height:400px" class="d-flex  align-items-center justify-content-center">

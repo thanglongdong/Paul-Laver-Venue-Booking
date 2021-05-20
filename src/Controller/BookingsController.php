@@ -50,7 +50,7 @@ class BookingsController extends AppController
      * @return \Cake\Http\Response|null|void Redirects on successful add, renders view otherwise.
      */
     public function add()
-    {   
+    {
         $venues = TableRegistry::getTableLocator()->get('Venues');
 
         $booking = $this->Bookings->newEmptyEntity();
@@ -74,7 +74,7 @@ class BookingsController extends AppController
                     if ($numofpeople <= $venuecapacity ){ //make sure the number of people entered is smaller than the venue capacity
                         if ($this->Bookings->save($booking)) {
                             $this->Flash->success(__('The venue has been saved.'));
-    
+
                             return $this->redirect(['action' => 'index']);
                         }
                         $this->Flash->error(__('The booking could not be saved. Please, try again.'));
@@ -84,7 +84,7 @@ class BookingsController extends AppController
                     }
                 }
                 else{
-                    $this->Flash->error(__('The booking could not be saved - Booking cannot be in the past'));
+                    $this->Flash->error(__('The booking could not be saved - Booking start date must not be in the past'));
                 }
             }
             else{ //otherwise, the end time must be before the start (not correct) so we display an customized error message
@@ -131,7 +131,7 @@ class BookingsController extends AppController
                 if ($numofpeople <= $venuecapacity ){ //make sure the number of people entered is smaller than the venue capacity
                     if ($this->Bookings->save($booking)) {
                         $this->Flash->success(__('The venue has been saved.'));
-    
+
                         return $this->redirect(['action' => 'index']);
                     }
                         $this->Flash->error(__('The booking could not be saved. Please, try again.'));

@@ -13,14 +13,29 @@
 <h1 class="h3 mb-2 text-gray-800"><?= __('New Customer') ?></h1>
 
 <?= $this->Form->create($customer,['novalidate' => true]) ?>
-    <?php
-        echo $this->Form->control('first_name');
-        echo $this->Form->control('last_name');
-        echo $this->Form->control('mobile');
-        echo $this->Form->control('address');
-        echo $this->Form->control('email');
-        echo $this->Form->control('user_id', ['options' => $users, 'empty' => true]);
-    ?>
+
+    <div class="row">
+        <div class="col">
+                <?= $this->Form->control('first_name', ['placeholder'=>'First Name', 'label'=>false]); ?>
+        </div>
+        <div class="col">
+                <?= $this->Form->control('last_name', ['placeholder'=>'Last Name', 'label'=>false]); ?>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="row">
+        <div class="col-md-4">
+        <?= $this->Form->control('mobile', ['placeholder'=>'Mobile Number', 'label'=>false]); ?>
+        </div>
+        <div class="col-md-8">
+        <?= $this->Form->control('email', ['placeholder'=>'Email Address', 'label'=>false]); ?>
+        </div>
+    </div>
+    <?= $this->Form->control('address'); ?>
+
+    <?= $this->Form->control('user_id', ['options' => $users, 'empty' => true]); ?>
 </br>
 <div>
 <?= $this->Form->button(__('Add Customer'), ['class' => 'btn btn-primary']) ?>
