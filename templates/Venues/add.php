@@ -26,7 +26,7 @@ echo $this->Form->control('phone');
 echo $this->Form->control('email');
 echo $this->Form->control('description');
 echo $this->Form->control('image_file',['type'=>'file']);
-echo $this->Form->control('pph');
+echo $this->Form->control('pph', ['label'=>'Price Per Hour']);
 ?>
 <br </br>
 <div>
