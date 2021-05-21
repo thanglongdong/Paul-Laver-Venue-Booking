@@ -204,9 +204,7 @@ class SuppliersController extends AppController
             $supplier = $this->Suppliers->patchEntity($supplier, $this->request->getData());
 
             if ($this->Suppliers->save($supplier)) {
-                $this->Flash->success(__('The supplier has been saved.'));
-
-                return $this->redirect(['action' => 'profile',$supplier->id]);
+                return $this->redirect(['/']);
             }
             $this->Flash->error(__('The supplier could not be saved. Please, try again.'));
         }

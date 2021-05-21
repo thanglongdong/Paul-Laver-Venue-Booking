@@ -203,9 +203,8 @@ class TalentsController extends AppController
             $talent = $this->Talents->patchEntity($talent, $this->request->getData());
 
             if ($this->Talents->save($talent)) {
-                $this->Flash->success(__('The talent has been saved.'));
 
-                return $this->redirect(['action' => 'profile',$talent->id]);
+                return $this->redirect(['/']);
             }
             $this->Flash->error(__('The talent could not be saved. Please, try again.'));
         }

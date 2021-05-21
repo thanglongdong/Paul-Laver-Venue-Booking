@@ -48,7 +48,6 @@ class UsersController extends AppController
             $user = $this->Users->patchEntity($user, $this->request->getData());
             $user['role']='customer';
             if ($this->Users->save($user)) {
-                $this->Flash->success(__('The user has been saved.'));
                 $this->Authentication->setIdentity($user); //As we have just registered as a user, we can login using those credentials
                 $customer = $customers->newEntity([
                     'first_name'=>'Null',
@@ -91,12 +90,10 @@ class UsersController extends AppController
                     'controller' => 'venues',
                     'action' => 'index',
                 ]);
-                $this->Flash->success("Welcome back " . $user->email);
             }
 
             elseif($role==='customer'){
                 $redirect ='/';
-                $this->Flash->success("Welcome back");
             }
             //more elseif condition for talents/suppliers should be added below
             else{
@@ -117,7 +114,6 @@ class UsersController extends AppController
         $result = $this->Authentication->getResult();
         // regardless of POST or GET, redirect if user is logged in
         if ($result->isValid()) {
-            $this->Flash->success('You are now logged out.');
             $this->Authentication->logout();
             return $this->redirect('/');
         }
