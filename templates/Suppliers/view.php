@@ -10,28 +10,52 @@
 <p></p>
 <!-- End of Tabs -->
 
-<h1 class="h3 mb-2 text-gray-800"><?= h($supplier->name) ?></h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div>
+                <h1 class="h3 mb-2 text-gray-800"><?= h($supplier->name) ?></h1>
+                <?= $this->Form->create($supplier) ?>
+            </div>
 
-<?= $this->Form->create($supplier) ?>
-<?php
-echo $this->Form->control('name',['disabled']);
-echo $this->Form->control('phone',['disabled']);
-echo $this->Form->control('email',['disabled']);
-echo $this->Form->control('description',['disabled']);
-echo $this->Form->control('image',['disabled']);
-echo $this->Form->control('preferred',['disabled']);
-echo $this->Form->control('pph',['disabled']);
-?>
-<br </br>
-<?= $this->Form->end() ?>
-<div>
-    <?= $this->Html->link(__('Edit Supplier'), ['action' => 'edit', $supplier->id], ['class' => 'btn btn-primary']) ?>
-    <?= $this->Form->postLink(__('Delete Supplier'), ['action' => 'delete', $supplier->id], ['confirm' => __('Are you sure you want to delete supplier {0}?', $supplier->name), 'class' => 'btn btn-outline-primary me-2 float-right mr-2']) ?>
-    <?= $this->Html->link(__('List Suppliers'), ['action' => 'index'], ['class' => 'btn btn-outline-primary me-2 float-right mr-2']) ?>
-    <?= $this->Html->link(__('New Supplier'), ['action' => 'add'], ['class' => 'btn btn-outline-primary me-2 float-right mr-2']) ?>
+            <div>
+                <?= $this->Form->control('name',['disabled'])?>
+                <!-- Row 1 -->
+                <div class="row">
+                    <div class="col">
+                        <?= $this->Form->control('preferred',['disabled'])?>
+                    </div>
+                    <div class="col">
+                        <?= $this->Form->control('pph',['disabled'])?>
+                    </div>
+                </div>
+                <!-- Row 2 -->
+                <div class="row">
+                    <div class="col">
+                        <?= $this->Form->control('phone',['disabled']) ?>
+                    </div>
+                    <div class="col">
+                        <?= $this->Form->control('email',['disabled']) ?>
+                    </div>
+                </div>
+                <?= $this->Form->control('description',['disabled']) ?>
+                <br </br>
+                <?= $this->Form->control('image',['disabled']) ?>
+                <br </br>
+                <?= $this->Form->end() ?>
+                <div>
+                    <?= $this->Html->link(__('Edit Supplier'), ['action' => 'edit', $supplier->id], ['class' => 'btn btn-primary']) ?>
+                    <?= $this->Form->postLink(__('Delete Supplier'), ['action' => 'delete', $supplier->id], ['confirm' => __('Are you sure you want to delete supplier {0}?', $supplier->name), 'class' => 'btn btn-outline-primary me-2 float-right mr-2']) ?>
+                    <?= $this->Html->link(__('List Suppliers'), ['action' => 'index'], ['class' => 'btn btn-outline-primary me-2 float-right mr-2']) ?>
+                    <?= $this->Html->link(__('New Supplier'), ['action' => 'add'], ['class' => 'btn btn-outline-primary me-2 float-right mr-2']) ?>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
 </div>
 <br </br>
-
 
 <?php if (!empty($supplier->bookings)) : ?>
     <h4><?= __('Related Bookings') ?></h4>

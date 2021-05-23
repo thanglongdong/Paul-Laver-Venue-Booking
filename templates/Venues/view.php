@@ -17,7 +17,6 @@
         <div class="col-md-12">
             <div>
                 <h1 class="h3 mb-2 text-gray-800"><?= h($venue->name) ?></h1>
-
                 <?= $this->Form->create($venue) ?>
             </div>
 

@@ -10,24 +10,48 @@
 <p></p>
 <!-- End of Tabs -->
 
-<h1 class="h3 mb-2 text-gray-800"><?= h($customer->first_name),' ', h($customer->last_name) ?></h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div>
+                <h1 class="h3 mb-2 text-gray-800"><?= h($customer->first_name),' ', h($customer->last_name) ?></h1>
+                <?= $this->Form->create($customer) ?>
+            </div>
+            <div>
+                <!-- Row 1 -->
+                <div class="row">
+                    <div class="col">
+                        <?= $this->Form->control('first_name',['disabled'])?>
+                    </div>
+                    <div class="col">
+                        <?= $this->Form->control('last_name',['disabled'])?>
+                    </div>
+                </div>
+                <!-- Row 2 -->
+                <div class="row">
+                    <div class="col">
+                        <?= $this->Form->control('mobile',['disabled']) ?>
+                    </div>
+                    <div class="col">
+                        <?= $this->Form->control('email',['disabled']) ?>
+                    </div>
+                </div>
+                <?= $this->Form->control('address',['disabled']) ?>
+                <br </br>
+                <?= $this->Form->end() ?>
+                <div>
+                    <?= $this->Html->link(__('Edit Customer'), ['action' => 'edit', $customer->id], ['class' => 'btn btn-primary']) ?>
+                    <?= $this->Form->postLink(__('Delete Customer'), ['action' => 'delete', $customer->id], ['confirm' => __('Are you sure you want to delete  customer {0} {1}?', $customer->first_name,$customer->last_name), 'class' => 'btn btn-outline-primary me-2 float-right mr-2']) ?>
+                    <?= $this->Html->link(__('List Customers'), ['action' => 'index'], ['class' => 'btn btn-outline-primary me-2 float-right mr-2']) ?>
+                    <?= $this->Html->link(__('New Customer'), ['action' => 'add'], ['class' => 'btn btn-outline-primary me-2 float-right mr-2']) ?>
+                </div>
+            </div>
 
-<?= $this->Form->create($customer) ?>
-<?php
-echo $this->Form->control('first_name',['disabled']);
-echo $this->Form->control('last_name',['disabled']);
-echo $this->Form->control('mobile',['disabled']);
-echo $this->Form->control('address',['disabled']);
-echo $this->Form->control('email',['disabled']);
-?>
-<br> </br>
-<?= $this->Form->end() ?>
-<div>
-<?= $this->Html->link(__('Edit Customer'), ['action' => 'edit', $customer->id], ['class' => 'btn btn-primary']) ?>
-<?= $this->Form->postLink(__('Delete Customer'), ['action' => 'delete', $customer->id], ['confirm' => __('Are you sure you want to delete  customer {0} {1}?', $customer->first_name,$customer->last_name), 'class' => 'btn btn-outline-primary me-2 float-right mr-2']) ?>
-<?= $this->Html->link(__('List Customers'), ['action' => 'index'], ['class' => 'btn btn-outline-primary me-2 float-right mr-2']) ?>
-<?= $this->Html->link(__('New Customer'), ['action' => 'add'], ['class' => 'btn btn-outline-primary me-2 float-right mr-2']) ?>
+        </div>
+    </div>
+
 </div>
+
 <br> </br>
 
 

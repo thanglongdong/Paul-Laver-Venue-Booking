@@ -10,25 +10,55 @@
 <p></p>
 <!-- End of Tabs -->
 
-<h1 class="h3 mb-2 text-gray-800"><?= h($booking->id) ?></h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div>
+                <h1 class="h3 mb-2 text-gray-800"><?= h($booking->id) ?></h1>
+                <?= $this->Form->create($booking) ?>
+            </div>
 
-<?= $this->Form->create($booking) ?>
-<?php
-echo $this->Form->control('date', ['empty' => true, 'disabled']);
-echo $this->Form->control('start_time', ['empty' => true, 'disabled']);
-echo $this->Form->control('end_time', ['empty' => true, 'disabled']);
-echo $this->Form->control('event_type',['disabled']);
-echo $this->Form->control('no_of_people',['disabled']);
-echo $this->Form->control('cost',['disabled']);
-?>
-<br </br>
-<?= $this->Form->end() ?>
-<div>
-<?= $this->Html->link(__('Edit Booking'), ['action' => 'edit', $booking->id], ['class' => 'btn btn-primary']) ?>
-<?= $this->Form->postLink(__('Delete Booking'), ['action' => 'delete', $booking->id], ['confirm' => __('Are you sure you want to delete # {0}?', $booking->id), 'class' => 'btn btn-outline-primary me-2 float-right mr-2']) ?>
-<?= $this->Html->link(__('List Bookings'), ['action' => 'index'], ['class' => 'btn btn-outline-primary me-2 float-right mr-2']) ?>
-<?= $this->Html->link(__('New Booking'), ['action' => 'add'], ['class' => 'btn btn-outline-primary me-2 float-right mr-2']) ?>
+            <div>
+                <!-- Row 1 -->
+                <div class="row">
+                    <div class="col">
+                        <?= $this->Form->control('date', ['empty' => true, 'disabled'])?>
+                    </div>
+                    <div class="col">
+                        <?= $this->Form->control('start_time', ['empty' => true, 'disabled'])?>
+                    </div>
+                    <div class="col">
+                        <?= $this->Form->control('end_time', ['empty' => true, 'disabled'])?>
+                    </div>
+                </div>
+
+                <!-- Row 2 -->
+                <div class="row">
+                    <div class="col">
+                        <?= $this->Form->control('event_type',['disabled'])?>
+                    </div>
+                    <div class="col">
+                        <?= $this->Form->control('no_of_people',['disabled'])?>
+                    </div>
+                    <div class="col">
+                        <?= $this->Form->control('cost',['disabled'])?>
+                    </div>
+                </div>
+                <br </br>
+                <?= $this->Form->end() ?>
+                <div>
+                    <?= $this->Html->link(__('Edit Booking'), ['action' => 'edit', $booking->id], ['class' => 'btn btn-primary']) ?>
+                    <?= $this->Form->postLink(__('Delete Booking'), ['action' => 'delete', $booking->id], ['confirm' => __('Are you sure you want to delete # {0}?', $booking->id), 'class' => 'btn btn-outline-primary me-2 float-right mr-2']) ?>
+                    <?= $this->Html->link(__('List Bookings'), ['action' => 'index'], ['class' => 'btn btn-outline-primary me-2 float-right mr-2']) ?>
+                    <?= $this->Html->link(__('New Booking'), ['action' => 'add'], ['class' => 'btn btn-outline-primary me-2 float-right mr-2']) ?>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
 </div>
+
 <br></br>
 
 

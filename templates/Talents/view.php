@@ -10,27 +10,54 @@
 <p></p>
 <!-- End of Tabs -->
 
-<h1 class="h3 mb-2 text-gray-800"><?= h($talent->name) ?></h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div>
+                <h1 class="h3 mb-2 text-gray-800"><?= h($talent->name) ?></h1>
+                <?= $this->Form->create($talent) ?>
+            </div>
 
-<?= $this->Form->create($talent) ?>
-<?php
-echo $this->Form->control('name',['disabled']);
-echo $this->Form->control('phone',['disabled']);
-echo $this->Form->control('email',['disabled']);
-echo $this->Form->control('genre',['disabled']);
-echo $this->Form->control('description',['disabled']);
-echo $this->Form->control('image',['disabled']);
-echo $this->Form->control('pph',['disabled']);
-?>
+            <div>
+                <?= $this->Form->control('name',['disabled'])?>
+                <!-- Row 1 -->
+                <div class="row">
+                    <div class="col">
+                        <?= $this->Form->control('genre',['disabled'])?>
+                    </div>
+                    <div class="col">
+                        <?= $this->Form->control('pph',['disabled'])?>
+                    </div>
+                </div>
 
-<br></br>
-<?= $this->Form->end() ?>
-<div>
-    <?= $this->Html->link(__('Edit Talent'), ['action' => 'edit', $talent->id], ['class' => 'btn btn-primary']) ?>
-    <?= $this->Form->postLink(__('Delete Talent'), ['action' => 'delete', $talent->id], ['confirm' => __('Are you sure you want to delete talent {0}?', $talent->name), 'class' => 'btn btn-outline-primary me-2 float-right mr-2']) ?>
-    <?= $this->Html->link(__('List Talents'), ['action' => 'index'], ['class' => 'btn btn-outline-primary me-2 float-right mr-2']) ?>
-    <?= $this->Html->link(__('New Talent'), ['action' => 'add'], ['class' => 'btn btn-outline-primary me-2 float-right mr-2']) ?>
+                <!-- Row 2 -->
+                <div class="row">
+                    <div class="col">
+                        <?= $this->Form->control('phone',['disabled'])?>
+                    </div>
+                    <div class="col">
+                        <?= $this->Form->control('email',['disabled'])?>
+                    </div>
+                </div>
+
+                <?= $this->Form->control('description',['disabled'])?>
+                <br </br>
+                <?= $this->Form->control('image',['disabled']) ?>
+                <br </br>
+                <?= $this->Form->end() ?>
+                <div>
+                    <?= $this->Html->link(__('Edit Talent'), ['action' => 'edit', $talent->id], ['class' => 'btn btn-primary']) ?>
+                    <?= $this->Form->postLink(__('Delete Talent'), ['action' => 'delete', $talent->id], ['confirm' => __('Are you sure you want to delete talent {0}?', $talent->name), 'class' => 'btn btn-outline-primary me-2 float-right mr-2']) ?>
+                    <?= $this->Html->link(__('List Talents'), ['action' => 'index'], ['class' => 'btn btn-outline-primary me-2 float-right mr-2']) ?>
+                    <?= $this->Html->link(__('New Talent'), ['action' => 'add'], ['class' => 'btn btn-outline-primary me-2 float-right mr-2']) ?>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
 </div>
+
 <br></br>
 
 
