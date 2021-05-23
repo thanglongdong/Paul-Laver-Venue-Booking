@@ -158,7 +158,7 @@ $dataPoints2 = array( //data points for bar chart
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                # of Venues (Total)</div>
+                                Total # of Venues</div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800"><?= h($venue) ?></div>
                         </div>
                         <div class="col-auto">
@@ -176,7 +176,7 @@ $dataPoints2 = array( //data points for bar chart
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                # of Talent (Total)</div>
+                                Total # of Talent</div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800"><?= h($talent) ?></div>
                         </div>
                         <div class="col-auto">
@@ -194,7 +194,7 @@ $dataPoints2 = array( //data points for bar chart
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
-                                # of Suppliers (Total)</div>
+                                Total # of Suppliers</div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800"><?= h($supplier) ?></div>
                         </div>
                         <div class="col-auto">
@@ -212,7 +212,7 @@ $dataPoints2 = array( //data points for bar chart
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                # of Customers (Total)</div>
+                                Total # of Customers</div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800"><?= h($customer) ?></div>
                         </div>
                         <div class="col-auto">

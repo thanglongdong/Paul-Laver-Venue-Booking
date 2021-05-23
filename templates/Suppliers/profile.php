@@ -59,7 +59,7 @@ $search_criteria_context = [
 
             <article class="blog-post">
                 <vname class="blog-post-title" ><?= h($supplier->name) ?></vname>
-                <br>
+                <br> <br>
 
                 <p class="description"><?= h($supplier->description) ?></p>
                 <br>

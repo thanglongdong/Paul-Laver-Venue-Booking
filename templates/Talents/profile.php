@@ -119,9 +119,6 @@ $search_criteria_context = [
     </div>
 
 
-
-<hr>
-
 <?php if ($loggedin && $role=='talent' && $user_id== $talent->user_id): ?>
     <section>
         <div class='flex' style='margin-top:15px;margin-bottom:15px;text-align:center'>
