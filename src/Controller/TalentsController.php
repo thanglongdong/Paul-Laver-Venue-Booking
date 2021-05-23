@@ -191,6 +191,26 @@ class TalentsController extends AppController
 
     public function profile($id = null){
         $talent = $this->Talents->get($id);
+
+        $key= $this->request->getQuery();
+
+        if (!empty($key['hours'])) {  //if not empty (user inputted) - do this
+            if (is_numeric($key['hours'])) { //if entered stuff is int do this
+                $hours = $key['hours'];
+                $price = $talent->pph;
+                $estimate =  $price * $hours;
+            }
+            else {  //if not int, return message error
+                $estimate = 'incorrect'; //handled in view
+            }
+
+        } //else, no user input - do this
+        else{
+            $estimate = null;
+        }
+
+        $this->set('estimate', $estimate);
+
         $this->set(compact('talent'));
     }
 
@@ -204,7 +224,7 @@ class TalentsController extends AppController
 
             if ($this->Talents->save($talent)) {
 
-                return $this->redirect(['/']);
+                return $this->redirect(['action' => 'profile',$talent->id]);
             }
             $this->Flash->error(__('The talent could not be saved. Please, try again.'));
         }

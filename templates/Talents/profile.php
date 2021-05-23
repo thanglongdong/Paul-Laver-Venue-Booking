@@ -6,6 +6,7 @@
 
 echo $this -> Html->css("pagetitle.css",['block'=>true]);
 echo $this -> Html->css("about.css",['block'=>true]);
+echo $this -> Html->css("venue-profile.css",['block'=>true]);
 
 
 use Cake\ORM\TableRegistry;
@@ -15,20 +16,16 @@ $loggedin = $this->Identity->isLoggedIn();
 
 if ($loggedin){
 
-    $talents = TableRegistry::getTableLocator()->get('Talents');
     $bookings = TableRegistry::getTableLocator()->get('Bookings');
     $bookings_talents = TableRegistry::getTableLocator()->get('BookingsTalents');
     $venues = TableRegistry::getTableLocator()->get('Venues');
 
     $user_id=$this->Identity->get('id');
     $role = $this->Identity->get('role');
+
     if ($role=='talent' && $user_id== $talent->user_id){
 
-        $talent = $talents
-        ->find()
-        ->where(['user_id' => $user_id])
-        ->first();
-        $talent_id=$talent->id;
+        $talent_id = $talent->id;
 
         $booking_talent=$bookings_talents
         ->find()
@@ -36,44 +33,92 @@ if ($loggedin){
         ->all();
     }
 }
+
+$search_criteria_context = [
+    'data' => [
+        'estimate' => $this->request->getQuery('estimate'),
+    ],
+    'schema' => [
+        'estimate'
+    ]
+];
+
 ?>
 
 
 
+<div class="container">
 
-<div class="group">
-    <?=$this->Html->image('blankuser.png', ["class"=>'img-fluid rounded-circle mb-3',"alt" => "","style"=>"width:200px;height:200px"]);?>
-    <div class="left-side flex-col">
-        <div class="item1">
-            <?= h($talent->name) ?>
-        </div>
-        <div class="item2">
-            <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-            <?= h($talent->genre) ?>
-        </div>
-        <div class="item2">
-            <i class="fas fa-phone-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-            <?= h($talent->phone) ?>
-        </div>
-        <div class="item2">
-            <i class="fas fa-envelope fa-sm fa-fw mr-2 text-gray-400"></i>
-            <?= h($talent->email) ?>
-        </div>
-        <div class="item2">
-            <i class="fas fa-dollar-sign fa-sm fa-fw mr-2 text-gray-400"></i>
-            <?= h($talent->pph)."/hour"?>
-        </div>
-        <div class="item2">
-            <?= h($talent->description) ?>
-        </div>
-        <?php if ($loggedin): ?>
-            <?php if ($role=='talent' && $user_id== $talent->user_id): ?>
-                <a href="<?= $this->Url->build(['action' => 'editprofile', $talent->id])?>" class="d-none d-sm-inline-block btn btn-outline-primary shadow-sm" style="width:116px"><i
-                        class="fas fa-sm text-white-50"></i>Edit</a>
-            <?php endif; ?>
-        <?php endif; ?>
+    <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center">
+        <?=$this->Html->image($talent->image, ["style"=>"width:700px;height:300px;object-fit: cover"]);?>
     </div>
-</div>
+
+    <div class="row">
+        <div class="col-md-8">
+
+            <article class="blog-post">
+                <vname class="blog-post-title" ><?= h($talent->name) ?></vname>
+                <br>
+                <p class="blog-post-meta"> <?= h($talent->genre) ?> </p>
+
+                <p class="description"><?= h($talent->description) ?></p>
+
+                <br>
+
+                <div class="float-left">
+                <?php if ($loggedin): ?>
+                    <?php if ($role=='talent' && $user_id== $talent->user_id): ?>
+                        <a href="<?= $this->Url->build(['action' => 'editprofile', $talent->id])?>" class="d-none d-sm-inline-block btn btn-outline-primary shadow-sm" style="width:116px"><i
+                                class="fas fa-sm text-white-50"></i>Edit Profile</a>
+                    <?php endif; ?>
+                <?php endif; ?>
+                </div>
+
+              </article><!-- /.blog-post -->
+
+            <br>
+
+        </div>
+
+        <div class="col-md-4">
+            <div class="p-4 mb-3 bg-light rounded">
+
+
+                <h4>Contact</h4>
+                <blockquote></blockquote>
+                <p class="mb-0"> <strong>Phone:</strong> <?= h($talent->phone) ?></p>
+                <p class="mb-0"> <strong>Email:</strong> <?= h($talent->email) ?></p>
+                <hr>
+                <h4>Request a Quote</h4>
+
+                <br>
+                <?= $this->Form->create($search_criteria_context, ['type' => 'get']) ?>
+                <?= $this->Form->control('hours', ['label' => false,
+                    'class' => 'form-control search-slt',
+                    'placeholder' => '# of hours']); ?>
+                <br>
+                <?= $this->Form->button('Enquire', [
+                    'class' => 'btn btn-primary col-12'
+                ]) ?>
+                <?= $this->Form->end() ?>
+
+                <?php if($estimate != null): ?>
+                    <?php if($estimate == 'incorrect'): ?>
+                        <h6 class="list-inline-item align-middle text-center text-danger" >Please input numeric value</h6>
+                    <?php else: ?>
+                        <i class="list-inline-item fas fa-dollar-sign fa-2x"></i>
+                        <h5 class="list-inline-item align-middle" ><?=$estimate?></h5>
+                    <?php endif; ?>
+                <?php endif; ?>
+
+
+                <!--<a class="btn btn-primary" href="">Request Quote</a></div>-->
+            </div>
+
+        </div>
+    </div>
+
+
 
 <hr>
 
@@ -124,3 +169,5 @@ if ($loggedin){
         <?php endif; ?>
     </section>
 <?php endif; ?>
+
+</div>

@@ -192,19 +192,39 @@ class SuppliersController extends AppController
 
     public function profile($id = null){
         $supplier = $this->Suppliers->get($id);
+
+        $key= $this->request->getQuery();
+
+        if (!empty($key['hours'])) {  //if not empty (user inputted) - do this
+            if (is_numeric($key['hours'])) { //if entered stuff is int do this
+                $hours = $key['hours'];
+                $price = $supplier->pph;
+                $estimate =  $price * $hours;
+            }
+            else {  //if not int, return message error
+                $estimate = 'incorrect'; //handled in view
+            }
+
+        } //else, no user input - do this
+        else{
+            $estimate = null;
+        }
+
+        $this->set('estimate', $estimate);
+
         $this->set(compact('supplier'));
     }
 
     public function editprofile($id = null)
     {
         $supplier = $this->Suppliers->get($id, [
-            'contain' => ['Bookings'],
+            'contain' => ['Bookings']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $supplier = $this->Suppliers->patchEntity($supplier, $this->request->getData());
 
             if ($this->Suppliers->save($supplier)) {
-                return $this->redirect(['/']);
+                return $this->redirect(['action' => 'profile',$supplier->id]);
             }
             $this->Flash->error(__('The supplier could not be saved. Please, try again.'));
         }

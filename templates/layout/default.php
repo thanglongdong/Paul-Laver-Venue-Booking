@@ -1,5 +1,5 @@
 <?php
-echo $this -> Html->css("default.css",['block'=>true]);
+echo $this->Html->css("default.css",['block'=>true]);
 ?>
 
 
@@ -11,7 +11,9 @@ echo $this -> Html->css("default.css",['block'=>true]);
     <meta name="author" content="">
     <?= $this->Html->meta('icon') ?>
 
-    <title><?= $this->fetch('title') ?></title>
+    <title>
+        Paul Laver Entertainment
+    </title>
 
     <!-- Bootstrap core CSS -->
     <?= $this->Html->css(['/vendor/bootstrap/css/bootstrap.min.css']) ?>

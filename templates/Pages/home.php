@@ -64,7 +64,7 @@ $venues =$venues_table
     <?= $this->Html->meta('icon') ?>
 
     <title>
-        <?= $this->fetch('title') ?>
+        Paul Laver Entertainment
     </title>
 
     <!-- Bootstrap core CSS -->

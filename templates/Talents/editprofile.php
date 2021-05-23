@@ -18,9 +18,9 @@ echo $this->Form->control('genre', [
 echo $this->Form->control('description');
 echo $this->Form->control('pph');
 ?>
-<br </br>
+<br>
 <div>
     <?= $this->Form->button(__('Confirm'), ['class' => 'btn btn-primary']) ?>
 </div>
 <?= $this->Form->end() ?>
-<br </br>
+<br>
