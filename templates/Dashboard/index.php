@@ -234,7 +234,7 @@ $dataPoints2 = array( //data points for bar chart
             <!-- Project Card Example -->
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Bookings Breakdown</h6>
+                    <h6 class="m-0 font-weight-bold" style="color: #158467">Bookings Breakdown</h6>
                 </div>
                 <div class="card-body">
                     <div id="columnChart" style="height: 370px; width: 100%;"></div> <!-- canvas call -->
@@ -250,7 +250,7 @@ $dataPoints2 = array( //data points for bar chart
                 <!-- Card Header - Dropdown -->
                 <div
                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Accounts Breakdown</h6>
+                    <h6 class="m-0 font-weight-bold" style="color: #158467">Accounts Breakdown</h6>
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
