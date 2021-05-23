@@ -87,7 +87,7 @@ class UsersController extends AppController
 
             if($role==='admin'){
                 $redirect = $this->request->getQuery('redirect', [
-                    'controller' => 'venues',
+                    'controller' => 'dashboard',
                     'action' => 'index',
                 ]);
             }

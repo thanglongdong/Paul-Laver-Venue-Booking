@@ -47,7 +47,7 @@ $search_criteria_context = [
     </div>
 </div>
 <div class="container">
-    <hr>
+
 </div>
 <br>
 

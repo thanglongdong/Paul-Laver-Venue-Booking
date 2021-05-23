@@ -64,7 +64,7 @@ elseif($role == 'talent'){
 
                             <!-- Nested if -- if role == admin, then we want a dropdown user to have admin dashboard -->
                             <?php if($role == 'admin') : ?>
-                                <a class="dropdown-item" href="<?= $this->Url->build(['controller'=>'venues','action'=>'index'])?>">
+                                <a class="dropdown-item" href="<?= $this->Url->build(['controller'=>'dashboard','action'=>'index'])?>">
                                     <!-- no longer builds to dashboard as doesnt exist-->
                                     <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Admin Dashboard
