@@ -10,30 +10,67 @@
 <p></p>
 <!-- End of Tabs -->
 
-<h1 class="h3 mb-2 text-gray-800"><?= h($venue->name) ?></h1>
 
-<?= $this->Form->create($venue) ?>
-<?php
-//echo $this->Form->control('name'); not really needed as title shows venue name
-echo $this->Form->control('street_address',['disabled']);
-echo $this->Form->control('suburb',['disabled']);
-echo $this->Form->control('state',['disabled']);
-echo $this->Form->control('postcode',['disabled']);
-echo $this->Form->control('capacity',['disabled']);
-echo $this->Form->control('phone',['disabled']);
-echo $this->Form->control('email',['disabled']);
-echo $this->Form->control('description',['disabled']);
-echo $this->Form->control('image',['disabled']);
-echo $this->Form->control('pph',['disabled']);
-?>
-<?= $this->Form->end() ?>
-<br></br>
-<div>
-    <?= $this->Html->link(__('Edit Venue'), ['action' => 'edit', $venue->id], ['class' => 'btn btn-primary']) ?>
-    <?= $this->Form->postLink(__('Delete Venue'), ['action' => 'delete', $venue->id], ['confirm' => __('Are you sure you want to delete venue {0}?', $venue->name), 'class' => 'btn btn-outline-primary me-2 float-right mr-2']) ?>
-    <?= $this->Html->link(__('List Venues'), ['action' => 'index'], ['class' => 'btn btn-outline-primary me-2 float-right mr-2']) ?>
-    <?= $this->Html->link(__('New Venue'), ['action' => 'add'], ['class' => 'btn btn-outline-primary me-2 float-right mr-2']) ?>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div>
+                <h1 class="h3 mb-2 text-gray-800"><?= h($venue->name) ?></h1>
+
+                <?= $this->Form->create($venue) ?>
+            </div>
+
+            <div>
+                <?= $this->Form->control('name',['disabled']) ?>
+                <?= $this->Form->control('street_address',['disabled'])?>
+                <!-- Row 1 -->
+                <div class="row">
+                    <div class="col">
+                        <?= $this->Form->control('suburb',['disabled']) ?>
+                    </div>
+                    <div class="col">
+                        <?= $this->Form->control('state',['disabled'])?>
+                    </div>
+                    <div class="col">
+                        <?= $this->Form->control('postcode',['disabled']) ?>
+                    </div>
+                </div>
+                <!-- Row 2 -->
+                <div class="row">
+                    <div class="col">
+                        <?= $this->Form->control('capacity',['disabled']) ?>
+                    </div>
+                    <div class="col">
+                        <?= $this->Form->control('pph',['disabled']) ?>
+                    </div>
+                </div>
+                <!-- Row 3 -->
+                <div class="row">
+                    <div class="col">
+                        <?= $this->Form->control('phone',['disabled']) ?>
+                    </div>
+                    <div class="col">
+                        <?= $this->Form->control('email',['disabled']) ?>
+                    </div>
+                </div>
+                <?= $this->Form->control('description',['disabled']) ?>
+                <br </br>
+                <?= $this->Form->control('image',['disabled']) ?>
+                <br </br>
+                <?= $this->Form->end() ?>
+                <div>
+                    <?= $this->Html->link(__('Edit Venue'), ['action' => 'edit', $venue->id], ['class' => 'btn btn-primary']) ?>
+                    <?= $this->Form->postLink(__('Delete Venue'), ['action' => 'delete', $venue->id], ['confirm' => __('Are you sure you want to delete venue {0}?', $venue->name), 'class' => 'btn btn-outline-primary me-2 float-right mr-2']) ?>
+                    <?= $this->Html->link(__('List Venues'), ['action' => 'index'], ['class' => 'btn btn-outline-primary me-2 float-right mr-2']) ?>
+                    <?= $this->Html->link(__('New Venue'), ['action' => 'add'], ['class' => 'btn btn-outline-primary me-2 float-right mr-2']) ?>
+                </div>
+            </div>
+
+        </div>
+    </div>
 </div>
+
 <br></br>
 
 
