@@ -5,20 +5,45 @@
  */
 ?>
 
-<h1 class="h3 mb-2 text-gray-800"><?= __('Edit Profile') ?></h1>
-<?php
-echo $this->Form->create($supplier,['novalidate' => true,'type'=>'file']);
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div>
+                <h1 class="h3 mb-2 text-gray-800"><?= __('Edit Profile') ?></h1>
+            </div>
 
-echo $this->Form->control('name');
-echo $this->Form->control('phone');
-echo $this->Form->control('email');
-echo $this->Form->control('description');
-echo $this->Form->control('pph');
-?>
-<br>
-<div>
-    <?= $this->Form->button(__('Confirm'), ['class' => 'btn btn-primary']) ?>
+            <div>
+                <?= $this->Form->create($supplier,['novalidate' => true, 'type'=>'file']) ?>
+                <?= $this->Form->control('name')?>
+                <!-- Row 1 -->
+                <div class="row">
+                    <div class="col">
+                        <?= $this->Form->control('pph',['label'=>'Price Per Hour'])?>
+                    </div>
+                </div>
+                <!-- Row 2 -->
+                <div class="row">
+                    <div class="col">
+                        <?= $this->Form->control('phone') ?>
+                    </div>
+                    <div class="col">
+                        <?= $this->Form->control('email') ?>
+                    </div>
+                </div>
+                <?= $this->Form->control('description') ?>
+                <br </br>
+                <?= $this->Form->control('change_image',['type'=>'file']) ?>
+                <br </br>
+
+                <div>
+                    <?= $this->Form->button(__('Confirm'), ['class' => 'btn btn-primary']) ?>
+                    <?= $this->Form->end() ?>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
 </div>
-<?= $this->Form->end() ?>
-<br>
 
+<br </br>
