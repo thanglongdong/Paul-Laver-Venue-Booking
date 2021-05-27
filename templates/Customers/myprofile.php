@@ -89,7 +89,7 @@ $booking =$bookings
                         ->where(['id' => $eachbooking->venue_id])
                         ->first();?>
                         <td><?= h($venue->name) ?></td>
-                        <td><?= h($eachbooking->cost) ?></td>
+                        <td><?= $this->Number->currency($eachbooking->cost) ?></td>
                     </tr>
                     <?php endforeach; ?>
                 </tbody>

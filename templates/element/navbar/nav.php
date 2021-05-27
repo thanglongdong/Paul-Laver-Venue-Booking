@@ -97,7 +97,7 @@ elseif($role == 'talent'){
                                 ->where(['user_id' => $user_id])
                                 ->first();
                                 $customers_id= $user->id?>
-                                <a class="dropdown-item" href="<?= $this->Url->build(['controller'=>'customers','action'=>'profile',$customers_id])?>">
+                                <a class="dropdown-item" href="<?= $this->Url->build(['controller'=>'customers','action'=>'myprofile',$customers_id])?>">
                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                 My Profile
                                  </a>

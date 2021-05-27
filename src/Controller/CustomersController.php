@@ -112,7 +112,7 @@ class CustomersController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
-    public function profile($id = null){
+    public function myprofile($id = null){
 
         $customer = $this->Customers->get($id);
         $this->set(compact('customer'));
@@ -121,11 +121,11 @@ class CustomersController extends AppController
     public function editprofile($id = null)
     {
         $customer = $this->Customers->get($id);
-        
+
         if ($this->request->is(['patch', 'post', 'put'])) {
             $customer = $this->Customers->patchEntity($customer, $this->request->getData());
             if ($this->Customers->save($customer)) {
-                return $this->redirect(['action' => 'profile',$customer->id]);
+                return $this->redirect(['action' => 'myprofile',$customer->id]);
             }
             $this->Flash->error(__('The customer could not be saved. Please, try again.'));
         }
